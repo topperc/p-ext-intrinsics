@@ -2,8 +2,8 @@
 
 # -- Project information
 
-project = '<RISC-V Docs Template>'
-copyright = '2024, RISC-V International'
+project = '<RISC-V P Extension Intrinsics>'
+copyright = '2025, RISC-V International'
 author = 'RISC-V International'
 release = '0.1'
 version = '0.1.0'
