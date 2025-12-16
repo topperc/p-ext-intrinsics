@@ -33,7 +33,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | mulhr(RV32), pmulhr.w(RV64)       |                                                    |
 | `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | mhracc(RV32), pmhracc.w(RV64)     |                                                    |
 | `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
-| `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
+| `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | mhraccu(RV32), pmhraccu.w(RV64)   |                                                    |
 | `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);`                 | mulhrsu(RV32), pmulhrsu.w(RV64)   |                                                    |
 | `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | mhraccsu(RV32), pmhraccsu.w(RV64) |                                                    |
 | `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | mulq(RV32), pmulq.w(RV64)         |                                                    |
@@ -55,7 +55,7 @@ TODO: How to handle VXSAT?
 | `uint64_t __riscv_wzip16p_32(uint32_t rs1, uint32_t rs2);`             | wzip16p                     |                                |
 | `int64_t __riscv_wadd_32(int32_t rs1, int32_t rs2);`                   | wadd                        |                                |
 | `int64_t __riscv_wadda_32(int32_t rs1, int32_t rs2);`                  | wadda                       |                                |
-| `uint64_t __riscv_waddu_32(uint32_t rs1, uint32_t rs2);`               | wadd                        |                                |
+| `uint64_t __riscv_waddu_32(uint32_t rs1, uint32_t rs2);`               | waddu                       |                                |
 | `uint64_t __riscv_waddau_32(uint32_t rs1, uint32_t rs2);`              | waddau                      |                                |
 | `int64_t __riscv_wmul_32(int32_t rs1, int32_t rs2);`                   | wmul                        |                                |
 | `int64_t __riscv_wmacc_32(int32_t rd, int32_t rs1, int32_t rs2);`      | wmacc                       |                                |
@@ -63,7 +63,7 @@ TODO: How to handle VXSAT?
 | `uint64_t __riscv_wmaccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);` | wmaccu                      |                                |
 | `int64_t __riscv_wsub_32(int32_t rs1, int32_t rs2);`                   | wsub                        |                                |
 | `int64_t __riscv_wsuba_32(int32_t rs1, int32_t rs2);`                  | wsuba                       |                                |
-| `uint64_t __riscv_wsubu_32(uint32_t rs1, uint32_t rs2);`               | wsub                        |                                |
+| `uint64_t __riscv_wsubu_32(uint32_t rs1, uint32_t rs2);`               | wsubu                       |                                |
 | `uint64_t __riscv_wsubau_32(uint32_t rs1, uint32_t rs2);`              | wsubau                      |                                |
 | `int64_t __riscv_wmulsu_32(int32_t rs1, uint32_t rs2);`                | wmulsu                      |                                |
 | `int64_t __riscv_wmaccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`   | wmaccsu                     |                                |
@@ -275,7 +275,7 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `uint32_t __riscv_maccu11_32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`         | maccu.h11(RV32), pmaccu.w.h11(RV64)   |                                                    |
 | `int32_t __riscv_mulsu00_32(int16x2_t rs1, uint16x2_t rs2);`                        | mulsu.h00(RV32), pmulsu.w.h00(RV64)   |                                                    |
 | `int32_t __riscv_maccsu00_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`           | maccsu.h00(RV32), pmaccsu.w.h00(RV64) |                                                    |
-| `int32_t __riscv_mulsu11_32(int16x2_t rs1, uint16x2_t rs2);`                        | mulsu.h11(RV32), pmulsu.h.h11(RV64)   |                                                    |
+| `int32_t __riscv_mulsu11_32(int16x2_t rs1, uint16x2_t rs2);`                        | mulsu.h11(RV32), pmulsu.w.h11(RV64)   |                                                    |
 | `int32_t __riscv_maccsu11_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`           | maccsu.h11(RV32), pmaccsu.w.h11(RV64) |                                                    |
 | `int32_t __riscv_mqacc00_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`             | mqacc.h00(RV32), pmqacc.w.h00(RV64)   |                                                    |
 | `int32_t __riscv_mqacc01_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`             | mqacc.h01(RV32), pmqacc.w.h01(RV64)   |                                                    |
