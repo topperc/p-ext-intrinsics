@@ -30,14 +30,14 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`      | slx(RV32)                         | Emulated for RV64                                  |
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`      | srx(RV32)                         | Emulated for RV64                                  |
 | `int32_t __riscv_ssh1sadd_32(int32_t rs1, const unsigned shamt);`        | ssh1sadd(RV32), pssh1sadd.w(RV64) |                                                    |
-| `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);'`                   | mulhr(RV32), pmulhr.w(RV64)       |                                                    |
-| `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);'`      | mhracc(RV32), pmhracc.w(RV64)     |                                                    |
-| `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);'`               | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
-| `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);'` | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
-| `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);'`                | mulhrsu(RV32), pmulhrsu.w(RV64)   |                                                    |
-| `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);'`   | mhraccsu(RV32), pmhraccsu.w(RV64) |                                                    |
-| `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);'`                   | mulq(RV32), pmulq.w(RV64)         |                                                    |
-| `int32_t __riscv_mulqr_32(int32_t rs1, uint32_t rs2);'`                  | mulqr(RV32), pmulqr.w(RV64)       |                                                    |
+| `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | mulhr(RV32), pmulhr.w(RV64)       |                                                    |
+| `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | mhracc(RV32), pmhracc.w(RV64)     |                                                    |
+| `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
+| `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | mulhru(RV32), pmulhru.w(RV64)     |                                                    |
+| `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);`                 | mulhrsu(RV32), pmulhrsu.w(RV64)   |                                                    |
+| `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | mhraccsu(RV32), pmhraccsu.w(RV64) |                                                    |
+| `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | mulq(RV32), pmulq.w(RV64)         |                                                    |
+| `int32_t __riscv_mulqr_32(int32_t rs1, uint32_t rs2);`                   | mulqr(RV32), pmulqr.w(RV64)       |                                                    |
 
 TODO: Do we need intrinsic for MHACC(U)
 TODO: Do we need intrinsic for MULHRACC(U)
