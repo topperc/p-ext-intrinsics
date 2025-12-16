@@ -4,7 +4,7 @@ This is the draft specification of the RISC-V P extension intrinsics. Based on t
 
 ## Introduction
 
-The RISC-V P Extension C intrinsics provide users interface in the C language level to directly leverage the RISC-V "P" extension".
+The RISC-V P Extension C intrinsics provide users interface in the C language level to directly leverage the RISC-V "P" extension.
 
 ## Scalar Intrinsics
 
