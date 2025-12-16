@@ -181,8 +181,8 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `uint16x2_t __riscv_pasubu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | pasubu.h                              |                                                    |
 | `uint8x4_t __riscv_merge_u8x4(uint8x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`         | merge, mvm, mvmn                      | Compiler will pick instruction                     |
 | `uint16x2_t __riscv_merge_u16x2(uint16x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`    | merge, mvm, mvmn                      | Compiler will pick instruction                     |
-| `uint32_t __pabdsumu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                           | pabdsumu.b                            |                                                    |
-| `uint32_t __pabdsumau_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                          | pabdsumau.b                           |                                                    |
+| `uint32_t __riscv_pabdsumu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                           | pabdsumu.b                            |                                                    |
+| `uint32_t __riscv_pabdsumau_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                          | pabdsumau.b                           |                                                    |
 | `int16x2_t __riscv_psh1add_i16x2(int16x2_t rs1, int16x2_t rs2);`                    | psh1add.h                             |                                                    |
 | `int16x2_t __riscv_pssh1sadd_i16x2(int16x2_t rs1, int16x2_t rs2);`                  | pssh1sadd.h                           |                                                    |
 | `uint8x4_t __riscv_ppaire_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | ppaire.b                              |                                                    |
