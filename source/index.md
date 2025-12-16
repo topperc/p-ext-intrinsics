@@ -9,7 +9,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 ## Scalar Intrinsics
 
 | Prototype                                                                | Instruction                       | Notes                                              |
-|-----------------------------------------------------------------------   |-----------------------------------|----------------------------------------------------|
+|--------------------------------------------------------------------------|-----------------------------------|----------------------------------------------------|
 | `uint32_t __riscv_abs_32(int32_t rs1);`                                  | abs[w]                            |                                                    |
 | `unsigned __riscv_cls_32(int32_t rs1);`                                  | cls[w]                            |                                                    |
 | `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | rev                               | Emulated with rev+srai on RV64                     |
