@@ -116,8 +116,8 @@ A 64-bit type will occupy a pair of GPRs on RV32 and a full GPR on RV64.
 | uint8x8_t  | 8            | 8                 | Eight unsigned 8-bit integers  |
 | int16x4_t  | 8            | 8                 | Four signed 16-bit integers    |
 | uint16x4_t | 8            | 8                 | Four unsigned 16-bit integers  |
-| int32x2_t  | 8            | 8                 | Two signed 16-bit integers     |
-| uint32x2_t | 8            | 8                 | Two unsigned 16-bit integers   |
+| int32x2_t  | 8            | 8                 | Two signed 32-bit integers     |
+| uint32x2_t | 8            | 8                 | Two unsigned 32-bit integers   |
 
 ## Packed 32-bit Intrinsics
 
