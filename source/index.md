@@ -75,7 +75,7 @@ TODO: How to handle VXSAT?
 | `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | nclip[i]                    |                                |
 | `int32_t __riscv_nclipr_32(int64_t rs1_p, uint32_t rs2);`              | nclipr[i]                   |                                |
 
-TODO: Do we need intrinsics for PADDD or PSUBD? Or can compiler figure it out?
+TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
 
 ## Scalar Intrinsics (RV64 Only)
 
