@@ -147,10 +147,10 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int16x2_t __riscv_psra_s_i16x2(int16x2_t rs1, unsigned shamt);`                    | psrai.h/psra.hs                       | Compiler will pick immediate form when possible    |
 | `int16x2_t __riscv_psrari_i16x2(int16x2_t rs1, const unsigned shamt);`              | psrari.h                              |                                                    |
 | `int16x2_t __riscv_psati_i16x2(int16x2_t rs1, const unsigned shamt);`               | psati.h                               |                                                    |
-| `int32_t __riscv_predsum_s_i8x4(int32_t rs1, int8x4_t rs2);`                        | predsum.bs                            | Accmulator is only 32-bits on RV64                 |
-| `uint32_t __riscv_predsumu_s_u8x4(uint32_t rs1, uint8x4_t rs2);`                    | predsumu.bs                           | Accmulator is only 32-bits on RV64                 |
-| `int32_t __riscv_predsum_s_i16x2(int32_t rs1, int16x2_t rs2);`                      | predsum.hs                            | Accmulator is only 32-bits on RV64                 |
-| `uint32_t __riscv_predsumu_s_i16x2(uint32_t rs1, uint16x2_t rs2);`                  | predsumu.hs                           | Accmulator is only 32-bits on RV64                 |
+| `int32_t __riscv_predsum_s_i8x4(int32_t rs1, int8x4_t rs2);`                        | predsum.bs                            | Accumulator is only 32-bits on RV64                 |
+| `uint32_t __riscv_predsumu_s_u8x4(uint32_t rs1, uint8x4_t rs2);`                    | predsumu.bs                           | Accumulator is only 32-bits on RV64                 |
+| `int32_t __riscv_predsum_s_i16x2(int32_t rs1, int16x2_t rs2);`                      | predsum.hs                            | Accumulator is only 32-bits on RV64                 |
+| `uint32_t __riscv_predsumu_s_i16x2(uint32_t rs1, uint16x2_t rs2);`                  | predsumu.hs                           | Accumulator is only 32-bits on RV64                 |
 | `int8x4_t __riscv_padd_i8x4(int8x4_t rs1, int8x4_t rs2);`                           | padd.b                                |                                                    |
 | `uint8x4_t __riscv_padd_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                        | padd.b                                |                                                    |
 | `int16x2_t __riscv_padd_i16x2(int16x2_t rs1, int16x2_t rs2);`                       | padd.h                                |                                                    |
