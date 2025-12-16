@@ -68,8 +68,8 @@ TODO: How to handle VXSAT?
 | `int64_t __riscv_wmulsu_32(int32_t rs1, uint32_t rs2);`                | wmulsu                      |                                |
 | `int64_t __riscv_wmaccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`   | wmaccsu                     |                                |
 | `uint32_t __riscv_nsrl_32(uint64_t rs1_p, uint32_t rs2);`              | nsrl[i]                     |                                |
-| `uint32_t __riscv_nclip_32(uint64_t rs1_p, uint32_t rs2);`             | nclip[i]u                   |                                |
-| `uint32_t __riscv_nclipr_32(uint64_t rs1_p, uint32_t rs2);`            | nclipr[i]u                  |                                |
+| `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | nclip[i]u                   |                                |
+| `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | nclipr[i]u                  |                                |
 | `int32_t __riscv_nsra_32(int64_t rs1_p, uint32_t rs2);`                | nsra[i]                     |                                |
 | `int32_t __riscv_nsrar_32(int64_t rs1_p, uint32_t rs2);`               | nsrar[i]                    |                                |
 | `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | nclip[i]                    |                                |
