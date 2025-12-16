@@ -121,7 +121,7 @@ A 64-bit type will occupy a pair of GPRs on RV32 and a full GPR on RV64.
 
 ## Packed 32-bit Intrinsics
 
-The intrinsic interface is designed as much as possible to be source code portable between RV32 and RV64. This does necessarily mean it is performance portable. Intrinsics operating
+The intrinsic interface is designed as much as possible to be source code portable between RV32 and RV64. This does not necessarily mean it is performance portable. Intrinsics operating
 on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
 | Prototype                                                                           | Instruction                           | Notes                                              |
