@@ -277,12 +277,12 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int32_t __riscv_maccsu00_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`           | maccsu.h00(RV32), pmaccsu.w.h00(RV64) |                                                    |
 | `int32_t __riscv_mulsu11_32(int16x2_t rs1, uint16x2_t rs2);`                        | mulsu.h11(RV32), pmulsu.w.h11(RV64)   |                                                    |
 | `int32_t __riscv_maccsu11_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`           | maccsu.h11(RV32), pmaccsu.w.h11(RV64) |                                                    |
-| `int32_t __riscv_mqacc00_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`             | mqacc.h00(RV32), pmqacc.w.h00(RV64)   |                                                    |
-| `int32_t __riscv_mqacc01_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`             | mqacc.h01(RV32), pmqacc.w.h01(RV64)   |                                                    |
-| `int32_t __riscv_mqacc11_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`             | mqacc.h11(RV32), pmqacc.w.h11(RV64)   |                                                    |
-| `int32_t __riscv_mqracc00_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`            | mqracc.h00(RV32), pmqracc.w.h00(RV64) |                                                    |
-| `int32_t __riscv_mqracc01_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`            | mqracc.h01(RV32), pmqracc.w.h01(RV64) |                                                    |
-| `int32_t __riscv_mqracc11_32(int32_t rd, int16x2_t rs2, int16x2_t rs2);`            | mqracc.h11(RV32), pmqracc.w.h11(RV64) |                                                    |
+| `int32_t __riscv_mqacc00_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`             | mqacc.h00(RV32), pmqacc.w.h00(RV64)   |                                                    |
+| `int32_t __riscv_mqacc01_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`             | mqacc.h01(RV32), pmqacc.w.h01(RV64)   |                                                    |
+| `int32_t __riscv_mqacc11_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`             | mqacc.h11(RV32), pmqacc.w.h11(RV64)   |                                                    |
+| `int32_t __riscv_mqracc00_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`            | mqracc.h00(RV32), pmqracc.w.h00(RV64) |                                                    |
+| `int32_t __riscv_mqracc01_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`            | mqracc.h01(RV32), pmqracc.w.h01(RV64) |                                                    |
+| `int32_t __riscv_mqracc11_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`            | mqracc.h11(RV32), pmqracc.w.h11(RV64) |                                                    |
 | `int16x2_t __riscv_pmulh0_i16x2(int16x2_t rs1, int8x4_t rs2);`                      | pmulh.h.b0                            |                                                    |
 | `int16x2_t __riscv_pmulh1_i16x2(int16x2_t rs1, int8x4_t rs2);`                      | pmulh.h.b1                            |                                                    |
 | `int16x2_t __riscv_pmhacc0_i16x2(int16x2_t rd, int16x2_t rs1, int8x4_t rs2);`       | pmhacc.h.b0                           |                                                    |
