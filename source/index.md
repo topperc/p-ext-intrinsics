@@ -734,5 +734,98 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int64_t __riscv_mulsu11_32(int32x2_t rs1, uint32x2_t rs2);`                        | `mulsu.w11`                  |             |
 | `int64_t __riscv_maccsu11_32(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`           | `maccsu.w11`                 |             |
 
+## Reinterpret casts
 
+### Packed <-> Scalar
 
+| Prototype                                                        |
+|------------------------------------------------------------------|
+| `uint32_t __riscv_preinterpret_u32_u8x4(uint8x4_t x);`           |
+| `uint32_t __riscv_preinterpret_u32_u16x2(uint16x2_t x);`         |
+| `uint32_t __riscv_preinterpret_u32_i8x4(int8x4_t x);`            |
+| `uint32_t __riscv_preinterpret_u32_i16x2(int16x2_t x);`          |
+| `int32_t __riscv_preinterpret_i32_u8x4(uint8x4_t x);`            |
+| `int32_t __riscv_preinterpret_i32_u16x2(uint16x2_t x);`          |
+| `int32_t __riscv_preinterpret_i32_i8x4(int8x4_t x);`             |
+| `int32_t __riscv_preinterpret_i32_i16x2(int16x2_t x);`           |
+| `uint8x4_t __riscv_preinterpret_u8x4_u32(uint32_t x);`           |
+| `uint16x2_t __riscv_preinterpret_u16x2_u32(uint32_t x);`         |
+| `int8x4_t __riscv_preinterpret_i8x4_u32(uint32_t x);`            |
+| `int16x2_t __riscv_preinterpret_i16x2_u32(uint32_t x);`          |
+| `uint8x4_t __riscv_preinterpret_u8x4_i32(int32_t x);`            |
+| `uint16x2_t __riscv_preinterpret_u16x2_i32(int32_t x);`          |
+| `int8x4_t __riscv_preinterpret_i8x4_i32(int32_t x);`             |
+| `int16x2_t __riscv_preinterpret_i16x2_i32(int32_t x);`           |
+| `uint64_t __riscv_preinterpret_u32_u8x8(uint8x8_t x);`           |
+| `uint64_t __riscv_preinterpret_u32_u16x4(uint16x4_t x);`         |
+| `uint64_t __riscv_preinterpret_u32_u32x2(uint32x2_t x);`         |
+| `uint64_t __riscv_preinterpret_u32_i8x8(int8x8_t x);`            |
+| `uint64_t __riscv_preinterpret_u32_i16x4(int16x4_t x);`          |
+| `uint64_t __riscv_preinterpret_u32_i32x2(int32x2_t x);`          |
+| `int64_t __riscv_preinterpret_i32_u8x8(uint8x8_t x);`            |
+| `int64_t __riscv_preinterpret_i32_u16x4(uint16x4_t x);`          |
+| `int64_t __riscv_preinterpret_i32_u32x2(uint32x2_t x);`          |
+| `int64_t __riscv_preinterpret_i32_i8x8(int8x8_t x);`             |
+| `int64_t __riscv_preinterpret_i32_i16x4(int16x4_t x);`           |
+| `int64_t __riscv_preinterpret_i32_i32x2(int32x2_t x);`           |
+| `uint8x8_t __riscv_preinterpret_u8x8_u64(uint64_t x);`           |
+| `uint16x4_t __riscv_preinterpret_u16x4_u64(uint64_t x);`         |
+| `uint32x2_t __riscv_preinterpret_u64x2_u64(uint64_t x);`         |
+| `int8x8_t __riscv_preinterpret_i8x8_u64(uint64_t x);`            |
+| `int16x4_t __riscv_preinterpret_i16x4_u64(uint64_t x);`          |
+| `int32x2_t __riscv_preinterpret_i32x2_u64(uint64_t x);`          |
+| `uint8x8_t __riscv_preinterpret_u8x8_i64(int64_t x);`            |
+| `uint16x4_t __riscv_preinterpret_u16x4_i64(int64_t x);`          |
+| `uint32x2_t __riscv_preinterpret_u32x2_i64(int64_t x);`          |
+| `int8x8_t __riscv_preinterpret_i8x8_i64(int64_t x);`             |
+| `int16x4_t __riscv_preinterpret_i16x4_i64(int64_t x);`           |
+| `int32x2_t __riscv_preinterpret_i32x2_i64(int64_t x);`           |
+
+### Packed <-> Packed
+
+| Prototype                                                        |
+|------------------------------------------------------------------|
+| `uint8x4_t __riscv_preinterpet_u8x4_i8x4(int8x4_t x);`           |
+| `uint8x4_t __riscv_preinterpet_u8x4_u16x2(uint16x2_t x);`        |
+| `uint8x4_t __riscv_preinterpet_u8x4_i16x2(int16x2_t x);`         |
+| `int8x4_t __riscv_preinterpet_i8x4_u8x4(uint8x4_t x);`           |
+| `int8x4_t __riscv_preinterpet_i8x4_u16x2(uint16x2_t x);`         |
+| `int8x4_t __riscv_preinterpet_i8x4_i16x2(int16x2_t x);`          |
+| `uint16x2_t __riscv_preinterpet_u16x2_u8x4(uint8x4_t x);`        |
+| `uint16x2_t __riscv_preinterpet_u16x2_i8x4(int8x4_t x);`         |
+| `uint16x2_t __riscv_preinterpet_u16x2_i16x2(int16x2_t x);`       |
+| `int16x2_t __riscv_preinterpet_i16x2_u8x4(uint8x4_t x);`         |
+| `int16x2_t __riscv_preinterpet_i16x2_i8x4(int8x4_t x);`          |
+| `int16x2_t __riscv_preinterpet_i16x2_u16x2(uint16x2_t x);`       |
+| `uint8x8_t __riscv_preinterpet_u8x8_i8x8(int8x8_t x);`           |
+| `uint8x8_t __riscv_preinterpet_u8x8_u16x4(uint16x4_t x);`        |
+| `uint8x8_t __riscv_preinterpet_u8x8_i16x4(int16x4_t x);`         |
+| `uint8x8_t __riscv_preinterpet_u8x8_u16x4(uint16x4_t x);`        |
+| `uint8x8_t __riscv_preinterpet_u8x8_i16x4(int16x4_t x);`         |
+| `uint8x8_t __riscv_preinterpet_u8x8_u32x2(uint32x2_t x);`        |
+| `uint8x8_t __riscv_preinterpet_u8x8_i32x2(int32x2_t x);`         |
+| `int8x8_t __riscv_preinterpet_i8x8_u8x8(uint8x8_t x);`           |
+| `int8x8_t __riscv_preinterpet_i8x8_u16x4(uint16x4_t x);`         |
+| `int8x8_t __riscv_preinterpet_i8x8_i16x4(int16x4_t x);`          |
+| `int8x8_t __riscv_preinterpet_i8x8_u32x2(uint32x2_t x);`         |
+| `int8x8_t __riscv_preinterpet_i8x8_i32x2(int32x2_t x);`          |
+| `uint16x4_t __riscv_preinterpet_u16x4_u8x8(uint8x8_t x);`        |
+| `uint16x4_t __riscv_preinterpet_u16x4_i8x8(int8x8_t x);`         |
+| `uint16x4_t __riscv_preinterpet_u16x4_i16x4(int16x4_t x);`       |
+| `uint16x4_t __riscv_preinterpet_u16x4_u32x2(uint32x2_t x);`      |
+| `uint16x4_t __riscv_preinterpet_u16x4_i32x2(int32x2_t x);`       |
+| `int16x4_t __riscv_preinterpet_i16x4_u8x8(uint8x8_t x);`         |
+| `int16x4_t __riscv_preinterpet_i16x4_i8x8(int8x8_t x);`          |
+| `int16x4_t __riscv_preinterpet_i16x4_u16x4(uint16x4_t x);`       |
+| `int16x4_t __riscv_preinterpet_i16x4_u32x2(uint32x2_t x);`       |
+| `int16x4_t __riscv_preinterpet_i16x4_i32x2(int32x2_t x);`        |
+| `uint32x2_t __riscv_preinterpet_u32x2_u8x8(uint8x8_t x);`        |
+| `uint32x2_t __riscv_preinterpet_u32x2_i8x8(int8x8_t x);`         |
+| `uint32x2_t __riscv_preinterpet_u32x2_u16x4(uint16x4_t x);`      |
+| `uint32x2_t __riscv_preinterpet_u32x2_i16x4(int16x4_t x);`       |
+| `uint32x2_t __riscv_preinterpet_u32x2_i32x2(int32x2_t x);`       |
+| `int32x2_t __riscv_preinterpet_i32x2_u8x8(uint8x8_t x);`         |
+| `int32x2_t __riscv_preinterpet_i32x2_i8x8(int8x8_t x);`          |
+| `int32x2_t __riscv_preinterpet_i32x2_u16x4(uint16x4_t x);`       |
+| `int32x2_t __riscv_preinterpet_i32x2_i16x4(int16x4_t x);`        |
+| `int32x2_t __riscv_preinterpet_i32x2_u32x2(uint32x2_t x);`       |
