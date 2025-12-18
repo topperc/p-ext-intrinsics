@@ -152,14 +152,14 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int16x2_t __riscv_psra_s_i16x2(int16x2_t rs1, unsigned shamt);`                    | `psrai.h`, `psra.hs`                      | Compiler will pick immediate form when possible    |
 | `int16x2_t __riscv_psrari_i16x2(int16x2_t rs1, const unsigned shamt);`              | `psrari.h`                                |                                                    |
 | `int16x2_t __riscv_psati_i16x2(int16x2_t rs1, const unsigned shamt);`               | `psati.h`                                 |                                                    |
-| `int32_t __riscv_predsum_s_32_i8x4(int32_t rs1, int8x4_t rs2);`                     | `predsum.bs`                              | Requires zext.w to clear upper lanes on RV64       |
-| `uint32_t __riscv_predsumu_s_32_u8x4(uint32_t rs1, uint8x4_t rs2);`                 | `predsumu.bs`                             | Requires zext.w to clear upper lanes on RV64       |
-| `int32_t __riscv_predsum_s_32_i16x2(int32_t rs1, int16x2_t rs2);`                   | `predsum.hs`                              | Requires zext.w to clear upper lanes on RV64       |
-| `uint32_t __riscv_predsumu_s_32_i16x2(uint32_t rs1, uint16x2_t rs2);`               | `predsumu.hs`                             | Requires zext.w to clear upper lanes on RV64       |
-| `int64_t __riscv_predsum_s_64_i8x4(int64_t rs1, int8x4_t rs2);`                     | `predsum.bs`                              | Requires zext.w to clear upper lanes on RV64       |
-| `uint64_t __riscv_predsumu_s_64_u8x4(uint64_t rs1, uint8x4_t rs2);`                 | `predsumu.bs`                             | Requires zext.w to clear upper lanes on RV64       |
-| `int64_t __riscv_predsum_s_64_i16x2(int64_t rs1, int16x2_t rs2);`                   | `predsum.hs`                              | Requires zext.w to clear upper lanes on RV64       |
-| `uint64_t __riscv_predsumu_s_64_i16x2(uint64_t rs1, uint16x2_t rs2);`               | `predsumu.hs`                             | Requires zext.w to clear upper lanes on RV64       |
+| `int32_t __riscv_predsum_s_32_i8x4(int8x4_t rs1, int32_t rs2);`                     | `predsum.bs`                              | Requires zext.w to clear upper lanes on RV64       |
+| `uint32_t __riscv_predsumu_s_32_u8x4(uint8x4_t rs1, uint32_t rs2);`                 | `predsumu.bs`                             | Requires zext.w to clear upper lanes on RV64       |
+| `int32_t __riscv_predsum_s_32_i16x2(int16x2_t rs1, int32_t rs2);`                   | `predsum.hs`                              | Requires zext.w to clear upper lanes on RV64       |
+| `uint32_t __riscv_predsumu_s_32_i16x2(uint16x2_t rs1, uint32_t rs2);`               | `predsumu.hs`                             | Requires zext.w to clear upper lanes on RV64       |
+| `int64_t __riscv_predsum_s_64_i8x4(int8x4_t rs1, int64_t rs2);`                     | `predsum.bs`                              | Requires zext.w to clear upper lanes on RV64       |
+| `uint64_t __riscv_predsumu_s_64_u8x4(uint8x4_t rs1, uint64_t rs2);`                 | `predsumu.bs`                             | Requires zext.w to clear upper lanes on RV64       |
+| `int64_t __riscv_predsum_s_64_i16x2(int16x2_t rs1, int64_t rs2);`                   | `predsum.hs`                              | Requires zext.w to clear upper lanes on RV64       |
+| `uint64_t __riscv_predsumu_s_64_i16x2(uint16x2_t rs1, uint64_t rs2);`               | `predsumu.hs`                             | Requires zext.w to clear upper lanes on RV64       |
 | `int8x4_t __riscv_padd_i8x4(int8x4_t rs1, int8x4_t rs2);`                           | `padd.b`                                  |                                                    |
 | `uint8x4_t __riscv_padd_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                        | `padd.b`                                  |                                                    |
 | `int16x2_t __riscv_padd_i16x2(int16x2_t rs1, int16x2_t rs2);`                       | `padd.h`                                  |                                                    |
@@ -386,14 +386,14 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int32x2_t __riscv_psrari_i32x2(int32x2_t rs1, const unsigned shamt);`              | `psrari.w`(RV64), `psrari.dw`(RV32)                                                         |                                                    |
 | `int16x4_t __riscv_psati_i16x4(int16x4_t rs1, const unsigned shamt);`               | `psati.h`(RV64), `psati.h`(RV32)                                                            |                                                    |
 | `int32x2_t __riscv_psati_i32x2(int32x2_t rs1, const unsigned shamt);`               | `psati.w`(RV64), `psati.w`(RV32)                                                            |                                                    |
-| `int32_t __riscv_predsum_s_32_i8x8(int32_t rs1, int8x8_t rs2);`                     | `predsum.bs`(RV64), `predsum.dbs`(RV32)                                                     |                                                    |
-| `uint32_t __riscv_predsumu_s_32_u8x8(uint32_t rs1, uint8x8_t rs2);`                 | `predsumu.bs`(RV64), `predsumu.dbs`(RV32)                                                   |                                                    |
-| `int32_t __riscv_predsum_s_32_i16x4(int32_t rs1, int16x4_t rs2);`                   | `predsum.hs`(RV64), `predsum.dhs`(RV32)                                                     |                                                    |
-| `uint32_t __riscv_predsumu_s_32_i16x4(uint32_t rs1, uint16x4_t rs2);`               | `predsumu.hs`(RV64), `predsumu.dhs`(RV32)                                                   |                                                    |
-| `int64_t __riscv_predsum_s_64_i8x8(int64_t rs1, int8x8_t rs2);`                     | `predsum.bs`(RV64), `predsum.dbs`(RV32)                                                     |                                                    |
-| `uint64_t __riscv_predsumu_s_64_u8x8(uint64_t rs1, uint8x8_t rs2);`                 | `predsumu.bs`(RV64), `predsumu.dbs`(RV32)                                                   |                                                    |
-| `int64_t __riscv_predsum_s_64_i16x4(int64_t rs1, int16x4_t rs2);`                   | `predsum.hs`(RV64), `predsum.dhs`(RV32)                                                     |                                                    |
-| `uint64_t __riscv_predsumu_s_64_i16x4(uint64_t rs1, uint16x4_t rs2);`               | `predsumu.hs`(RV64), `predsum.dhs`(RV32)                                                    |                                                    |
+| `int32_t __riscv_predsum_s_32_i8x8(int8x8_t rs1, int32_t rs2);`                     | `predsum.bs`(RV64), `predsum.dbs`(RV32)                                                     |                                                    |
+| `uint32_t __riscv_predsumu_s_32_u8x8(uint8x8_t rs1, uint32_t rs2);`                 | `predsumu.bs`(RV64), `predsumu.dbs`(RV32)                                                   |                                                    |
+| `int32_t __riscv_predsum_s_32_i16x4(int16x4_t rs1, int32_t rs2);`                   | `predsum.hs`(RV64), `predsum.dhs`(RV32)                                                     |                                                    |
+| `uint32_t __riscv_predsumu_s_32_i16x4(uint16x4_t rs1, uint32_t rs2);`               | `predsumu.hs`(RV64), `predsumu.dhs`(RV32)                                                   |                                                    |
+| `int64_t __riscv_predsum_s_64_i8x8(int8x8_t rs1, int64_t rs2);`                     | `predsum.bs`(RV64), `predsum.dbs`(RV32)                                                     |                                                    |
+| `uint64_t __riscv_predsumu_s_64_u8x8(uint8x8_t rs1, uint64_t rs2);`                 | `predsumu.bs`(RV64), `predsumu.dbs`(RV32)                                                   |                                                    |
+| `int64_t __riscv_predsum_s_64_i16x4(int16x4_t rs1, int64_t rs2);`                   | `predsum.hs`(RV64), `predsum.dhs`(RV32)                                                     |                                                    |
+| `uint64_t __riscv_predsumu_s_64_i16x4(uint16x4_t rs1, uint64_t rs2);`               | `predsumu.hs`(RV64), `predsum.dhs`(RV32)                                                    |                                                    |
 | `int8x8_t __riscv_padd_i8x8(int8x8_t rs1, int8x8_t rs2);`                           | `padd.b`(RV64), `padd.db`(RV32)                                                             |                                                    |
 | `uint8x8_t __riscv_padd_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                        | `padd.b`(RV64), `padd.db`(RV32)                                                             |                                                    |
 | `int16x4_t __riscv_padd_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `padd.h`(RV64), `padd.dh`(RV32)                                                             |                                                    |
@@ -578,10 +578,10 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int64_t __riscv_pm2wsuba_x_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pm2wsuba.hx`                |             |
 | `int64_t __riscv_pm2waddsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                   | `pm2waddsu.h`                |             |
 | `int64_t __riscv_pm2waddasu_u16x2(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`      | `pm2waddasu.h`               |             |
-| `int32_t __riscv_predsum_s_32_i32x2(int64_t rs1, int32x2_t rs2);`                   | `predsum.ws`                 |             |
-| `uint32_t __riscv_predsumu_s_32_i32x2(uint64_t rs1, uint32x2_t rs2);`               | `predsumu.ws`                |             |
-| `int64_t __riscv_predsum_s_64_i32x2(int64_t rs1, int32x2_t rs2);`                   | `predsum.ws`                 |             |
-| `uint64_t __riscv_predsumu_s_64_i32x2(uint64_t rs1, uint32x2_t rs2);`               | `predsumu.ws`                |             |
+| `int32_t __riscv_predsum_s_32_i32x2(int32x2_t rs1, int32_t rs2);`                   | `predsum.ws`                 |             |
+| `uint32_t __riscv_predsumu_s_32_i32x2(uint32x2_t rs1, uint32_t rs2);`               | `predsumu.ws`                |             |
+| `int64_t __riscv_predsum_s_64_i32x2(int32x2_t rs1, int64_t rs2);`                   | `predsum.ws`                 |             |
+| `uint64_t __riscv_predsumu_s_64_i32x2(uint32x2_t rs1, uint64_t rs2);`               | `predsumu.ws`                |             |
 | `uint32_t __riscv_pabdsumu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                     | `pabdsumu.b`                 |             |
 | `uint32_t __riscv_pabdsumau_32_u8x8(uint32_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pabdsumau.b`                |             |
 | `uint64_t __riscv_pabdsumau_64_u8x8(uint64_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pabdsumau.b`                |             |
