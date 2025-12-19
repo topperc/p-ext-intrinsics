@@ -178,8 +178,8 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `uint8x4_t __riscv_psub_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                        | `psub.b`                                  |                                                    |
 | `int16x2_t __riscv_psub_i16x2(int16x2_t rs1, int16x2_t rs2);`                       | `psub.h`                                  |                                                    |
 | `uint16x2_t __riscv_psub_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                    | `psub.h`                                  |                                                    |
-| `int8x4_t __riscv_pabd_i8x4(int8x4_t rs1, int8x4_t rs2);`                           | `pabd.b`                                  |                                                    |
-| `int16x2_t __riscv_pabd_i16x2(int16x2_t rs1, int16x2_t rs2);`                       | `pabd.h`                                  |                                                    |
+| `uint8x4_t __riscv_pabd_i8x4(int8x4_t rs1, int8x4_t rs2);`                          | `pabd.b`                                  |                                                    |
+| `uint16x2_t __riscv_pabd_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pabd.h`                                  |                                                    |
 | `int8x4_t __riscv_pssub_i8x4(int8x4_t rs1, int8x4_t rs2);`                          | `pssub.b`                                 |                                                    |
 | `int16x2_t __riscv_pssub_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pssub.h`                                 |                                                    |
 | `int8x4_t __riscv_pasub_i8x4(int8x4_t rs1, int8x4_t rs2);`                          | `pasub.b`                                 |                                                    |
@@ -420,8 +420,8 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `uint16x4_t __riscv_psub_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                    | `psub.h`(RV64), `psub.dh`(RV32)                                                             |                                                    |
 | `int32x2_t __riscv_psub_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `psub.w`(RV64), `psub.dw`(RV32)                                                             |                                                    |
 | `uint32x2_t __riscv_psub_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                    | `psub.w`(RV64), `psub.dw`(RV32)                                                             |                                                    |
-| `int8x8_t __riscv_pabd_i8x8(int8x8_t rs1, int8x8_t rs2);`                           | `pabd.b`(RV64), `pabd.db`(RV32)                                                             |                                                    |
-| `int16x4_t __riscv_pabd_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pabd.h`(RV64), `pabd.dh`(RV32)                                                             |                                                    |
+| `uint8x8_t __riscv_pabd_i8x8(int8x8_t rs1, int8x8_t rs2);`                          | `pabd.b`(RV64), `pabd.db`(RV32)                                                             |                                                    |
+| `uint16x4_t __riscv_pabd_i16x4(int16x4_t rs1, int16x4_t rs2);`                      | `pabd.h`(RV64), `pabd.dh`(RV32)                                                             |                                                    |
 | `int8x8_t __riscv_pssub_i8x8(int8x8_t rs1, int8x8_t rs2);`                          | `pssub.b`(RV64), `pssub.db`(RV32)                                                           |                                                    |
 | `int16x4_t __riscv_pssub_i16x4(int16x4_t rs1, int16x4_t rs2);`                      | `pssub.h`(RV64), `pssub.dh`(RV32)                                                           |                                                    |
 | `int32x2_t __riscv_pssub_i32x2(int32x2_t rs1, int32x2_t rs2);`                      | `pssub.w`(RV64), `pssub.dw`(RV32)                                                           |                                                    |
