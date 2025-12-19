@@ -26,7 +26,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_asub_32(int32_t rs1, int32_t rs2);`                     | `asub`(RV32), `pasub.w`(RV64)         |                                                    |
 | `uint32_t __riscv_ssubu_32(uint32_t rs1, uint32_t rs2);`                 | `ssubu`(RV32), `pssubu.w`(RV64)       |                                                    |
 | `uint32_t __riscv_asubu_32(uint32_t rs1, uint32_t rs2);`                 | `asubu`(RV32), `pasubu.w`(RV64)       |                                                    |
-| `uint32_t __riscv_usati_32(uint32_t rs1, const unsigned shamt);`         | `usati`(RV32), `pusati.w`(RV64)       |                                                    |
+| `uint32_t __riscv_usati_32(int32_t rs1, const unsigned shamt);`          | `usati`(RV32), `pusati.w`(RV64)       |                                                    |
 | `int32_t __riscv_srari_32(int32_t rs1, const unsigned shamt);`           | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
 | `int32_t __riscv_sati_32(int32_t rs1, const unsigned shamt);`            | `sati`(RV32), `psati.w`(RV64)         |                                                    |
 | `int32_t __riscv_ssh1sadd_32(int32_t rs1, const unsigned shamt);`        | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
@@ -90,7 +90,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint64_t __riscv_rev16_64(uint64_t rs1);`                              | `rev16`                     |                                |
 | `int64_t __riscv_sha_64(int64_t rs1, int rs2);`                         | `sha`                       |                                |
 | `int64_t __riscv_shar_64(int64_t rs1, int rs2);`                        | `shar`                      |                                |
-| `uint64_t __riscv_usati_64(uint64_t rs1, const unsigned shamt);`        | `usati`                     |                                |
+| `uint64_t __riscv_usati_64(int64_t rs1, const unsigned shamt);`         | `usati`                     |                                |
 | `int64_t __riscv_srari_64(int64_t rs1, const unsigned shamt);`          | `srari`                     |                                |
 | `int64_t __riscv_sati_64(int64_t rs1, const unsigned shamt);`           | `sati`                      |                                |
 | `uint64_t __riscv_slx_64(uint64_t rd, uint64_t rs1, uint64_t rs2);`     | `slx`                       |                                |
@@ -149,7 +149,7 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int16x2_t __riscv_psshar_s_i16x2(int16x2_t rs1, int shamt);`                       | `psshar.hs`                               |                                                    |
 | `uint8x4_t __riscv_psrl_s_u8x4(uint8x4_t rs1, unsigned shamt);`                     | `psrli.b`, `psrl.bs`                      | Compiler will pick immediate form when possible    |
 | `uint16x2_t __riscv_psrl_s_u16x2(uint16x2_t rs1, unsigned shamt);`                  | `psrli.h`, `psrl.hs`                      | Compiler will pick immediate form when possible    |
-| `uint16x2_t __riscv_pusati_u16x2(uint16x2_t rs1, const unsigned shamt);`            | `pusati.h`                                |                                                    |
+| `uint16x2_t __riscv_pusati_u16x2(int16x2_t rs1, const unsigned shamt);`             | `pusati.h`                                |                                                    |
 | `int8x4_t __riscv_psra_s_i8x4(int8x4_t rs1, unsigned shamt);`                       | `psrai.b`, `psra.bs`                      | Compiler will pick immediate form when possible    |
 | `int16x2_t __riscv_psra_s_i16x2(int16x2_t rs1, unsigned shamt);`                    | `psrai.h`, `psra.hs`                      | Compiler will pick immediate form when possible    |
 | `int16x2_t __riscv_psrari_i16x2(int16x2_t rs1, const unsigned shamt);`              | `psrari.h`                                |                                                    |
@@ -379,8 +379,8 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `uint8x8_t __riscv_psrl_s_u8x8(uint8x8_t rs1, unsigned shamt);`                     | `psrli.b`, `psrl.bs`(RV64), `psrli.db`, `psrl.dbs`(RV32)                                    |                                                    |
 | `uint16x4_t __riscv_psrl_s_u16x4(uint16x4_t rs1, unsigned shamt);`                  | `psrli.h`, `psrl.hs`(RV64), `psrli.dh`, `psrl.dhs`(RV32)                                    |                                                    |
 | `uint32x2_t __riscv_psrl_s_u32x2(uint32x2_t rs1, unsigned shamt);`                  | `psrli.w`, `psrl.ws`(RV64), `psrli.dw`, `psrl.dws`(RV32)                                    |                                                    |
-| `uint16x4_t __riscv_pusati_u16x4(uint16x4_t rs1, const unsigned shamt);`            | `pusati.h`(RV64), `pusati.dh`(RV32)                                                         |                                                    |
-| `uint32x2_t __riscv_pusati_u32x2(uint32x2_t rs1, const unsigned shamt);`            | `pusati.w`(RV64), `pusati.dw`(RV32)                                                         |                                                    |
+| `uint16x4_t __riscv_pusati_u16x4(int16x4_t rs1, const unsigned shamt);`             | `pusati.h`(RV64), `pusati.dh`(RV32)                                                         |                                                    |
+| `uint32x2_t __riscv_pusati_u32x2(int32x2_t rs1, const unsigned shamt);`             | `pusati.w`(RV64), `pusati.dw`(RV32)                                                         |                                                    |
 | `int8x8_t __riscv_psra_s_i8x8(int8x8_t rs1, unsigned shamt);`                       | `psrai.b`, `psra.bs`(RV64), `psrai.db`, `psra.dbs`(RV32)                                    | Compiler will pick immediate form when possible    |
 | `int16x4_t __riscv_psra_s_i16x4(int16x4_t rs1, unsigned shamt);`                    | `psrai.h`, `psra.hs`(RV64), `psrai.dh`, `psra.dhs`(RV32)                                    | Compiler will pick immediate form when possible    |
 | `int32x2_t __riscv_psra_s_i32x2(int32x2_t rs1, unsigned shamt);`                    | `psrai.w`, `psra.ws`(RV64), `psrai.dw`, `psra.dws`(RV32)                                    | Compiler will pick immediate form when possible    |
