@@ -8,6 +8,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 ## Scalar Intrinsics
 
+### Scalar Intrinsics Common to RV32 and RV64
+
 | Prototype                                                                | Instruction                           | Notes                                              |
 |--------------------------------------------------------------------------|---------------------------------------|----------------------------------------------------|
 | `uint32_t __riscv_abs_32(int32_t rs1);`                                  | `abs[w]`                              |                                                    |
@@ -42,7 +44,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 * TODO: Do we need intrinsics for MSEQ/MSLT/MSLTU
 * TODO: How to handle VXSAT?
 
-## Scalar Intrinsics (RV32 Only)
+### RV32 Only Scalar Intrinsics
 
 | Prototype                                                              | Instruction                 | Notes                          |
 |------------------------------------------------------------------------|-----------------------------|--------------------------------|
@@ -78,7 +80,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
 
-## Scalar Intrinsics (RV64 Only)
+### RV64 Only Scalar Intrinsics
 
 | Prototype                                                               | Instruction                 | Notes                          |
 |-------------------------------------------------------------------------|-----------------------------|--------------------------------|
