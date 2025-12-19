@@ -122,17 +122,40 @@ A 64-bit type will occupy a pair of GPRs on RV32 and a full GPR on RV64.
 | int32x2_t  | 8            | 8                 | Two signed 32-bit integers     |
 | uint32x2_t | 8            | 8                 | Two unsigned 32-bit integers   |
 
-## Packed 32-bit Intrinsics
+## Packed Intrinsics
 
 The intrinsic interface is designed as much as possible to be source code portable between RV32 and RV64. This does not necessarily mean it is performance portable. Intrinsics operating
 on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
+### Splat
+
+Intrinsics for splatting a scalar to every element of a packed type. Compiler will choose
+an immediate form when possible.
+
+#### Packed 32-bit
+
+| Prototype                                     | Instruction                               |
+|-----------------------------------------------|-------------------------------------------|
+| `uint8x4_t __riscv_pmv_s_u8x4(uint8_t x);`    | `padd.bs`(rs1=x0), `pli.b`                |
+| `int8x4_t __riscv_pmv_s_i8x4(int8_t x);`      | `padd.bs`(rs1=x0), `pli.b`                |
+| `uint16x2_t __riscv_pmv_s_u16x2(uint16_t x);` | `padd.hs`(rs1=x0), `pli.h`, `plui.h`      |
+| `int16x2_t __riscv_pmv_s_i16x2(int16_t x);`   | `padd.hs`(rs1=x0), `pli.h`, `plui.h`      |
+
+#### Packed 64-bit
+
+| Prototype                                     | Instruction                                                                                    |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| `uint8x8_t __riscv_pmv_s_u8x8(uint8_t x);`    | `padd.bs`(rs1=x0), `pli.b`(RV64), `padd.dbs`(rs1_p=x0), `pli.db`(RV32)                         |
+| `int8x8_t __riscv_pmv_s_i8x8(int8_t x);`      | `padd.bs`(rs1=x0), `pli.b`(RV64), `padd.dbs`(rs1_p=x0), `pli.db`(RV32)                         |
+| `uint16x4_t __riscv_pmv_s_u16x4(uint16_t x);` | `padd.hs`(rs1=x0), `pli.h`, `plui.h`(RV64), `padd.dhs`(rs1_p=x0), `pli.dh`, `plui.dh`(RV32)    |
+| `int16x4_t __riscv_pmv_s_i16x4(int16_t x);`   | `padd.hs`(rs1=x0), `pli.h`, `plui.h`(RV64), `padd.dhs`(rs1_p=x0), `pli.dh`, `plui.dh`(RV32)    |
+| `uint32x2_t __riscv_pmv_s_u32x2(uint32_t x);` | `padd.ws`(rs1=x0), `pli.w`, `plui.w`(RV64), `padd.dws`(rs1_p=x0), `lui`+`addi`+`mv`(RV32)      |
+| `int32x2_t __riscv_pmv_s_i32x2(int32_t x);`   | `padd.ws`(rs1=x0), `pli.w`, `plui.w`(RV64), `padd.dws`(rs1_p=x0), `lui`+`addi`+`mv`(RV32)      |
+
+## Packed 32-bit Intrinsics
+
 | Prototype                                                                           | Instruction                               | Notes                                              |
 |-------------------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------------|
-| `uint8x4_t __riscv_pmv_s_u8x4(uint8_t x);`                                          | `padd.bs`(rs1=x0), `pli.b`                | Compiler will pick immediate form when possible    |
-| `int8x4_t __riscv_pmv_s_i8x4(int8_t x);`                                            | `padd.bs`(rs1=x0), `pli.b`                | Compiler will pick immediate form when possible    |
-| `uint16x2_t __riscv_pmv_s_u16x2(uint16_t x);`                                       | `padd.hs`(rs1=x0), `pli.h`, `plui.h`      | Compiler will pick immediate form when possible    |
-| `int16x2_t __riscv_pmv_s_i16x2(int16_t x);`                                         | `padd.hs`(rs1=x0), `pli.h`, `plui.h`      | Compiler will pick immediate form when possible    |
 | `uint8x4_t __riscv_psll_s_u8x4(uint8x4_t rs1, unsigned shamt);`                     | `pslli.b`, `psll.bs`                      | Compiler will pick immediate form when possible    |
 | `int8x4_t __riscv_psll_s_i8x4(int8x4_t rs1, unsigned shamt);`                       | `pslli.b`, `psll.bs`                      | Compiler will pick immediate form when possible    |
 | `uint16x2_t __riscv_psll_s_u16x2(uint16x2_t rs1, unsigned shamt);`                  | `pslli.h`, `psll.hs`                      | Compiler will pick immediate form when possible    |
@@ -347,12 +370,6 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
 | Prototype                                                                           | Instruction                                                                                 | Notes                                              |
 |-------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|----------------------------------------------------|
-| `uint8x8_t __riscv_pmv_s_u8x8(uint8_t x);`                                          | `padd.bs`(rs1=x0), `pli.b`(RV64), `padd.dbs`(rs1_p=x0), `pli.db`(RV32)                      | Compiler will pick immediate form when possible    |
-| `int8x8_t __riscv_pmv_s_i8x8(int8_t x);`                                            | `padd.bs`(rs1=x0), `pli.b`(RV64), `padd.dbs`(rs1_p=x0), `pli.db`(RV32)                      | Compiler will pick immediate form when possible    |
-| `uint16x4_t __riscv_pmv_s_u16x4(uint16_t x);`                                       | `padd.hs`(rs1=x0), `pli.h`, `plui.h`(RV64), `padd.dhs`(rs1_p=x0), `pli.dh`, `plui.dh`(RV32) | Compiler will pick immediate form when possible    |
-| `int16x4_t __riscv_pmv_s_i16x4(int16_t x);`                                         | `padd.hs`(rs1=x0), `pli.h`, `plui.h`(RV64), `padd.dhs`(rs1_p=x0), `pli.dh`, `plui.dh`(RV32) | Compiler will pick immediate form when possible    |
-| `uint32x2_t __riscv_pmv_s_u32x2(uint32_t x);`                                       | `padd.ws`(rs1=x0), `pli.w`, `plui.w`(RV64), `padd.dws`(rs1_p=x0), `lui`+`addi`+`mv`(RV32)   | Compiler will pick immediate form when possible    |
-| `int32x2_t __riscv_pmv_s_i32x2(int32_t x);`                                         | `padd.ws`(rs1=x0), `pli.w`, `plui.w`(RV64), `padd.dws`(rs1_p=x0), `lui`+`addi`+`mv`(RV32)   | Compiler will pick immediate form when possible    |
 | `uint8x8_t __riscv_psll_s_u8x8(uint8x8_t rs1, unsigned shamt);`                     | `pslli.b`, `psll.bs`(RV64), `pslli.db`, `psll.dbs` (RV32)                                   | Compiler will pick immediate form when possible    |
 | `int8x8_t __riscv_psll_s_i8x8(int8x8_t rs1, unsigned shamt);`                       | `pslli.b`, `psll.bs`(RV64), `pslli.db`, `psll.dbs` (RV32)                                   | Compiler will pick immediate form when possible    |
 | `uint16x4_t __riscv_psll_s_u16x4(uint16x4_t rs1, unsigned shamt);`                  | `pslli.h`, `psll.hs`(RV64), `pslli.dh`, `psll.dhs` (RV32)                                   | Compiler will pick immediate form when possible    |
