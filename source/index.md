@@ -514,40 +514,6 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
 ## Packed Intrinsics (RV32 Only)
 
-| Prototype                                                                           | Instruction     | Notes       |
-|-------------------------------------------------------------------------------------|-----------------|-------------|
-| `int16x4_t __riscv_pwadd_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwadd.b`       |             |
-| `int32x2_t __riscv_pwadd_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwadd.h`       |             |
-| `int16x4_t __riscv_pwadda_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`          | `pwadda.b`      |             |
-| `int32x2_t __riscv_pwadda_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwadda.h`      |             |
-| `uint16x4_t __riscv_pwaddu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwaddu.b`      |             |
-| `uint32x2_t __riscv_pwaddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwaddu.h`      |             |
-| `uint16x4_t __riscv_pwaddau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`     | `pwaddau.b`     |             |
-| `uint32x2_t __riscv_pwaddau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwaddau.h`     |             |
-| `int16x4_t __riscv_pwmul_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwmul.b`       |             |
-| `int32x2_t __riscv_pwmul_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwmul.h`       |             |
-| `int32x2_t __riscv_pwmacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwmacc.h`      |             |
-| `uint16x4_t __riscv_pwmulu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwmulu.b`      |             |
-| `uint32x2_t __riscv_pwmulu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwmulu.h`      |             |
-| `uint32x2_t __riscv_pwmaccu_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwmaccu.h`     |             |
-| `int16x4_t __riscv_pwsub_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwsub.b`       |             |
-| `int32x2_t __riscv_pwsub_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwsub.h`       |             |
-| `int16x4_t __riscv_pwsuba_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`          | `pwsuba.b`      |             |
-| `int32x2_t __riscv_pwsuba_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwsuba.h`      |             |
-| `uint16x4_t __riscv_pwsubu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwsubu.b`      |             |
-| `uint32x2_t __riscv_pwsubu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwsubu.h`      |             |
-| `uint16x4_t __riscv_pwsubau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`     | `pwsubau.b`     |             |
-| `uint32x2_t __riscv_pwsubau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwsubau.h`     |             |
-| `int16x4_t __riscv_pwmulsu_u8x4(int8x4_t rs1, uint8x4_t rs2);`                      | `pwmulsu.b`     |             |
-| `int32x2_t __riscv_pwmulsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                   | `pwmulsu.h`     |             |
-| `int32x2_t __riscv_pwmaccsu_u16x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`    | `pwmaccsu.h`    |             |
-| `int32x2_t __riscv_pmqwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pmqwacc.h`     |             |
-| `int32x2_t __riscv_pmqrwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`     | `pmqrwacc.h`    |             |
-
-## Packed Intrinsics (RV64 Only)
-
-* TODO: Many of these could be emulated on RV32 using 2 instructions.
-
 | Prototype                                                                           | Instruction                  | Notes       |
 |-------------------------------------------------------------------------------------|------------------------------|-------------|
 | `uint16x4_t __riscv_pwsll_s_u8x4(uint8x4_t rs1, unsigned shamt);`                   | `pwslli.b`, `pwsll.bs`       |             |
@@ -580,6 +546,40 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int64_t __riscv_pm2wsuba_x_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pm2wsuba.hx`                |             |
 | `int64_t __riscv_pm2waddsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                   | `pm2waddsu.h`                |             |
 | `int64_t __riscv_pm2waddasu_u16x2(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`      | `pm2waddasu.h`               |             |
+| `int16x4_t __riscv_pwadd_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwadd.b`                    |             |
+| `int32x2_t __riscv_pwadd_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwadd.h`                    |             |
+| `int16x4_t __riscv_pwadda_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`          | `pwadda.b`                   |             |
+| `int32x2_t __riscv_pwadda_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwadda.h`                   |             |
+| `uint16x4_t __riscv_pwaddu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwaddu.b`                   |             |
+| `uint32x2_t __riscv_pwaddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwaddu.h`                   |             |
+| `uint16x4_t __riscv_pwaddau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`     | `pwaddau.b`                  |             |
+| `uint32x2_t __riscv_pwaddau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwaddau.h`                  |             |
+| `int16x4_t __riscv_pwmul_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwmul.b`                    |             |
+| `int32x2_t __riscv_pwmul_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwmul.h`                    |             |
+| `int32x2_t __riscv_pwmacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwmacc.h`                   |             |
+| `uint16x4_t __riscv_pwmulu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwmulu.b`                   |             |
+| `uint32x2_t __riscv_pwmulu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwmulu.h`                   |             |
+| `uint32x2_t __riscv_pwmaccu_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwmaccu.h`                  |             |
+| `int16x4_t __riscv_pwsub_i8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pwsub.b`                    |             |
+| `int32x2_t __riscv_pwsub_i16x2(int16x2_t rs1, int16x2_t rs2);`                      | `pwsub.h`                    |             |
+| `int16x4_t __riscv_pwsuba_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`          | `pwsuba.b`                   |             |
+| `int32x2_t __riscv_pwsuba_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`       | `pwsuba.h`                   |             |
+| `uint16x4_t __riscv_pwsubu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                     | `pwsubu.b`                   |             |
+| `uint32x2_t __riscv_pwsubu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pwsubu.h`                   |             |
+| `uint16x4_t __riscv_pwsubau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`     | `pwsubau.b`                  |             |
+| `uint32x2_t __riscv_pwsubau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);`  | `pwsubau.h`                  |             |
+| `int16x4_t __riscv_pwmulsu_u8x4(int8x4_t rs1, uint8x4_t rs2);`                      | `pwmulsu.b`                  |             |
+| `int32x2_t __riscv_pwmulsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                   | `pwmulsu.h`                  |             |
+| `int32x2_t __riscv_pwmaccsu_u16x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`    | `pwmaccsu.h`                 |             |
+| `int32x2_t __riscv_pmqwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pmqwacc.h`                  |             |
+| `int32x2_t __riscv_pmqrwacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`     | `pmqrwacc.h`                 |             |
+
+## Packed Intrinsics (RV64 Only)
+
+* TODO: Many of these could be emulated on RV32 using 2 instructions.
+
+| Prototype                                                                           | Instruction                  | Notes       |
+|-------------------------------------------------------------------------------------|------------------------------|-------------|
 | `int32_t __riscv_predsum_s_32_i32x2(int32x2_t rs1, int32_t rs2);`                   | `predsum.ws`                 |             |
 | `uint32_t __riscv_predsumu_s_32_i32x2(uint32x2_t rs1, uint32_t rs2);`               | `predsumu.ws`                |             |
 | `int64_t __riscv_predsum_s_64_i32x2(int32x2_t rs1, int64_t rs2);`                   | `predsum.ws`                 |             |
