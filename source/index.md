@@ -719,22 +719,22 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 | `int32x2_t __riscv_pmulhsu1_i32x2(int32x2_t rs1, uint16x4_t rs2);`                  | `pmulhsu.w.h1`               |             |
 | `int32x2_t __riscv_pmhaccsu0_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);`   | `pmhaccsu.w.h0`              |             |
 | `int32x2_t __riscv_pmhaccsu1_i32x2(int32x2_t rd, int32x2_t rs1, uint16x4_t rs2);`   | `pmhaccsu.w.h1`              |             |
-| `int64_t __riscv_mul00_32(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w00`                    |             |
-| `int64_t __riscv_mul01_32(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w01`                    |             |
-| `int64_t __riscv_mul11_32(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w11`                    |             |
-| `int64_t __riscv_macc00_32(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w00`                   |             |
-| `int64_t __riscv_macc01_32(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w01`                   |             |
-| `int64_t __riscv_macc11_32(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w11`                   |             |
-| `uint64_t __riscv_mulu00_32(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w00`                   |             |
-| `uint64_t __riscv_mulu01_32(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w01`                   |             |
-| `uint64_t __riscv_mulu11_32(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w11`                   |             |
-| `uint64_t __riscv_maccu00_32(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w00`                  |             |
-| `uint64_t __riscv_maccu01_32(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w01`                  |             |
-| `uint64_t __riscv_maccu11_32(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w11`                  |             |
-| `int64_t __riscv_mulsu00_32(int32x2_t rs1, uint32x2_t rs2);`                        | `mulsu.w00`                  |             |
-| `int64_t __riscv_maccsu00_32(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`           | `maccsu.w00`                 |             |
-| `int64_t __riscv_mulsu11_32(int32x2_t rs1, uint32x2_t rs2);`                        | `mulsu.w11`                  |             |
-| `int64_t __riscv_maccsu11_32(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`           | `maccsu.w11`                 |             |
+| `int64_t __riscv_mul00_64(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w00`                    |             |
+| `int64_t __riscv_mul01_64(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w01`                    |             |
+| `int64_t __riscv_mul11_64(int32x2_t rs1, int32x2_t rs2);`                           | `mul.w11`                    |             |
+| `int64_t __riscv_macc00_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w00`                   |             |
+| `int64_t __riscv_macc01_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w01`                   |             |
+| `int64_t __riscv_macc11_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`              | `macc.w11`                   |             |
+| `uint64_t __riscv_mulu00_64(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w00`                   |             |
+| `uint64_t __riscv_mulu01_64(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w01`                   |             |
+| `uint64_t __riscv_mulu11_64(uint32x2_t rs1, uint32x2_t rs2);`                       | `mulu.w11`                   |             |
+| `uint64_t __riscv_maccu00_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w00`                  |             |
+| `uint64_t __riscv_maccu01_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w01`                  |             |
+| `uint64_t __riscv_maccu11_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`         | `maccu.w11`                  |             |
+| `int64_t __riscv_mulsu00_64(int32x2_t rs1, uint32x2_t rs2);`                        | `mulsu.w00`                  |             |
+| `int64_t __riscv_maccsu00_64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`           | `maccsu.w00`                 |             |
+| `int64_t __riscv_mulsu11_64(int32x2_t rs1, uint32x2_t rs2);`                        | `mulsu.w11`                  |             |
+| `int64_t __riscv_maccsu11_64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`           | `maccsu.w11`                 |             |
 
 ## Reinterpret casts
 
