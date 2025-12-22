@@ -1225,6 +1225,61 @@ Compiler hints like `__builtin_assume_aligned` can help.
 | `void __riscv_pstore_i32x2(int32_t *p, int32x2_t v);`   | `sd` or multiple stores and shifts  |
 | `void __riscv_pstore_u32x2(uint32_t *p, uint32x2_t v);` | `sd` or multiple stores and shifts  |
 
+### Packed Element Insert and Extract
+
+Intrinsics to extract or insert individual elements. These will turn into base
+ISA shifts and and/or/xor. Index must be a constant.
+
+#### 32-bit
+
+| Prototype                                                                     | Instruction   |
+|-----------------------------------------------------------------------------------------------|
+| `int8_t __riscv_pget_i8x4(int8x4_t v, const unsigned idx);`                    | `srli`+`and` |
+| `uint8_t __riscv_pget_u8x4(uint8x4_t v, const unsigned idx);`                  | `srli`+`and` |
+| `int16_t __riscv_pget_i16x2(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
+| `uint16_t __riscv_pget_u16x2(uint16x4_t v, const unsigned idx);`               | `srli`+`and` |
+| `int8x4_t __riscv_pset_i8x4(int8x4_t v, int8_t e, const unsigned idx);`        | Multiple     |
+| `uint8x4_t __riscv_pset_u8x4(uint8x4_t v, uint8_t e, const unsigned idx);`     | Multiple     |
+| `int16x2_t __riscv_pset_i16x2(int16x2_t v, int16_t e, const unsigned idx);`    | Multiple     |
+| `uint16x2_t __riscv_pset_u16x2(uint16x2_t v, uint16_t e, const unsigned idx);` | Multiple     |
+
+#### 64-bit
+
+| Prototype                                                                      | Instruction   |
+|--------------------------------------------------------------------------------|---------------|
+| `int8_t __riscv_pget_i8x8(int8x8_t v, const unsigned idx);`                    | `srli`+`and` |
+| `uint8_t __riscv_pget_u8x8(uint8x8_t v, const unsigned idx);`                  | `srli`+`and` |
+| `int16_t __riscv_pget_i16x4(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
+| `uint16_t __riscv_pget_u16x4(uint16x4_t v, const unsigned idx);`               | `srli`+`and` |
+| `int32_t __riscv_pget_i32x2(int32x2_t v, const unsigned idx);`                 | `srli`+`and` |
+| `uint32_t __riscv_pget_u32x2(uint32x2_t v, const unsigned idx);`               | `srli`+`and` |
+| `int8x8_t __riscv_pset_i8x8(int8x8_t v, int8_t e, const unsigned idx);`        | Multiple     |
+| `uint8x8_t __riscv_pset_u8x8(uint8x8_t v, uint8_t e, const unsigned idx);`     | Multiple     |
+| `int16x4_t __riscv_pset_i16x4(int16x4_t v, int16_t e, const unsigned idx);`    | Multiple     |
+| `uint16x4_t __riscv_pset_u16x4(uint16x4_t v, uint16_t e, const unsigned idx);` | Multiple     |
+| `int32x2_t __riscv_pset_i32x2(int32x2_t v, int32_t e, const unsigned idx);`    | Multiple     |
+| `uint32x2_t __riscv_pset_u32x2(uint32x2_t v, uint32_t e, const unsigned idx);` | Multiple     |
+
+### Packed Subvector Insert and Extract
+
+Intrinsics to convert between 32-bit and 64-bit packed vectors. The index
+specifies which subvector to extract. 0 - low, 1 - high.
+
+| Prototype                                                                          | Instruction   |
+|------------------------------------------------------------------------------------|---------------|
+| `int8x4_t __riscv_pget32_i8x8(int8x8_t v, const unsigned idx);`                    | Multiple      |
+| `uint8x4_t __riscv_pget32_u8x8(uint8x8_t v, const unsigned idx);`                  | Multiple      |
+| `int16x2_t __riscv_pget32_i16x4(int16x4_t v, const unsigned idx);`                 | Multiple      |
+| `uint16x2_t __riscv_pget32_u16x4(uint16x4_t , const unsigned idx);`                | Multiple      |
+| `int8x8_t __riscv_pset32_i8x8(int8x8_t v, int8x4_t s, const unsigned idx);`        | Multiple      |
+| `uint8x8_t __riscv_pset32_u8x8(uint8x8_t v, uint8x4_t s, const unsigned idx);`     | Multiple      |
+| `int16x4_t __riscv_pset32_i16x4(int16x4_t v, int16x2_t s, const unsigned idx);`    | Multiple      |
+| `uint16x4_t __riscv_pset32_u16x4(uint16x4_t v, uint16x2_t s, const unsigned idx);` | Multiple      |
+| `int8x8_t __riscv_pcreate32_i8x8(int8x4_t lo, int8x4_t hi);`                       | Multiple      |
+| `uint8x8_t __riscv_pcreate32_i8x8(uint8x4_t lo, uint8x4_t hi);`                    | Multiple      |
+| `int16x4_t __riscv_pcreate32_i16x4(int16x2_t lo, int16x2_t hi);`                   | Multiple      |
+| `uint16x4_t __riscv_pcreate32_i16x4(uint16x2_t lo, uint16x2_t hi);`                | Multiple      |
+
 ## Reinterpret casts
 
 ### Packed <-> Scalar
