@@ -130,7 +130,6 @@ on 32-bit and 64-bit types are provided for both RV32 and RV64.
 * TODO: Packed intrinsics for (un)zip(8|16)8(h)p?
 * TODO: `__riscv_pm2add_x_i16x2` or `__riscv_pm2addx_i16x2`
 * TODO: Should we have (u)int32x1_t for symmetry with (u)int32x2_t. Intrinsics would then be named __riscv_p*.
-* TODO: (un)aligned loads/stores
 
 ### Packed Splat
 
