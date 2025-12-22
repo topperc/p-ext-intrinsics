@@ -1184,6 +1184,47 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `int64_t __riscv_pm2waddsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`  |
 | `int64_t __riscv_pm2waddasu_u16x2(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h` |
 
+## Packed Load and Store
+
+Load and store intrinsics. These assume the pointer is aligned to the element
+size. If target CPU does not support unaligned scalar accesses and the compiler
+cannot prove the pointer is more aligned, this will be broken down into multiple
+loads and stores.
+
+Compiler hints like `__builtin_assume_aligned` can help.
+
+* TODO: Do we need aligned load/store intrinsics?
+
+#### 32-bit
+
+| Prototype                                               | Instruction                         |
+|---------------------------------------------------------|-------------------------------------|
+| `int8x4_t __riscv_pload_i8x4(int8_t *p);`               | `lw` or multiple loads and packs    |
+| `uint8x4_t __riscv_pload_u8x4(uint8_t *p);`             | `lw` or multiple loads and packs    |
+| `int16x2_t __riscv_pload_i16x2(int16_t *p);`            | `lw` or multiple loads and packs    |
+| `uint16x2_t __riscv_pload_u16x2(uint16_t *p);`          | `lw` or multiple loads and packs    |
+| `void __riscv_pstore_i8x4(int8_t *p, int8x4_t v);`      | `sw` or multiple stores and shifts  |
+| `void __riscv_pstore_u8x4(uint8_t *p, uint8x4_t v);`    | `sw` or multiple stores and shifts  |
+| `void __riscv_pstore_i16x2(int16_t *p, int16x2_t v);`   | `sw` or multiple stores and shifts  |
+| `void __riscv_pstore_u16x2(uint16_t *p, uint16x2_t v);` | `sw` or multiple stores and shifts  |
+
+#### 64-bit
+
+| Prototype                                               | Instruction                         |
+|---------------------------------------------------------|-------------------------------------|
+| `int8x8_t __riscv_pload_i8x8(int8_t *p);`               | `ld` or multiple loads and pack     |
+| `uint8x8_t __riscv_pload_i8x8(uint8_t *p);`             | `ld` or multiple loads and pack     |
+| `int16x4_t __riscv_pload_i16x4(int16_t *p);`            | `ld` or multiple loads and pack     |
+| `uint16x4_t __riscv_pload_u16x4(uint16_t *p);`          | `ld` or multiple loads and pack     |
+| `int32x2_t __riscv_pload_i32x2(int32_t *p);`            | `ld` or multiple loads and pack     |
+| `uint32x2_t __riscv_pload_u32x2(uint32_t *p);`          | `ld` or multiple loads and pack     |
+| `void __riscv_pstore_i8x8(int8_t *p, int8x8_t v);`      | `sd` or multiple stores and shifts  |
+| `void __riscv_pstore_u8x8(uint8_t *p, uint8x8_t v);`    | `sd` or multiple stores and shifts  |
+| `void __riscv_pstore_i16x4(int16_t *p, int16x4_t v);`   | `sd` or multiple stores and shifts  |
+| `void __riscv_pstore_u16x4(uint16_t *p, uint16x4_t v);` | `sd` or multiple stores and shifts  |
+| `void __riscv_pstore_i32x2(int32_t *p, int32x2_t v);`   | `sd` or multiple stores and shifts  |
+| `void __riscv_pstore_u32x2(uint32_t *p, uint32x2_t v);` | `sd` or multiple stores and shifts  |
+
 ## Reinterpret casts
 
 ### Packed <-> Scalar
