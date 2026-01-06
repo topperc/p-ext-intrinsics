@@ -225,9 +225,9 @@ element.
 | `int32x2_t __riscv_psext_b_i32x2(int32x2_t rs1);` | `psext.w.b`(RV64), `psext.dw.b`(RV32) |
 | `int32x2_t __riscv_psext_h_i32x2(int32x2_t rs1);` | `psext.w.h`(RV64), `psext.dw.h`(RV32) |
 
-### Packed Absolute Value
+### Packed Saturating Absolute Value
 
-Absolute value of packed signed elements.
+Saturating absolute value of packed signed elements.
 
 #### 32-bit
 
