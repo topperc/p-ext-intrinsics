@@ -1172,10 +1172,10 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `uint16x2_t __riscv_pnclipu_s_u16x2(uint32x2_t rs1, unsigned shamt);`  | `pnclipiu.h`, `pnclipu.hs`   |
 | `uint8x4_t __riscv_pnclipru_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnclipriu.b`, `pnclipru.bs` |
 | `uint16x2_t __riscv_pnclipru_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnclipriu.h`, `pnclipru.hs` |
-| `int8x4_t __riscv_pnclip_s_u8x4(int16x4_t rs1, unsigned shamt);`       | `pnclipi.b`, `pnclipu.bs`    |
-| `int16x2_t __riscv_pnclip_s_u16x2(int32x2_t rs1, unsigned shamt);`     | `pnclipi.h`, `pnclipu.hs`    |
-| `int8x4_t __riscv_pnclipr_s_u8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`   |
-| `int16x2_t __riscv_pnclipr_s_u16x2(int32x2_t rs1, unsigned shamt);`    | `pnclipri.h`, `pnclipr.hs`   |
+| `int8x4_t __riscv_pnclip_s_i8x4(int16x4_t rs1, unsigned shamt);`       | `pnclipi.b`, `pnclipu.bs`    |
+| `int16x2_t __riscv_pnclip_s_i16x2(int32x2_t rs1, unsigned shamt);`     | `pnclipi.h`, `pnclipu.hs`    |
+| `int8x4_t __riscv_pnclipr_s_i8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`   |
+| `int16x2_t __riscv_pnclipr_s_i16x2(int32x2_t rs1, unsigned shamt);`    | `pnclipri.h`, `pnclipr.hs`   |
 
 ### Packed Multiplication with Widening Horizontal Addition
 
