@@ -544,7 +544,7 @@ zext.w to extend result in some circumstances.
 | `uint16x4_t __riscv_ppairoe_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `ppairoe.h`(RV64), `ppairoe.dh`(RV32) |
 | `uint16x4_t __riscv_ppairo_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `ppairo.h`(RV64), `ppairo.dh`(RV32)   |
 
-### Packed Horizontal Addition
+### Packed Multiplication with Horizontal Addition
 
 #### 32-bit
 
@@ -1116,7 +1116,7 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `uint32x2_t __riscv_pwmaccu_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`  |
 | `int32x2_t __riscv_pwmaccsu_u16x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h` |
 
-### Packed Widening "Q-format" Multiply Accumulate
+### Packed "Q-format" Multiply with Widening Accumulate
 
 #### 32-bit (RV32 Only)
 
@@ -1164,7 +1164,7 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `int8x4_t __riscv_pnclipr_s_u8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`   |
 | `int16x2_t __riscv_pnclipr_s_u16x2(int32x2_t rs1, unsigned shamt);`    | `pnclipri.h`, `pnclipr.hs`   |
 
-### Packed Widening Horizontal Addition
+### Packed Multiplication with Widening Horizontal Addition
 
 #### 32-bit (RV32 Only)
 
