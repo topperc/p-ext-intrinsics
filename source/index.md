@@ -656,6 +656,8 @@ zext.w to extend result in some circumstances.
 
 * TODO: Could be emulated on RV32 with 2 instructions.
 
+| Prototype                                                       | Instruction                       |
+|-----------------------------------------------------------------|-----------------------------------|
 | `int32x2_t __riscv_pas_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pas.wx`(RV64)                    |
 | `int32x2_t __riscv_psa_x_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `psa.wx`(RV64)                    |
 | `int32x2_t __riscv_psas_x_i32x2(int32x2_t rs1, int32x2_t rs2);` | `psas.wx`(RV64)                   |
@@ -891,6 +893,8 @@ is provided a signed and unsigned version.
 
 * TODO: Could be emulated on RV32 with 2 instructions.
 
+| Prototype                                                                        | Instruction                               |
+|----------------------------------------------------------------------------------|-------------------------------------------|
 | `int32x2_t __riscv_pmacc00_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h00`(RV64)                       |
 | `int32x2_t __riscv_pmacc01_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h01`(RV64)                       |
 | `int32x2_t __riscv_pmacc11_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h11`(RV64)                       |
@@ -1231,8 +1235,8 @@ ISA shifts and and/or/xor. Index must be a constant.
 
 #### 32-bit
 
-| Prototype                                                                     | Instruction   |
-|-----------------------------------------------------------------------------------------------|
+| Prototype                                                                      | Instruction  |
+|--------------------------------------------------------------------------------|--------------|
 | `int8_t __riscv_pget_i8x4(int8x4_t v, const unsigned idx);`                    | `srli`+`and` |
 | `uint8_t __riscv_pget_u8x4(uint8x4_t v, const unsigned idx);`                  | `srli`+`and` |
 | `int16_t __riscv_pget_i16x2(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
@@ -1244,8 +1248,8 @@ ISA shifts and and/or/xor. Index must be a constant.
 
 #### 64-bit
 
-| Prototype                                                                      | Instruction   |
-|--------------------------------------------------------------------------------|---------------|
+| Prototype                                                                      | Instruction  |
+|--------------------------------------------------------------------------------|--------------|
 | `int8_t __riscv_pget_i8x8(int8x8_t v, const unsigned idx);`                    | `srli`+`and` |
 | `uint8_t __riscv_pget_u8x8(uint8x8_t v, const unsigned idx);`                  | `srli`+`and` |
 | `int16_t __riscv_pget_i16x4(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
