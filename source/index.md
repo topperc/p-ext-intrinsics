@@ -841,14 +841,14 @@ is provided a signed and unsigned version.
 | `uint16x2_t __riscv_pmulu_b11_u16x2(uint8x4_t rs1, uint8x4_t rs2);`  | `pmulu.h.b11`                           |
 | `int16x2_t __riscv_pmulsu_b00_i16x2(int8x4_t rs1, uint8x4_t rs2);`   | `pmulsu.h.b00`                          |
 | `int16x2_t __riscv_pmulsu_b11_i16x2(int8x4_t rs1, uint8x4_t rs2);`   | `pmulsu.h.b11`                          |
-| `int32_t __riscv_mul_h00_32(int16x2_t rs1, int16x2_t rs2);`          | `mul.h00`(RV32), `pmul.w.h00`(RV64)     |
-| `int32_t __riscv_mul_h01_32(int16x2_t rs1, int16x2_t rs2);`          | `mul.h01`(RV32), `pmul.w.h01`(RV64)     |
-| `int32_t __riscv_mul_h11_32(int16x2_t rs1, int16x2_t rs2);`          | `mul.h11`(RV32), `pmul.w.h11`(RV64)     |
-| `uint32_t __riscv_mulu_h00_32(uint16x2_t rs1, uint16x2_t rs2);`      | `mulu.h00`(RV32), `pmulu.w.h00`(RV64)   |
-| `uint32_t __riscv_mulu_h01_32(uint16x2_t rs1, uint16x2_t rs2);`      | `mulu.h01`(RV32), `pmulu.w.h01`(RV64)   |
-| `uint32_t __riscv_mulu_h11_32(uint16x2_t rs1, uint16x2_t rs2);`      | `mulu.h11`(RV32), `pmulu.w.h11`(RV64)   |
-| `int32_t __riscv_mulsu_h00_32(int16x2_t rs1, uint16x2_t rs2);`       | `mulsu.h00`(RV32), `pmulsu.w.h00`(RV64) |
-| `int32_t __riscv_mulsu_h11_32(int16x2_t rs1, uint16x2_t rs2);`       | `mulsu.h11`(RV32), `pmulsu.w.h11`(RV64) |
+| `int32_t __riscv_mul_h00_i32(int16x2_t rs1, int16x2_t rs2);`         | `mul.h00`(RV32), `pmul.w.h00`(RV64)     |
+| `int32_t __riscv_mul_h01_i32(int16x2_t rs1, int16x2_t rs2);`         | `mul.h01`(RV32), `pmul.w.h01`(RV64)     |
+| `int32_t __riscv_mul_h11_i32(int16x2_t rs1, int16x2_t rs2);`         | `mul.h11`(RV32), `pmul.w.h11`(RV64)     |
+| `uint32_t __riscv_mulu_h00_u32(uint16x2_t rs1, uint16x2_t rs2);`     | `mulu.h00`(RV32), `pmulu.w.h00`(RV64)   |
+| `uint32_t __riscv_mulu_h01_u32(uint16x2_t rs1, uint16x2_t rs2);`     | `mulu.h01`(RV32), `pmulu.w.h01`(RV64)   |
+| `uint32_t __riscv_mulu_h11_u32(uint16x2_t rs1, uint16x2_t rs2);`     | `mulu.h11`(RV32), `pmulu.w.h11`(RV64)   |
+| `int32_t __riscv_mulsu_h00_i32(int16x2_t rs1, uint16x2_t rs2);`      | `mulsu.h00`(RV32), `pmulsu.w.h00`(RV64) |
+| `int32_t __riscv_mulsu_h11_i32(int16x2_t rs1, uint16x2_t rs2);`      | `mulsu.h11`(RV32), `pmulsu.w.h11`(RV64) |
 
 ### 64-bit (RV64 Only)
 
@@ -872,14 +872,14 @@ is provided a signed and unsigned version.
 | `uint32x2_t __riscv_pmulu_h11_u32x2(uint16x4_t rs1, uint8x8_t rs2);` | `pmulu.w.h11`                           |
 | `int32x2_t __riscv_pmulsu_h00_i32x2(int16x4_t rs1, uint8x8_t rs2);`  | `pmulsu.w.h00`                          |
 | `int32x2_t __riscv_pmulsu_h11_i32x2(int16x4_t rs1, uint8x8_t rs2);`  | `pmulsu.w.h11`                          |
-| `int64_t __riscv_mul_w00_64(int32x2_t rs1, int32x2_t rs2);`          | `mul.w00`                               |
-| `int64_t __riscv_mul_w01_64(int32x2_t rs1, int32x2_t rs2);`          | `mul.w01`                               |
-| `int64_t __riscv_mul_w11_64(int32x2_t rs1, int32x2_t rs2);`          | `mul.w11`                               |
-| `uint64_t __riscv_mulu_w00_64(uint32x2_t rs1, uint32x2_t rs2);`      | `mulu.w00`                              |
-| `uint64_t __riscv_mulu_w01_64(uint32x2_t rs1, uint32x2_t rs2);`      | `mulu.w01`                              |
-| `uint64_t __riscv_mulu_w11_64(uint32x2_t rs1, uint32x2_t rs2);`      | `mulu.w11`                              |
-| `int64_t __riscv_mulsu_w00_64(int32x2_t rs1, uint32x2_t rs2);`       | `mulsu.w00`                             |
-| `int64_t __riscv_mulsu_w11_64(int32x2_t rs1, uint32x2_t rs2);`       | `mulsu.w11`                             |
+| `int64_t __riscv_mul_w00_i64(int32x2_t rs1, int32x2_t rs2);`         | `mul.w00`                               |
+| `int64_t __riscv_mul_w01_i64(int32x2_t rs1, int32x2_t rs2);`         | `mul.w01`                               |
+| `int64_t __riscv_mul_w11_i64(int32x2_t rs1, int32x2_t rs2);`         | `mul.w11`                               |
+| `uint64_t __riscv_mulu_w00_i64(uint32x2_t rs1, uint32x2_t rs2);`     | `mulu.w00`                              |
+| `uint64_t __riscv_mulu_w01_i64(uint32x2_t rs1, uint32x2_t rs2);`     | `mulu.w01`                              |
+| `uint64_t __riscv_mulu_w11_i64(uint32x2_t rs1, uint32x2_t rs2);`     | `mulu.w11`                              |
+| `int64_t __riscv_mulsu_w00_i64(int32x2_t rs1, uint32x2_t rs2);`      | `mulsu.w00`                             |
+| `int64_t __riscv_mulsu_w11_i64(int32x2_t rs1, uint32x2_t rs2);`      | `mulsu.w11`                             |
 
 ### Packed Multiply Parts Accumulate
 
@@ -889,14 +889,14 @@ is provided a signed and unsigned version.
 
 | Prototype                                                                          | Instruction                               |
 |------------------------------------------------------------------------------------|-------------------------------------------|
-| `int32_t __riscv_macc_h00_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`           | `macc.h00`(RV32), `pmacc.w.h00`(RV64)     |
-| `int32_t __riscv_macc_h01_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`           | `macc.h01`(RV32), `pmacc.w.h01`(RV64)     |
-| `int32_t __riscv_macc_h11_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`           | `macc.h11`(RV32), `pmacc.w.h11`(RV64)     |
-| `uint32_t __riscv_maccu_h00_32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`      | `maccu.h00`(RV32), `pmaccu.w.h00`(RV64)   |
-| `uint32_t __riscv_maccu_h01_32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`      | `maccu.h01`(RV32), `pmaccu.w.h01`(RV64)   |
-| `uint32_t __riscv_maccu_h11_32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`      | `maccu.h11`(RV32), `pmaccu.w.h11`(RV64)   |
-| `int32_t __riscv_maccsu_h00_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`        | `maccsu.h00`(RV32), `pmaccsu.w.h00`(RV64) |
-| `int32_t __riscv_maccsu_h11_32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`        | `maccsu.h11`(RV32), `pmaccsu.w.h11`(RV64) |
+| `int32_t __riscv_macc_h00_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `macc.h00`(RV32), `pmacc.w.h00`(RV64)     |
+| `int32_t __riscv_macc_h01_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `macc.h01`(RV32), `pmacc.w.h01`(RV64)     |
+| `int32_t __riscv_macc_h11_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `macc.h11`(RV32), `pmacc.w.h11`(RV64)     |
+| `uint32_t __riscv_maccu_h00_u32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`     | `maccu.h00`(RV32), `pmaccu.w.h00`(RV64)   |
+| `uint32_t __riscv_maccu_h01_u32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`     | `maccu.h01`(RV32), `pmaccu.w.h01`(RV64)   |
+| `uint32_t __riscv_maccu_h11_u32(uint32_t rd, uint16x2_t rs1, uint16x2_t rs2);`     | `maccu.h11`(RV32), `pmaccu.w.h11`(RV64)   |
+| `int32_t __riscv_maccsu_h00_i32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`       | `maccsu.h00`(RV32), `pmaccsu.w.h00`(RV64) |
+| `int32_t __riscv_maccsu_h11_i32(int32_t rd, int16x2_t rs1, uint16x2_t rs2);`       | `maccsu.h11`(RV32), `pmaccsu.w.h11`(RV64) |
 
 #### 64-bit (RV64 Only)
 
@@ -912,14 +912,14 @@ is provided a signed and unsigned version.
 | `uint32x2_t __riscv_pmaccu_h11_u32x2(uint32x2_t, uint16x4_t rs1, uint8x8_t rs2);`  | `pmaccu.w.h11`                            |
 | `int32x2_t __riscv_pmaccsu_h00_i32x2(int32x2_t rd, int16x4_t rs1, uint8x8_t rs2);` | `pmaccsu.w.h00`                           |
 | `int32x2_t __riscv_pmaccsu_h11_i32x2(int32x2_t rd, int16x4_t rs1, uint8x8_t rs2);` | `pmaccsu.w.h11`                           |
-| `int64_t __riscv_macc_w00_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w00`                                |
-| `int64_t __riscv_macc_w01_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w01`                                |
-| `int64_t __riscv_macc_w11_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w11`                                |
-| `uint64_t __riscv_maccu_w00_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w00`                               |
-| `uint64_t __riscv_maccu_w01_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w01`                               |
-| `uint64_t __riscv_maccu_w11_64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w11`                               |
-| `int64_t __riscv_maccsu_w00_64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`        | `maccsu.w00`                              |
-| `int64_t __riscv_maccsu_w11_64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`        | `maccsu.w11`                              |
+| `int64_t __riscv_macc_w00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w00`                                |
+| `int64_t __riscv_macc_w01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w01`                                |
+| `int64_t __riscv_macc_w11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w11`                                |
+| `uint64_t __riscv_maccu_w00_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w00`                               |
+| `uint64_t __riscv_maccu_w01_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w01`                               |
+| `uint64_t __riscv_maccu_w11_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w11`                               |
+| `int64_t __riscv_maccsu_w00_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `maccsu.w00`                              |
+| `int64_t __riscv_maccsu_w11_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `maccsu.w11`                              |
 
 
 ### Packed "Q-format" Multiply Parts Accumulate
@@ -930,12 +930,12 @@ is provided a signed and unsigned version.
 
 | Prototype                                                                          | Instruction                               |
 |------------------------------------------------------------------------------------|-------------------------------------------|
-| `int32_t __riscv_mqacc_h00_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `mqacc.h00`(RV32), `pmqacc.w.h00`(RV64)   |
-| `int32_t __riscv_mqacc_h01_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `mqacc.h01`(RV32), `pmqacc.w.h01`(RV64)   |
-| `int32_t __riscv_mqacc_h11_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`          | `mqacc.h11`(RV32), `pmqacc.w.h11`(RV64)   |
-| `int32_t __riscv_mqracc_h00_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqracc.h00`(RV32), `pmqracc.w.h00`(RV64) |
-| `int32_t __riscv_mqracc_h01_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqracc.h01`(RV32), `pmqracc.w.h01`(RV64) |
-| `int32_t __riscv_mqracc_h11_32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqracc.h11`(RV32), `pmqracc.w.h11`(RV64) |
+| `int32_t __riscv_mqacc_h00_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqacc.h00`(RV32), `pmqacc.w.h00`(RV64)   |
+| `int32_t __riscv_mqacc_h01_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqacc.h01`(RV32), `pmqacc.w.h01`(RV64)   |
+| `int32_t __riscv_mqacc_h11_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`         | `mqacc.h11`(RV32), `pmqacc.w.h11`(RV64)   |
+| `int32_t __riscv_mqracc_h00_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`        | `mqracc.h00`(RV32), `pmqracc.w.h00`(RV64) |
+| `int32_t __riscv_mqracc_h01_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`        | `mqracc.h01`(RV32), `pmqracc.w.h01`(RV64) |
+| `int32_t __riscv_mqracc_h11_i32(int32_t rd, int16x2_t rs1, int16x2_t rs2);`        | `mqracc.h11`(RV32), `pmqracc.w.h11`(RV64) |
 
 #### 64-bit (RV64 Only)
 
@@ -949,12 +949,12 @@ is provided a signed and unsigned version.
 | `int32x2_t __riscv_pmqracc_h00_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h00`                           |
 | `int32x2_t __riscv_pmqracc_h01_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h01`                           |
 | `int32x2_t __riscv_pmqracc_h11_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);` | `pmqracc.w.h11`                           |
-| `int64_t __riscv_mqacc_h00_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `mqacc.w00`                               |
-| `int64_t __riscv_mqacc_h01_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `mqacc.w01`                               |
-| `int64_t __riscv_mqacc_h11_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `mqacc.w11`                               |
-| `int64_t __riscv_mqracc_h00_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqracc.w00`                              |
-| `int64_t __riscv_mqracc_h01_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqracc.w01`                              |
-| `int64_t __riscv_mqracc_h11_64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqracc.w11`                              |
+| `int64_t __riscv_mqacc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w00`                               |
+| `int64_t __riscv_mqacc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w01`                               |
+| `int64_t __riscv_mqacc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `mqacc.w11`                               |
+| `int64_t __riscv_mqracc_h00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w00`                              |
+| `int64_t __riscv_mqracc_h01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w01`                              |
+| `int64_t __riscv_mqracc_h11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `mqracc.w11`                              |
 
 ### Packed Multiply High Parts
 
@@ -968,25 +968,25 @@ is provided a signed and unsigned version.
 | `int16x2_t __riscv_pmulh_b1_i16x2(int16x2_t rs1, int8x4_t rs2);`     | `pmulh.h.b1`                            |
 | `int16x2_t __riscv_pmulhsu_b0_i16x2(int16x2_t rs1, uint8x4_t rs2);`  | `pmulhsu.h.b0`                          |
 | `int16x2_t __riscv_pmulhsu_b1_i16x2(int16x2_t rs1, uint8x4_t rs2);`  | `pmulhsu.h.b1`                          |
-| `int32_t __riscv_mulh_h0_32(int32_t rs1, int16x2_t rs2);`            | `mulh.h0`(RV32), `pmulh.w.h0`(RV64)     |
-| `int32_t __riscv_mulh_h1_32(int32_t rs1, int16x2_t rs2);`            | `mulh.h1`(RV32), `pmulh.w.h1`(RV64)     |
-| `int32_t __riscv_mulhsu_h0_32(int32_t rs1, uint16x2_t rs2);`         | `mulhsu.h0`(RV32), `pmulhsu.w.h0`(RV64) |
-| `int32_t __riscv_mulhsu_h1_32(int32_t rs1, uint16x2_t rs2);`         | `mulhsu.h1`(RV32), `pmulhsu.w.h1`(RV64) |
+| `int32_t __riscv_mulh_h0_i32(int32_t rs1, int16x2_t rs2);`           | `mulh.h0`(RV32), `pmulh.w.h0`(RV64)     |
+| `int32_t __riscv_mulh_h1_i32(int32_t rs1, int16x2_t rs2);`           | `mulh.h1`(RV32), `pmulh.w.h1`(RV64)     |
+| `int32_t __riscv_mulhsu_h0_i32(int32_t rs1, uint16x2_t rs2);`        | `mulhsu.h0`(RV32), `pmulhsu.w.h0`(RV64) |
+| `int32_t __riscv_mulhsu_h1_i32(int32_t rs1, uint16x2_t rs2);`        | `mulhsu.h1`(RV32), `pmulhsu.w.h1`(RV64) |
 
 #### 64-bit (RV64 Only)
 
 * TODO: Could be emulated on RV32 with 2 instructions.
 
-| Prototype                                                            | Instruction          |
-|----------------------------------------------------------------------|----------------------|
-| `int16x4_t __riscv_pmulh_b0_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b0`         |
-| `int16x4_t __riscv_pmulh_b1_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b1`         |
-| `int16x4_t __riscv_pmulhsu_b0_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b0`       |
-| `int16x4_t __riscv_pmulhsu_b1_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b1`       |
-| `int32x2_t __riscv_pmulh_b0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`         |
-| `int32x2_t __riscv_pmulh_b1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`         |
-| `int32x2_t __riscv_pmulhsu_b0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`       |
-| `int32x2_t __riscv_pmulhsu_b1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`       |
+| Prototype                                                            | Instruction                             |
+|----------------------------------------------------------------------|-----------------------------------------|
+| `int16x4_t __riscv_pmulh_b0_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b0`                            |
+| `int16x4_t __riscv_pmulh_b1_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b1`                            |
+| `int16x4_t __riscv_pmulhsu_b0_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b0`                          |
+| `int16x4_t __riscv_pmulhsu_b1_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b1`                          |
+| `int32x2_t __riscv_pmulh_b0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`                            |
+| `int32x2_t __riscv_pmulh_b1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`                            |
+| `int32x2_t __riscv_pmulhsu_b0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`                          |
+| `int32x2_t __riscv_pmulhsu_b1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`                          |
 
 ### Packed Multiply High Parts Accumulate
 
@@ -1000,10 +1000,10 @@ is provided a signed and unsigned version.
 | `int16x2_t __riscv_pmhacc_b1_i16x2(int16x2_t rd, int16x2_t rs1, int8x4_t rs2);`     | `pmhacc.h.b1`                             |
 | `int16x2_t __riscv_pmhaccsu_b0_i16x2(int16x2_t rd, int16x2_t rs1, uint8x4_t rs2);`  | `pmhaccsu.h.b0`                           |
 | `int16x2_t __riscv_pmhaccsu_b1_i16x2(int16x2_t rd, int16x2_t rs1, uint8x4_t rs2);`  | `pmhaccsu.h.b1`                           |
-| `int32_t __riscv_mhacc_h0_32(int32_t rd, int32_t rs1, int16x2_t rs2);`              | `mhacc.h0`(RV32), `pmhacc.w.h0`(RV64)     |
-| `int32_t __riscv_mhacc_h1_32(int32_t rd, int32_t rs1, int16x2_t rs2);`              | `mhacc.h1`(RV32), `pmhacc.w.h1`(RV64)     |
-| `int32_t __riscv_mhaccsu_h0_32(int32_t rd, int32_t rs1, uint16x2_t rs2);`           | `mhaccsu.h0`(RV32), `pmhaccsu.w.h0`(RV64) |
-| `int32_t __riscv_mhaccsu_h1_32(int32_t rd, int32_t rs1, uint16x2_t rs2);`           | `mhaccsu.h1`(RV32), `pmhaccsu.w.h1`(RV64) |
+| `int32_t __riscv_mhacc_h0_i32(int32_t rd, int32_t rs1, int16x2_t rs2);`             | `mhacc.h0`(RV32), `pmhacc.w.h0`(RV64)     |
+| `int32_t __riscv_mhacc_h1_i32(int32_t rd, int32_t rs1, int16x2_t rs2);`             | `mhacc.h1`(RV32), `pmhacc.w.h1`(RV64)     |
+| `int32_t __riscv_mhaccsu_h0_i32(int32_t rd, int32_t rs1, uint16x2_t rs2);`          | `mhaccsu.h0`(RV32), `pmhaccsu.w.h0`(RV64) |
+| `int32_t __riscv_mhaccsu_h1_i32(int32_t rd, int32_t rs1, uint16x2_t rs2);`          | `mhaccsu.h1`(RV32), `pmhaccsu.w.h1`(RV64) |
 
 #### 64-bit (RV64 Only)
 
