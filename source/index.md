@@ -548,7 +548,7 @@ zext.w to extend result in some circumstances.
 
 | Prototype                                                           | Instruction |
 |---------------------------------------------------------------------|-------------|
-| `uint32x2_t __riscv_ppaire_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pack`?     |
+| `uint32x2_t __riscv_ppaire_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pack`      |
 | `uint32x2_t __riscv_ppaireo_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppaireo.w` |
 | `uint32x2_t __riscv_ppairoe_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppairoe.w` |
 | `uint32x2_t __riscv_ppairo_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `ppairo.w`  |
