@@ -544,6 +544,15 @@ zext.w to extend result in some circumstances.
 | `uint16x4_t __riscv_ppairoe_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `ppairoe.h`(RV64), `ppairoe.dh`(RV32) |
 | `uint16x4_t __riscv_ppairo_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `ppairo.h`(RV64), `ppairo.dh`(RV32)   |
 
+# ### 64-bit (RV64 Only)
+
+| Prototype                                                           | Instruction |
+|---------------------------------------------------------------------|-------------|
+| `uint32x2_t __riscv_ppaire_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pack`?     |
+| `uint32x2_t __riscv_ppaireo_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppaireo.w` |
+| `uint32x2_t __riscv_ppairoe_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppairoe.w` |
+| `uint32x2_t __riscv_ppairo_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `ppairo.w`  |
+
 ### Packed Multiplication with Horizontal Addition
 
 #### 32-bit
