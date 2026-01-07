@@ -50,26 +50,26 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 |------------------------------------------------------------------------|-----------------------------|
 | `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`    | `slx`                       |
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`    | `srx`                       |
-| `uint64_t __riscv_wsll_32(uint32_t rs1, unsigned shamt);`              | `wsll[i]`                   |
-| `int64_t __riscv_wsla_32(int32_t rs1, unsigned shamt);`                | `wsla[i]`                   |
-| `uint64_t __riscv_wzip8p_32(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                    |
-| `uint64_t __riscv_wzip16p_32(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                   |
-| `int64_t __riscv_wadd_32(int32_t rs1, int32_t rs2);`                   | `wadd`                      |
-| `int64_t __riscv_wadda_32(int64_t rd, int32_t rs1, int32_t rs2);`      | `wadda`                     |
-| `uint64_t __riscv_waddu_32(uint32_t rs1, uint32_t rs2);`               | `waddu`                     |
-| `uint64_t __riscv_waddau_32(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `waddau`                    |
-| `int64_t __riscv_wmul_32(int32_t rs1, int32_t rs2);`                   | `wmul`                      |
-| `int64_t __riscv_wmacc_32(int32_t rd, int32_t rs1, int32_t rs2);`      | `wmacc`                     |
-| `int64_t __riscv_wmulu_32(uint32_t rs1, uint32_t rs2);`                | `wmulu`                     |
-| `uint64_t __riscv_wmaccu_32(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wmaccu`                    |
-| `int64_t __riscv_wsub_32(int32_t rs1, int32_t rs2);`                   | `wsub`                      |
-| `int64_t __riscv_wsuba_32(int64_t rd, int32_t rs1, int32_t rs2);`      | `wsuba`                     |
-| `uint64_t __riscv_wsubu_32(uint32_t rs1, uint32_t rs2);`               | `wsubu`                     |
-| `uint64_t __riscv_wsubau_32(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wsubau`                    |
-| `int64_t __riscv_wmulsu_32(int32_t rs1, uint32_t rs2);`                | `wmulsu`                    |
-| `int64_t __riscv_wmaccsu_32(int64_t rd, int32_t rs1, uint32_t rs2);`   | `wmaccsu`                   |
-| `int64_t __riscv_mqwacc_32(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                    |
-| `int64_t __riscv_mqrwacc_32(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                   |
+| `uint64_t __riscv_wsll_64(uint32_t rs1, unsigned shamt);`              | `wsll[i]`                   |
+| `int64_t __riscv_wsla_64(int32_t rs1, unsigned shamt);`                | `wsla[i]`                   |
+| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                    |
+| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                   |
+| `int64_t __riscv_wadd_64(int32_t rs1, int32_t rs2);`                   | `wadd`                      |
+| `int64_t __riscv_wadda_64(int64_t rd, int32_t rs1, int32_t rs2);`      | `wadda`                     |
+| `uint64_t __riscv_waddu_64(uint32_t rs1, uint32_t rs2);`               | `waddu`                     |
+| `uint64_t __riscv_waddau_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `waddau`                    |
+| `int64_t __riscv_wmul_64(int32_t rs1, int32_t rs2);`                   | `wmul`                      |
+| `int64_t __riscv_wmacc_64(int32_t rd, int32_t rs1, int32_t rs2);`      | `wmacc`                     |
+| `int64_t __riscv_wmulu_64(uint32_t rs1, uint32_t rs2);`                | `wmulu`                     |
+| `uint64_t __riscv_wmaccu_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wmaccu`                    |
+| `int64_t __riscv_wsub_64(int32_t rs1, int32_t rs2);`                   | `wsub`                      |
+| `int64_t __riscv_wsuba_64(int64_t rd, int32_t rs1, int32_t rs2);`      | `wsuba`                     |
+| `uint64_t __riscv_wsubu_64(uint32_t rs1, uint32_t rs2);`               | `wsubu`                     |
+| `uint64_t __riscv_wsubau_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wsubau`                    |
+| `int64_t __riscv_wmulsu_64(int32_t rs1, uint32_t rs2);`                | `wmulsu`                    |
+| `int64_t __riscv_wmaccsu_64(int64_t rd, int32_t rs1, uint32_t rs2);`   | `wmaccsu`                   |
+| `int64_t __riscv_mqwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                    |
+| `int64_t __riscv_mqrwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                   |
 | `uint32_t __riscv_nsrl_32(uint64_t rs1_p, uint32_t rs2);`              | `nsrl[i]`                   |
 | `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | `nclip[i]u`                 |
 | `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | `nclipr[i]u`                |
@@ -1082,14 +1082,14 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 | Prototype                                                          | Instruction     |
 |--------------------------------------------------------------------|-----------------|
-| `int16x4_t __riscv_pwadd_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `pwadd.b`       |
-| `int32x2_t __riscv_pwadd_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `pwadd.h`       |
-| `uint16x4_t __riscv_pwaddu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`    | `pwaddu.b`      |
-| `uint32x2_t __riscv_pwaddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwaddu.h`      |
-| `int16x4_t __riscv_pwsub_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `pwsub.b`       |
-| `int32x2_t __riscv_pwsub_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `pwsub.h`       |
-| `uint16x4_t __riscv_pwsubu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`    | `pwsubu.b`      |
-| `uint32x2_t __riscv_pwsubu_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwsubu.h`      |
+| `int16x4_t __riscv_pwadd_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwadd.b`       |
+| `int32x2_t __riscv_pwadd_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwadd.h`       |
+| `uint16x4_t __riscv_pwaddu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwaddu.b`      |
+| `uint32x2_t __riscv_pwaddu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwaddu.h`      |
+| `int16x4_t __riscv_pwsub_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwsub.b`       |
+| `int32x2_t __riscv_pwsub_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwsub.h`       |
+| `uint16x4_t __riscv_pwsubu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwsubu.b`      |
+| `uint32x2_t __riscv_pwsubu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwsubu.h`      |
 
 ### Packed Widening Addition and Subtraction Accumulate
 
@@ -1097,14 +1097,14 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 | Prototype                                                                          | Instruction     |
 |------------------------------------------------------------------------------------|-----------------|
-| `int16x4_t __riscv_pwadda_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`         | `pwadda.b`      |
-| `int32x2_t __riscv_pwadda_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwadda.h`      |
-| `uint16x4_t __riscv_pwaddau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`    | `pwaddau.b`     |
-| `uint32x2_t __riscv_pwaddau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwaddau.h`     |
-| `int16x4_t __riscv_pwsuba_i8x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`         | `pwsuba.b`      |
-| `int32x2_t __riscv_pwsuba_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwsuba.h`      |
-| `uint16x4_t __riscv_pwsubau_u8x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`    | `pwsubau.b`     |
-| `uint32x2_t __riscv_pwsubau_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwsubau.h`     |
+| `int16x4_t __riscv_pwadda_i16x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`        | `pwadda.b`      |
+| `int32x2_t __riscv_pwadda_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwadda.h`      |
+| `uint16x4_t __riscv_pwaddau_u16x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`   | `pwaddau.b`     |
+| `uint32x2_t __riscv_pwaddau_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwaddau.h`     |
+| `int16x4_t __riscv_pwsuba_i16x4(int16x4_t rd, int8x4_t rs1, int8x4_t rs2);`        | `pwsuba.b`      |
+| `int32x2_t __riscv_pwsuba_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwsuba.h`      |
+| `uint16x4_t __riscv_pwsubau_u16x4(uint16x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`   | `pwsubau.b`     |
+| `uint32x2_t __riscv_pwsubau_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwsubau.h`     |
 
 ### Packed Widening Multiply
 
@@ -1112,12 +1112,12 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 | Prototype                                                          | Instruction |
 |--------------------------------------------------------------------|-------------|
-| `int16x4_t __riscv_pwmul_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `pwmul.b`   |
-| `int32x2_t __riscv_pwmul_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`   |
-| `uint16x4_t __riscv_pwmulu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`    | `pwmulu.b`  |
-| `uint32x2_t __riscv_pwmulu_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`  |
-| `int16x4_t __riscv_pwmulsu_u8x4(int8x4_t rs1, uint8x4_t rs2);`     | `pwmulsu.b` |
-| `int32x2_t __riscv_pwmulsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h` |
+| `int16x4_t __riscv_pwmul_i16x4(int8x4_t rs1, int8x4_t rs2);`       | `pwmul.b`   |
+| `int32x2_t __riscv_pwmul_i32x2(int16x2_t rs1, int16x2_t rs2);`     | `pwmul.h`   |
+| `uint16x4_t __riscv_pwmulu_u16x4(uint8x4_t rs1, uint8x4_t rs2);`   | `pwmulu.b`  |
+| `uint32x2_t __riscv_pwmulu_u32x2(uint16x2_t rs1, uint16x2_t rs2);` | `pwmulu.h`  |
+| `int16x4_t __riscv_pwmulsu_u16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b` |
+| `int32x2_t __riscv_pwmulsu_u32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h` |
 
 ### Packed Widening Multiply Accmulate
 
@@ -1125,9 +1125,9 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 | Prototype                                                                          | Instruction  |
 |------------------------------------------------------------------------------------|--------------|
-| `int32x2_t __riscv_pwmacc_i16x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`   |
-| `uint32x2_t __riscv_pwmaccu_u16x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`  |
-| `int32x2_t __riscv_pwmaccsu_u16x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h` |
+| `int32x2_t __riscv_pwmacc_i32x2(int32x2_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pwmacc.h`   |
+| `uint32x2_t __riscv_pwmaccu_u32x2(uint32x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pwmaccu.h`  |
+| `int32x2_t __riscv_pwmaccsu_u32x2(int32x2_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pwmaccsu.h` |
 
 ### Packed "Q-format" Multiply with Widening Accumulate
 
@@ -1144,10 +1144,10 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 | Prototype                                                           | Instruction            |
 |---------------------------------------------------------------------|------------------------|
-| `uint16x4_t __riscv_pwsll_s_u8x4(uint8x4_t rs1, unsigned shamt);`   | `pwslli.b`, `pwsll.bs` |
-| `uint32x2_t __riscv_pwsll_s_u16x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs` |
-| `int16x4_t __riscv_pwsla_s_i8x4(int8x4_t rs1, unsigned shamt);`     | `pwslai.b`, `pwsla.bs` |
-| `int32x2_t __riscv_pwsla_s_i16x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs` |
+| `uint16x4_t __riscv_pwsll_s_u16x4(uint8x4_t rs1, unsigned shamt);`  | `pwslli.b`, `pwsll.bs` |
+| `uint32x2_t __riscv_pwsll_s_u32x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs` |
+| `int16x4_t __riscv_pwsla_s_i16x4(int8x4_t rs1, unsigned shamt);`    | `pwslai.b`, `pwsla.bs` |
+| `int32x2_t __riscv_pwsla_s_i32x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs` |
 
 ### Packed Narrowing Shift
 
@@ -1181,20 +1181,20 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 #### 32-bit (RV32 Only)
 
-| Prototype                                                                        | Instruction    |
-|----------------------------------------------------------------------------------|----------------|
-| `int64_t __riscv_pm2wadd_i16x2(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wadd.h`    |
-| `int64_t __riscv_pm2wadda_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wadda.h`   |
-| `int64_t __riscv_pm2wadd_x_i16x2(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wadd.hx`   |
-| `int64_t __riscv_pm2wadda_x_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wadda.hx`  |
-| `uint64_t __riscv_pm2waddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`               | `pm2waddu.h`   |
-| `uint64_t __riscv_pm2waddau_u16x2(uint64_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pm2waddau.h`  |
-| `int64_t __riscv_pm2wsub_i16x2(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wsub.h`    |
-| `int64_t __riscv_pm2wsuba_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wsuba.h`   |
-| `int64_t __riscv_pm2wsub_x_i16x2(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wsub.hx`   |
-| `int64_t __riscv_pm2wsuba_x_i16x2(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wsuba.hx`  |
-| `int64_t __riscv_pm2waddsu_u16x2(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`  |
-| `int64_t __riscv_pm2waddasu_u16x2(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h` |
+| Prototype                                                                      | Instruction    |
+|--------------------------------------------------------------------------------|----------------|
+| `int64_t __riscv_pm2wadd_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wadd.h`    |
+| `int64_t __riscv_pm2wadda_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wadda.h`   |
+| `int64_t __riscv_pm2wadd_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wadd.hx`   |
+| `int64_t __riscv_pm2wadda_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wadda.hx`  |
+| `uint64_t __riscv_pm2waddu_u64(uint16x2_t rs1, uint16x2_t rs2);`               | `pm2waddu.h`   |
+| `uint64_t __riscv_pm2waddau_u64(uint64_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `pm2waddau.h`  |
+| `int64_t __riscv_pm2wsub_i64(int16x2_t rs1, int16x2_t rs2);`                   | `pm2wsub.h`    |
+| `int64_t __riscv_pm2wsuba_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`      | `pm2wsuba.h`   |
+| `int64_t __riscv_pm2wsub_x_i64(int16x2_t rs1, int16x2_t rs2);`                 | `pm2wsub.hx`   |
+| `int64_t __riscv_pm2wsuba_x_i64(int64_t rd, int16x2_t rs1, int16x2_t rs2);`    | `pm2wsuba.hx`  |
+| `int64_t __riscv_pm2waddsu_u64(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`  |
+| `int64_t __riscv_pm2waddasu_u64(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h` |
 
 ## Packed Load and Store
 
