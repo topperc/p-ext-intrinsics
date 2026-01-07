@@ -298,30 +298,30 @@ zext.w to extend result in some circumstances.
 
 * TODO: Do we need a 64-bit accumulator version?
 
-| Prototype                                                             | Instruction                               |
-|-----------------------------------------------------------------------|-------------------------------------------|
-| `int32_t __riscv_predsum_s_32_i8x4(int8x4_t rs1, int32_t rs2);`       | `predsum.bs`                              |
-| `uint32_t __riscv_predsumu_s_32_u8x4(uint8x4_t rs1, uint32_t rs2);`   | `predsumu.bs`                             |
-| `int32_t __riscv_predsum_s_32_i16x2(int16x2_t rs1, int32_t rs2);`     | `predsum.hs`                              |
-| `uint32_t __riscv_predsumu_s_32_i16x2(uint16x2_t rs1, uint32_t rs2);` | `predsumu.hs`                             |
+| Prototype                                                            | Instruction                               |
+|----------------------------------------------------------------------|-------------------------------------------|
+| `int32_t __riscv_predsum_i8x4_i32(int8x4_t rs1, int32_t rs2);`       | `predsum.bs`                              |
+| `uint32_t __riscv_predsumu_u8x4_u32(uint8x4_t rs1, uint32_t rs2);`   | `predsumu.bs`                             |
+| `int32_t __riscv_predsum_i16x2_i32(int16x2_t rs1, int32_t rs2);`     | `predsum.hs`                              |
+| `uint32_t __riscv_predsumu_i16x2_u32(uint16x2_t rs1, uint32_t rs2);` | `predsumu.hs`                             |
 
 #### 64-bit
 
 Intrinsics are provided with 32-bit and 64-bit accumulator for maximum software compatibility between RV32 and RV64.
 This will incur additional instructions when accumulator size is not XLEN.
 
-| Prototype                                                             | Instruction                               |
-|-----------------------------------------------------------------------|-------------------------------------------|
-| `int32_t __riscv_predsum_s_32_i8x8(int8x8_t rs1, int32_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
-| `uint32_t __riscv_predsumu_s_32_u8x8(uint8x8_t rs1, uint32_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
-| `int32_t __riscv_predsum_s_32_i16x4(int16x4_t rs1, int32_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
-| `uint32_t __riscv_predsumu_s_32_i16x4(uint16x4_t rs1, uint32_t rs2);` | `predsumu.hs`(RV64), `predsumu.dhs`(RV32) |
-| `int64_t __riscv_predsum_s_64_i8x8(int8x8_t rs1, int64_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
-| `uint64_t __riscv_predsumu_s_64_u8x8(uint8x8_t rs1, uint64_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
-| `int64_t __riscv_predsum_s_64_i16x4(int16x4_t rs1, int64_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
-| `uint64_t __riscv_predsumu_s_64_i16x4(uint16x4_t rs1, uint64_t rs2);` | `predsumu.hs`(RV64), `predsum.dhs`(RV32)  |
-| `int64_t __riscv_predsum_s_64_i32x2(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `waddu`+`addd`(RV32)  |
-| `uint64_t __riscv_predsumu_s_64_i32x2(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `wadd`+`addd`(RV32)  |
+| Prototype                                                            | Instruction                               |
+|----------------------------------------------------------------------|-------------------------------------------|
+| `int32_t __riscv_predsum_i8x8_i32(int8x8_t rs1, int32_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
+| `uint32_t __riscv_predsumu_u8x8_u32(uint8x8_t rs1, uint32_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
+| `int32_t __riscv_predsum_i16x4_i32(int16x4_t rs1, int32_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
+| `uint32_t __riscv_predsumu_i16x4_u32(uint16x4_t rs1, uint32_t rs2);` | `predsumu.hs`(RV64), `predsumu.dhs`(RV32) |
+| `int64_t __riscv_predsum_i8x8_i64(int8x8_t rs1, int64_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
+| `uint64_t __riscv_predsumu_u8x8_u64(uint8x8_t rs1, uint64_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
+| `int64_t __riscv_predsum_i16x4_i64(int16x4_t rs1, int64_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
+| `uint64_t __riscv_predsumu_i16x4_u64(uint16x4_t rs1, uint64_t rs2);` | `predsumu.hs`(RV64), `predsum.dhs`(RV32)  |
+| `int64_t __riscv_predsum_i32x2_i64(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `waddu`+`addd`(RV32)  |
+| `uint64_t __riscv_predsumu_i32x2_u64(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `wadd`+`addd`(RV32)  |
 
 ### Packed Addition and Subtraction
 
@@ -486,17 +486,17 @@ zext.w to extend result in some circumstances.
 
 * TODO: Do we need a 64-bit accumulator version?
 
-| Prototype                                                                        | Instruction         |
-|----------------------------------------------------------------------------------|---------------------|
-| `uint32_t __riscv_pabdsumu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                  | `pabdsumu.b`        |
-| `uint32_t __riscv_pabdsumau_32_u8x4(uint32_t rd, uint8x4_t rs1, uint8x4_t rs2);` | `pabdsumau.b`       |
+| Prototype                                                                         | Instruction   |
+|-----------------------------------------------------------------------------------|---------------|
+| `uint32_t __riscv_pabdsumu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                   | `pabdsumu.b`  |
+| `uint32_t __riscv_pabdsumau_u8x4_u32(uint32_t rd, uint8x4_t rs1, uint8x4_t rs2);` | `pabdsumau.b` |
 
 #### 64-bit (RV64 Only)
 
-| Prototype                                                                        | Instruction         |
-|----------------------------------------------------------------------------------|-------------------- |
-| `uint64_t __riscv_pabdsumu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                  | `pabdsumu.b`(RV64)  |
-| `uint64_t __riscv_pabdsumau_64_u8x8(uint64_t rd, uint8x8_t rs1, uint8x8_t rs2);` | `pabdsumau.b`(RV64) |
+| Prototype                                                                         | Instruction   |
+|-----------------------------------------------------------------------------------|---------------|
+| `uint64_t __riscv_pabdsumu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                   | `pabdsumu.b`  |
+| `uint64_t __riscv_pabdsumau_u8x8_u64(uint64_t rd, uint8x8_t rs1, uint8x8_t rs2);` | `pabdsumau.b` |
 
 ### Packed SH1ADD and SSH1SADD
 
