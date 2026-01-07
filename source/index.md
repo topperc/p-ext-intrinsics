@@ -588,54 +588,54 @@ zext.w to extend result in some circumstances.
 
 * TODO: These do not have a single RV32 instruction, but could be emulated.
 
-| Prototype                                                                         | Instruction   |
-|-----------------------------------------------------------------------------------|---------------|
-| `int32x2_t __riscv_pm4add_i8x8(int8x8_t rs1, int8x8_t rs2);`                      | `pm4add.b`    |
-| `int32x2_t __riscv_pm2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2add.h`    |
-| `int32x2_t __riscv_pm4adda_i8x8(int32_t rd, int8x8_t rs1, int8x8_t rs2);`         | `pm4adda.b`   |
-| `int32x2_t __riscv_pm2adda_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2adda.h`   |
-| `int32x2_t __riscv_pm2add_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                 | `pm2add.hx`   |
-| `int32x2_t __riscv_pm2adda_x_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2adda.hx`  |
-| `uint32x2_t __riscv_pm4addu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                  | `pm4addu.b`   |
-| `uint32x2_t __riscv_pm2addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`               | `pm2addu.h`   |
-| `uint32x2_t __riscv_pm4addau_u8x8(uint32_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pm4addau.b`  |
-| `uint32x2_t __riscv_pm2addau_u16x4(uint32_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pm2addau.h`  |
-| `int32x2_t __riscv_pmq2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                  | `pmq2add.h`   |
-| `int32x2_t __riscv_pmqr2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                 | `pmqr2add.h`  |
-| `int32x2_t __riscv_pmq2adda_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`     | `pmq2adda.h`  |
-| `int32x2_t __riscv_pmqr2adda_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmqr2adda.h` |
-| `int32x2_t __riscv_pm2sadd_i16x4(int16x4_t rs1, int16x4_t rs2);`                  | `pm2sadd.h`   |
-| `int32x2_t __riscv_pm2sadd_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                | `pm2sadd.hx`  |
-| `int32x2_t __riscv_pm2sub_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2sub.h`    |
-| `int32x2_t __riscv_pm2suba_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2suba.h`   |
-| `int32x2_t __riscv_pm2sub_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                 | `pm2sub.hx`   |
-| `int32x2_t __riscv_pm2suba_x_i16x4(int32_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2suba.hx`  |
-| `int32x2_t __riscv_pm4addsu_i8x8(int8x8_t rs1, uint8x8_t rs2);`                   | `pm4addsu.b`  |
-| `int32x2_t __riscv_pm2addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                | `pm2addsu.h`  |
-| `int32x2_t __riscv_pm4addasu_i8x8(int32_t rd, int8x8_t rs1, uint8x8_t rs2);`      | `pm4addasu.b` |
-| `int32x2_t __riscv_pm2addasu_i16x4(int32_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pm2addasu.h` |
-| `int64_t __riscv_pm2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2add.w`    |
-| `int64_t __riscv_pm2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2adda.w`   |
-| `int64_t __riscv_pm2add_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                   | `pm2add.wx`   |
-| `int64_t __riscv_pm2adda_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`      | `pm2adda.wx`  |
-| `uint64_t __riscv_pm2addu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                 | `pm2addu.w`   |
-| `uint64_t __riscv_pm2addau_u32x2(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`   | `pm2addau.w`  |
-| `int64_t __riscv_pmq2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                    | `pmq2add.w`   |
-| `int64_t __riscv_pmq2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`       | `pmq2adda.w`  |
-| `int64_t __riscv_pm2sub_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2sub.w`    |
-| `int64_t __riscv_pm2suba_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2suba.w`   |
-| `int64_t __riscv_pm2sub_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                   | `pm2sub.wx`   |
-| `int64_t __riscv_pm2suba_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`      | `pm2suba.wx`  |
-| `int64_t __riscv_pm2addsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`                  | `pm2addsu.w`  |
-| `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`     | `pm2addasu.w` |
-| `int64_t __riscv_pmqr2add_i16x2(int32x2_t rs1, int32x2_t rs2);`                   | `pmqr2add.w`  |
-| `int64_t __riscv_pmqr2adda_i16x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`      | `pmqr2adda.w` |
-| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm4add.h`    |
-| `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`        | `pm4adda.h`   |
-| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                 | `pm4addu.h`   |
-| `uint64_t __riscv_pm4addau_u16x4(uint64_t rd, uint16x4_t rs1, uint16x4_t rs2);`   | `pm4addau.h`  |
-| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                  | `pm4addsu.h`  |
-| `int64_t __riscv_pm4addasu_i16x4(int64_t rd, int16x4_t rs1, uint16x4_t rs2);`     | `pm4addasu.h` |
+| Prototype                                                                           | Instruction   |
+|-------------------------------------------------------------------------------------|---------------|
+| `int32x2_t __riscv_pm4add_i8x8(int8x8_t rs1, int8x8_t rs2);`                        | `pm4add.b`    |
+| `int32x2_t __riscv_pm2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2add.h`    |
+| `int32x2_t __riscv_pm4adda_i8x8(int32x2_t rd, int8x8_t rs1, int8x8_t rs2);`         | `pm4adda.b`   |
+| `int32x2_t __riscv_pm2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2adda.h`   |
+| `int32x2_t __riscv_pm2add_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2add.hx`   |
+| `int32x2_t __riscv_pm2adda_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2adda.hx`  |
+| `uint32x2_t __riscv_pm4addu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                    | `pm4addu.b`   |
+| `uint32x2_t __riscv_pm2addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                 | `pm2addu.h`   |
+| `uint32x2_t __riscv_pm4addau_u8x8(uint32x2_t rd, uint8x8_t rs1, uint8x8_t rs2);`    | `pm4addau.b`  |
+| `uint32x2_t __riscv_pm2addau_u16x4(uint32x2_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `pm2addau.h`  |
+| `int32x2_t __riscv_pmq2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pmq2add.h`   |
+| `int32x2_t __riscv_pmqr2add_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pmqr2add.h`  |
+| `int32x2_t __riscv_pmq2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`     | `pmq2adda.h`  |
+| `int32x2_t __riscv_pmqr2adda_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmqr2adda.h` |
+| `int32x2_t __riscv_pm2sadd_i16x4(int16x4_t rs1, int16x4_t rs2);`                    | `pm2sadd.h`   |
+| `int32x2_t __riscv_pm2sadd_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                  | `pm2sadd.hx`  |
+| `int32x2_t __riscv_pm2sub_i16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pm2sub.h`    |
+| `int32x2_t __riscv_pm2suba_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`      | `pm2suba.h`   |
+| `int32x2_t __riscv_pm2sub_x_i16x4(int16x4_t rs1, int16x4_t rs2);`                   | `pm2sub.hx`   |
+| `int32x2_t __riscv_pm2suba_x_i16x4(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pm2suba.hx`  |
+| `int32x2_t __riscv_pm4addsu_i8x8(int8x8_t rs1, uint8x8_t rs2);`                     | `pm4addsu.b`  |
+| `int32x2_t __riscv_pm2addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                  | `pm2addsu.h`  |
+| `int32x2_t __riscv_pm4addasu_i8x8(int32x2_t rd, int8x8_t rs1, uint8x8_t rs2);`      | `pm4addasu.b` |
+| `int32x2_t __riscv_pm2addasu_i16x4(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);`   | `pm2addasu.h` |
+| `int64_t __riscv_pm2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2add.w`    |
+| `int64_t __riscv_pm2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2adda.w`   |
+| `int64_t __riscv_pm2add_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2add.wx`   |
+| `int64_t __riscv_pm2adda_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2adda.wx`  |
+| `uint64_t __riscv_pm2addu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                   | `pm2addu.w`   |
+| `uint64_t __riscv_pm2addau_u32x2(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `pm2addau.w`  |
+| `int64_t __riscv_pmq2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                      | `pmq2add.w`   |
+| `int64_t __riscv_pmq2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`         | `pmq2adda.w`  |
+| `int64_t __riscv_pm2sub_i32x2(int32x2_t rs1, int32x2_t rs2);`                       | `pm2sub.w`    |
+| `int64_t __riscv_pm2suba_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `pm2suba.w`   |
+| `int64_t __riscv_pm2sub_x_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pm2sub.wx`   |
+| `int64_t __riscv_pm2suba_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2suba.wx`  |
+| `int64_t __riscv_pm2addsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`                    | `pm2addsu.w`  |
+| `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `pm2addasu.w` |
+| `int64_t __riscv_pmqr2add_i16x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`  |
+| `int64_t __riscv_pmqr2adda_i16x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w` |
+| `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`    |
+| `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`          | `pm4adda.h`   |
+| `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`   |
+| `uint64_t __riscv_pm4addau_u16x4(uint64_t rd, uint16x4_t rs1, uint16x4_t rs2);`     | `pm4addau.h`  |
+| `int64_t __riscv_pm4addsu_i16x4(int16x4_t rs1, uint16x4_t rs2);`                    | `pm4addsu.h`  |
+| `int64_t __riscv_pm4addasu_i16x4(int64_t rd, int16x4_t rs1, uint16x4_t rs2);`       | `pm4addasu.h` |
 
 ### Packed Exchanged Addition and Subtraction
 
