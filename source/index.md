@@ -1263,146 +1263,188 @@ ISA shifts and and/or/xor. Index must be a constant.
 
 #### 32-bit
 
-| Prototype                                                                      | Instruction  |
-|--------------------------------------------------------------------------------|--------------|
-| `int8_t __riscv_pget_i8x4(int8x4_t v, const unsigned idx);`                    | `srli`+`and` |
-| `uint8_t __riscv_pget_u8x4(uint8x4_t v, const unsigned idx);`                  | `srli`+`and` |
-| `int16_t __riscv_pget_i16x2(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
-| `uint16_t __riscv_pget_u16x2(uint16x4_t v, const unsigned idx);`               | `srli`+`and` |
-| `int8x4_t __riscv_pset_i8x4(int8x4_t v, int8_t e, const unsigned idx);`        | Multiple     |
-| `uint8x4_t __riscv_pset_u8x4(uint8x4_t v, uint8_t e, const unsigned idx);`     | Multiple     |
-| `int16x2_t __riscv_pset_i16x2(int16x2_t v, int16_t e, const unsigned idx);`    | Multiple     |
-| `uint16x2_t __riscv_pset_u16x2(uint16x2_t v, uint16_t e, const unsigned idx);` | Multiple     |
+| Prototype                                                                          | Instruction     |
+|------------------------------------------------------------------------------------|-----------------|
+| `int8_t __riscv_pget_i8x4_i8(int8x4_t v, const unsigned idx);`                     | `srli`+`sext.b` |
+| `uint8_t __riscv_pget_u8x4_u8(uint8x4_t v, const unsigned idx);`                   | `srli`+`zext.b` |
+| `int16_t __riscv_pget_i16x2_i16(int16x4_t v, const unsigned idx);`                 | `srli`+`sext.h` |
+| `uint16_t __riscv_pget_u16x2_u16(uint16x4_t v, const unsigned idx);`               | `srli`+`zext.h` |
+| `int8x4_t __riscv_pset_i8_i8x4(int8x4_t v, int8_t e, const unsigned idx);`         | Multiple        |
+| `uint8x4_t __riscv_pset_u8_u8x4(uint8x4_t v, uint8_t e, const unsigned idx);`      | Multiple        |
+| `int16x2_t __riscv_pset_i16_i16x2(int16x2_t v, int16_t e, const unsigned idx);`    | Multiple        |
+| `uint16x2_t __riscv_pset_u16_u16x2(uint16x2_t v, uint16_t e, const unsigned idx);` | Multiple        |
 
 #### 64-bit
 
-| Prototype                                                                      | Instruction  |
-|--------------------------------------------------------------------------------|--------------|
-| `int8_t __riscv_pget_i8x8(int8x8_t v, const unsigned idx);`                    | `srli`+`and` |
-| `uint8_t __riscv_pget_u8x8(uint8x8_t v, const unsigned idx);`                  | `srli`+`and` |
-| `int16_t __riscv_pget_i16x4(int16x4_t v, const unsigned idx);`                 | `srli`+`and` |
-| `uint16_t __riscv_pget_u16x4(uint16x4_t v, const unsigned idx);`               | `srli`+`and` |
-| `int32_t __riscv_pget_i32x2(int32x2_t v, const unsigned idx);`                 | `srli`+`and` |
-| `uint32_t __riscv_pget_u32x2(uint32x2_t v, const unsigned idx);`               | `srli`+`and` |
-| `int8x8_t __riscv_pset_i8x8(int8x8_t v, int8_t e, const unsigned idx);`        | Multiple     |
-| `uint8x8_t __riscv_pset_u8x8(uint8x8_t v, uint8_t e, const unsigned idx);`     | Multiple     |
-| `int16x4_t __riscv_pset_i16x4(int16x4_t v, int16_t e, const unsigned idx);`    | Multiple     |
-| `uint16x4_t __riscv_pset_u16x4(uint16x4_t v, uint16_t e, const unsigned idx);` | Multiple     |
-| `int32x2_t __riscv_pset_i32x2(int32x2_t v, int32_t e, const unsigned idx);`    | Multiple     |
-| `uint32x2_t __riscv_pset_u32x2(uint32x2_t v, uint32_t e, const unsigned idx);` | Multiple     |
+| Prototype                                                                          | Instruction                       |
+|------------------------------------------------------------------------------------|-----------------------------------|
+| `int8_t __riscv_pget_i8x8_i8(int8x8_t v, const unsigned idx);`                     | `srli`+`sextb`                    |
+| `uint8_t __riscv_pget_u8x8_u8(uint8x8_t v, const unsigned idx);`                   | `srli`+`zext.b`                   |
+| `int16_t __riscv_pget_i16x4_i16(int16x4_t v, const unsigned idx);`                 | `srli`+`sext.h`                   |
+| `uint16_t __riscv_pget_u16x4_u16(uint16x4_t v, const unsigned idx);`               | `srli`+`zext.h`                   |
+| `int32_t __riscv_pget_i32x2_i32(int32x2_t v, const unsigned idx);`                 | `srai`/`sext.w`(RV64), Free(RV32) |
+| `uint32_t __riscv_pget_u32x2_u32(uint32x2_t v, const unsigned idx);`               | `srli`/`zext.w`(RV64), Free(RV32) |
+| `int8x8_t __riscv_pset_i8_i8x8(int8x8_t v, int8_t e, const unsigned idx);`         | Multiple                          |
+| `uint8x8_t __riscv_pset_u8_u8x8(uint8x8_t v, uint8_t e, const unsigned idx);`      | Multiple                          |
+| `int16x4_t __riscv_pset_i16_i16x4(int16x4_t v, int16_t e, const unsigned idx);`    | Multiple                          |
+| `uint16x4_t __riscv_pset_u16_u16x4(uint16x4_t v, uint16_t e, const unsigned idx);` | Multiple                          |
+| `int32x2_t __riscv_pset_i32_i32x2(int32x2_t v, int32_t e, const unsigned idx);`    | Multiple(RV64), `mv`(RV32)        |
+| `uint32x2_t __riscv_pset_u32_u32x2(uint32x2_t v, uint32_t e, const unsigned idx);` | Multiple(RV64), `mv`(RV32)        |
+
+### Packed Element Join
+
+Intrinsics to join multiple scalars into a packed vector.
+
+#### 32-bit
+
+| Prototype                                                                      | Instruction                          |
+|--------------------------------------------------------------------------------|--------------------------------------|
+| `int8x4_t __riscv_join4_i8x4(int8_t e0, int8_t e1, int8_t e2, int8_t e3)`      | Multiple pack or ppair instructions. |
+| `uint8x4_t __riscv_join4_u8x4(uint8_t e0, uint8_t e1, uint8_t e2, uint8_t e3)` | Multiple pack or ppair instructions. |
+| `int16x2_t __riscv_join2_i16x2(int16_t e0, int16_t e1)`                        | `pack`(RV32), `ppaire.h`(RV64)       |
+| `uint16x2_t __riscv_join2_u16x2(uint16_t e0, uint16_t e1)`                     | `pack`(RV32), `ppaire.h`(RV64)       |
+
+#### 64-bit
+
+| Prototype                                                                            | Instruction                         |
+|--------------------------------------------------------------------------------------|-------------------------------------|
+| `int16x4_t __riscv_join4_i16x4(int16_t e0, int16_t e1, int16_t e2, int16_t e3)`      | Multiple pack or ppair instructions |
+| `uint16x4_t __riscv_join4_u16x4(uint16_t e0, uint16_t e1, uint16_t e2, uint16_t e3)` | Multiple pack or ppair instructions |
+| `int32x2_t __riscv_join2_i32x2(int32_t e0, int32_t e1)`                              | `mv`(RV32), `ppaire.h`(RV64)        |
+| `uint32x2_t __riscv_join2_u32x2(uint32_t e0, uint32_t e1)`                           | `mv`(RV32), `ppaire.h`(RV64)        |
 
 ### Packed Subvector Insert and Extract
 
-Intrinsics to convert between 32-bit and 64-bit packed vectors. The index
+Intrinsics to insert or extract 32-bit packed subvectors from 64-bit packed vectors. The index
 specifies which subvector to extract. 0 - low, 1 - high.
 
-| Prototype                                                                          | Instruction   |
-|------------------------------------------------------------------------------------|---------------|
-| `int8x4_t __riscv_pget32_i8x8(int8x8_t v, const unsigned idx);`                    | Multiple      |
-| `uint8x4_t __riscv_pget32_u8x8(uint8x8_t v, const unsigned idx);`                  | Multiple      |
-| `int16x2_t __riscv_pget32_i16x4(int16x4_t v, const unsigned idx);`                 | Multiple      |
-| `uint16x2_t __riscv_pget32_u16x4(uint16x4_t , const unsigned idx);`                | Multiple      |
-| `int8x8_t __riscv_pset32_i8x8(int8x8_t v, int8x4_t s, const unsigned idx);`        | Multiple      |
-| `uint8x8_t __riscv_pset32_u8x8(uint8x8_t v, uint8x4_t s, const unsigned idx);`     | Multiple      |
-| `int16x4_t __riscv_pset32_i16x4(int16x4_t v, int16x2_t s, const unsigned idx);`    | Multiple      |
-| `uint16x4_t __riscv_pset32_u16x4(uint16x4_t v, uint16x2_t s, const unsigned idx);` | Multiple      |
-| `int8x8_t __riscv_pcreate32_i8x8(int8x4_t lo, int8x4_t hi);`                       | Multiple      |
-| `uint8x8_t __riscv_pcreate32_i8x8(uint8x4_t lo, uint8x4_t hi);`                    | Multiple      |
-| `int16x4_t __riscv_pcreate32_i16x4(int16x2_t lo, int16x2_t hi);`                   | Multiple      |
-| `uint16x4_t __riscv_pcreate32_i16x4(uint16x2_t lo, uint16x2_t hi);`                | Multiple      |
+| Prototype                                                                              | Instruction   |
+|----------------------------------------------------------------------------------------|---------------|
+| `int8x4_t __riscv_pget_i8x8_i8x4(int8x8_t v, const unsigned idx);`                     | `srai`/`sext.w`(RV64), Free(RV32)    |
+| `uint8x4_t __riscv_pget_u8x8_u8x4(uint8x8_t v, const unsigned idx);`                   | `srli`/`zext.w`(RV64), Free(RV32)    |
+| `int16x2_t __riscv_pget_i16x4_i16x2(int16x4_t v, const unsigned idx);`                 | `srai`/`sext.w`(RV64), Free(RV32)    |
+| `uint16x2_t __riscv_pget_u16x4_u16x2(uint16x4_t , const unsigned idx);`                | `srli`/`zext.w`(RV64), Free(RV32)    |
+| `int8x8_t __riscv_pset_i8x4_i8x8(int8x8_t v, int8x4_t s, const unsigned idx);`         | Multiple(RV64), `mv`(RV32)           |
+| `uint8x8_t __riscv_pset_u8x4_u8x8(uint8x8_t v, uint8x4_t s, const unsigned idx);`      | Multiple(RV64), `mv`(RV32)           |
+| `int16x4_t __riscv_pset_i16x2_i16x4(int16x4_t v, int16x2_t s, const unsigned idx);`    | `pack`/`ppaireo.w`(RV64), `mv`(RV32) |
+| `uint16x4_t __riscv_pset_u16x2_u16x4(uint16x4_t v, uint16x2_t s, const unsigned idx);` | `pack`/`ppaireo.w`(RV64), `mv`(RV32) |
+
+
+### Packed Subvector Join
+
+Intrinsics to join multiple 32-bit subvectors into a 64-bit vector.
+
+| Prototype                                                        | Instruction                                  |
+|------------------------------------------------------------------|----------------------------------------------|
+| `int8x8_t __riscv_pjoin2_i8x8(int8x4_t lo, int8x4_t hi);`        | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
+| `uint8x8_t __riscv_pjoin2_i8x8(uint8x4_t lo, uint8x4_t hi);`     | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
+| `int16x4_t __riscv_pjoin2_i16x4(int16x2_t lo, int16x2_t hi);`    | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
+| `uint16x4_t __riscv_pjoin2_i16x4(uint16x2_t lo, uint16x2_t hi);` | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
 
 ## Reinterpret casts
 
 ### Packed <-> Scalar
 
+#### 32-bit
+
 | Prototype                                                        |
 |------------------------------------------------------------------|
-| `uint32_t __riscv_preinterpret_u32_u8x4(uint8x4_t x);`           |
-| `uint32_t __riscv_preinterpret_u32_u16x2(uint16x2_t x);`         |
-| `uint32_t __riscv_preinterpret_u32_i8x4(int8x4_t x);`            |
-| `uint32_t __riscv_preinterpret_u32_i16x2(int16x2_t x);`          |
-| `int32_t __riscv_preinterpret_i32_u8x4(uint8x4_t x);`            |
-| `int32_t __riscv_preinterpret_i32_u16x2(uint16x2_t x);`          |
-| `int32_t __riscv_preinterpret_i32_i8x4(int8x4_t x);`             |
-| `int32_t __riscv_preinterpret_i32_i16x2(int16x2_t x);`           |
-| `uint8x4_t __riscv_preinterpret_u8x4_u32(uint32_t x);`           |
-| `uint16x2_t __riscv_preinterpret_u16x2_u32(uint32_t x);`         |
-| `int8x4_t __riscv_preinterpret_i8x4_u32(uint32_t x);`            |
-| `int16x2_t __riscv_preinterpret_i16x2_u32(uint32_t x);`          |
-| `uint8x4_t __riscv_preinterpret_u8x4_i32(int32_t x);`            |
-| `uint16x2_t __riscv_preinterpret_u16x2_i32(int32_t x);`          |
-| `int8x4_t __riscv_preinterpret_i8x4_i32(int32_t x);`             |
-| `int16x2_t __riscv_preinterpret_i16x2_i32(int32_t x);`           |
-| `uint64_t __riscv_preinterpret_u32_u8x8(uint8x8_t x);`           |
-| `uint64_t __riscv_preinterpret_u32_u16x4(uint16x4_t x);`         |
-| `uint64_t __riscv_preinterpret_u32_u32x2(uint32x2_t x);`         |
-| `uint64_t __riscv_preinterpret_u32_i8x8(int8x8_t x);`            |
-| `uint64_t __riscv_preinterpret_u32_i16x4(int16x4_t x);`          |
-| `uint64_t __riscv_preinterpret_u32_i32x2(int32x2_t x);`          |
-| `int64_t __riscv_preinterpret_i32_u8x8(uint8x8_t x);`            |
-| `int64_t __riscv_preinterpret_i32_u16x4(uint16x4_t x);`          |
-| `int64_t __riscv_preinterpret_i32_u32x2(uint32x2_t x);`          |
-| `int64_t __riscv_preinterpret_i32_i8x8(int8x8_t x);`             |
-| `int64_t __riscv_preinterpret_i32_i16x4(int16x4_t x);`           |
-| `int64_t __riscv_preinterpret_i32_i32x2(int32x2_t x);`           |
-| `uint8x8_t __riscv_preinterpret_u8x8_u64(uint64_t x);`           |
-| `uint16x4_t __riscv_preinterpret_u16x4_u64(uint64_t x);`         |
-| `uint32x2_t __riscv_preinterpret_u64x2_u64(uint64_t x);`         |
-| `int8x8_t __riscv_preinterpret_i8x8_u64(uint64_t x);`            |
-| `int16x4_t __riscv_preinterpret_i16x4_u64(uint64_t x);`          |
-| `int32x2_t __riscv_preinterpret_i32x2_u64(uint64_t x);`          |
-| `uint8x8_t __riscv_preinterpret_u8x8_i64(int64_t x);`            |
-| `uint16x4_t __riscv_preinterpret_u16x4_i64(int64_t x);`          |
-| `uint32x2_t __riscv_preinterpret_u32x2_i64(int64_t x);`          |
-| `int8x8_t __riscv_preinterpret_i8x8_i64(int64_t x);`             |
-| `int16x4_t __riscv_preinterpret_i16x4_i64(int64_t x);`           |
-| `int32x2_t __riscv_preinterpret_i32x2_i64(int64_t x);`           |
+| `uint32_t __riscv_preinterpret_u8x4_u32(uint8x4_t x);`           |
+| `uint32_t __riscv_preinterpret_u16x2_u32(uint16x2_t x);`         |
+| `uint32_t __riscv_preinterpret_i8x4_u32(int8x4_t x);`            |
+| `uint32_t __riscv_preinterpret_i16x2_u32(int16x2_t x);`          |
+| `int32_t __riscv_preinterpret_u8x4_i32(uint8x4_t x);`            |
+| `int32_t __riscv_preinterpret_u16x2_i32(uint16x2_t x);`          |
+| `int32_t __riscv_preinterpret_i8x4_i32(int8x4_t x);`             |
+| `int32_t __riscv_preinterpret_i16x2_i32(int16x2_t x);`           |
+| `uint8x4_t __riscv_preinterpret_u32_u8x4(uint32_t x);`           |
+| `uint16x2_t __riscv_preinterpret_u32_u16x2(uint32_t x);`         |
+| `int8x4_t __riscv_preinterpret_u32_i8x4(uint32_t x);`            |
+| `int16x2_t __riscv_preinterpret_u32_i16x2(uint32_t x);`          |
+| `uint8x4_t __riscv_preinterpret_i32_u8x4(int32_t x);`            |
+| `uint16x2_t __riscv_preinterpret_i32_u16x2(int32_t x);`          |
+| `int8x4_t __riscv_preinterpret_i32_i8x4(int32_t x);`             |
+| `int16x2_t __riscv_preinterpret_i32_i16x2(int32_t x);`           |
+
+#### 64-bit
+
+| Prototype                                                        |
+|------------------------------------------------------------------|
+| `uint64_t __riscv_preinterpret_u8x8_u64(uint8x8_t x);`           |
+| `uint64_t __riscv_preinterpret_u16x4_u64(uint16x4_t x);`         |
+| `uint64_t __riscv_preinterpret_u32x2_u64(uint32x2_t x);`         |
+| `uint64_t __riscv_preinterpret_i8x8_u64(int8x8_t x);`            |
+| `uint64_t __riscv_preinterpret_i16x4_u64(int16x4_t x);`          |
+| `uint64_t __riscv_preinterpret_i32x2_u64(int32x2_t x);`          |
+| `int64_t __riscv_preinterpret_u8x8_i64(uint8x8_t x);`            |
+| `int64_t __riscv_preinterpret_u16x4_i64(uint16x4_t x);`          |
+| `int64_t __riscv_preinterpret_u32x2_i64(uint32x2_t x);`          |
+| `int64_t __riscv_preinterpret_i8x8_i64(int8x8_t x);`             |
+| `int64_t __riscv_preinterpret_i16x4_i64(int16x4_t x);`           |
+| `int64_t __riscv_preinterpret_i32x2_i64(int32x2_t x);`           |
+| `uint8x8_t __riscv_preinterpret_u64_u8x8(uint64_t x);`           |
+| `uint16x4_t __riscv_preinterpret_u64_u16x4(uint64_t x);`         |
+| `uint32x2_t __riscv_preinterpret_u64_u64x2(uint64_t x);`         |
+| `int8x8_t __riscv_preinterpret_u64_i8x8(uint64_t x);`            |
+| `int16x4_t __riscv_preinterpret_u64_i16x4(uint64_t x);`          |
+| `int32x2_t __riscv_preinterpret_u64_i32x2(uint64_t x);`          |
+| `uint8x8_t __riscv_preinterpret_i64_u8x8(int64_t x);`            |
+| `uint16x4_t __riscv_preinterpret_i64_u16x4(int64_t x);`          |
+| `uint32x2_t __riscv_preinterpret_i64_u32x2(int64_t x);`          |
+| `int8x8_t __riscv_preinterpret_i64_i8x8(int64_t x);`             |
+| `int16x4_t __riscv_preinterpret_i64_i16x4(int64_t x);`           |
+| `int32x2_t __riscv_preinterpret_i64_i32x2(int64_t x);`           |
 
 ### Packed <-> Packed
 
+#### 32-bit
+
 | Prototype                                                        |
 |------------------------------------------------------------------|
-| `uint8x4_t __riscv_preinterpet_u8x4_i8x4(int8x4_t x);`           |
-| `uint8x4_t __riscv_preinterpet_u8x4_u16x2(uint16x2_t x);`        |
-| `uint8x4_t __riscv_preinterpet_u8x4_i16x2(int16x2_t x);`         |
-| `int8x4_t __riscv_preinterpet_i8x4_u8x4(uint8x4_t x);`           |
-| `int8x4_t __riscv_preinterpet_i8x4_u16x2(uint16x2_t x);`         |
-| `int8x4_t __riscv_preinterpet_i8x4_i16x2(int16x2_t x);`          |
-| `uint16x2_t __riscv_preinterpet_u16x2_u8x4(uint8x4_t x);`        |
-| `uint16x2_t __riscv_preinterpet_u16x2_i8x4(int8x4_t x);`         |
-| `uint16x2_t __riscv_preinterpet_u16x2_i16x2(int16x2_t x);`       |
-| `int16x2_t __riscv_preinterpet_i16x2_u8x4(uint8x4_t x);`         |
-| `int16x2_t __riscv_preinterpet_i16x2_i8x4(int8x4_t x);`          |
-| `int16x2_t __riscv_preinterpet_i16x2_u16x2(uint16x2_t x);`       |
-| `uint8x8_t __riscv_preinterpet_u8x8_i8x8(int8x8_t x);`           |
-| `uint8x8_t __riscv_preinterpet_u8x8_u16x4(uint16x4_t x);`        |
-| `uint8x8_t __riscv_preinterpet_u8x8_i16x4(int16x4_t x);`         |
-| `uint8x8_t __riscv_preinterpet_u8x8_u16x4(uint16x4_t x);`        |
-| `uint8x8_t __riscv_preinterpet_u8x8_i16x4(int16x4_t x);`         |
-| `uint8x8_t __riscv_preinterpet_u8x8_u32x2(uint32x2_t x);`        |
-| `uint8x8_t __riscv_preinterpet_u8x8_i32x2(int32x2_t x);`         |
-| `int8x8_t __riscv_preinterpet_i8x8_u8x8(uint8x8_t x);`           |
-| `int8x8_t __riscv_preinterpet_i8x8_u16x4(uint16x4_t x);`         |
-| `int8x8_t __riscv_preinterpet_i8x8_i16x4(int16x4_t x);`          |
-| `int8x8_t __riscv_preinterpet_i8x8_u32x2(uint32x2_t x);`         |
-| `int8x8_t __riscv_preinterpet_i8x8_i32x2(int32x2_t x);`          |
-| `uint16x4_t __riscv_preinterpet_u16x4_u8x8(uint8x8_t x);`        |
-| `uint16x4_t __riscv_preinterpet_u16x4_i8x8(int8x8_t x);`         |
-| `uint16x4_t __riscv_preinterpet_u16x4_i16x4(int16x4_t x);`       |
-| `uint16x4_t __riscv_preinterpet_u16x4_u32x2(uint32x2_t x);`      |
-| `uint16x4_t __riscv_preinterpet_u16x4_i32x2(int32x2_t x);`       |
-| `int16x4_t __riscv_preinterpet_i16x4_u8x8(uint8x8_t x);`         |
-| `int16x4_t __riscv_preinterpet_i16x4_i8x8(int8x8_t x);`          |
-| `int16x4_t __riscv_preinterpet_i16x4_u16x4(uint16x4_t x);`       |
-| `int16x4_t __riscv_preinterpet_i16x4_u32x2(uint32x2_t x);`       |
-| `int16x4_t __riscv_preinterpet_i16x4_i32x2(int32x2_t x);`        |
-| `uint32x2_t __riscv_preinterpet_u32x2_u8x8(uint8x8_t x);`        |
-| `uint32x2_t __riscv_preinterpet_u32x2_i8x8(int8x8_t x);`         |
-| `uint32x2_t __riscv_preinterpet_u32x2_u16x4(uint16x4_t x);`      |
-| `uint32x2_t __riscv_preinterpet_u32x2_i16x4(int16x4_t x);`       |
-| `uint32x2_t __riscv_preinterpet_u32x2_i32x2(int32x2_t x);`       |
-| `int32x2_t __riscv_preinterpet_i32x2_u8x8(uint8x8_t x);`         |
-| `int32x2_t __riscv_preinterpet_i32x2_i8x8(int8x8_t x);`          |
-| `int32x2_t __riscv_preinterpet_i32x2_u16x4(uint16x4_t x);`       |
-| `int32x2_t __riscv_preinterpet_i32x2_i16x4(int16x4_t x);`        |
-| `int32x2_t __riscv_preinterpet_i32x2_u32x2(uint32x2_t x);`       |
+| `uint8x4_t __riscv_preinterpet_i8x4_u8x4(int8x4_t x);`           |
+| `uint8x4_t __riscv_preinterpet_u16x2_u8x4(uint16x2_t x);`        |
+| `uint8x4_t __riscv_preinterpet_i16x2_u8x4(int16x2_t x);`         |
+| `int8x4_t __riscv_preinterpet_u8x4_i8x4(uint8x4_t x);`           |
+| `int8x4_t __riscv_preinterpet_u16x2_i8x4(uint16x2_t x);`         |
+| `int8x4_t __riscv_preinterpet_i16x2_i8x4(int16x2_t x);`          |
+| `uint16x2_t __riscv_preinterpet_u8x4_u16x2(uint8x4_t x);`        |
+| `uint16x2_t __riscv_preinterpet_i8x4_u16x2(int8x4_t x);`         |
+| `uint16x2_t __riscv_preinterpet_i16x2_u16x2(int16x2_t x);`       |
+| `int16x2_t __riscv_preinterpet_u8x4_i16x2(uint8x4_t x);`         |
+| `int16x2_t __riscv_preinterpet_i8x4_i16x2(int8x4_t x);`          |
+| `int16x2_t __riscv_preinterpet_u16x2_i16x2(uint16x2_t x);`       |
+
+#### 64-bit
+
+| Prototype                                                        |
+|------------------------------------------------------------------|
+| `uint8x8_t __riscv_preinterpet_i8x8_u8x8(int8x8_t x);`           |
+| `uint8x8_t __riscv_preinterpet_u16x4_u8x8(uint16x4_t x);`        |
+| `uint8x8_t __riscv_preinterpet_i16x4_u8x8(int16x4_t x);`         |
+| `uint8x8_t __riscv_preinterpet_u32x2_u8x8(uint32x2_t x);`        |
+| `uint8x8_t __riscv_preinterpet_i32x2_u8x8(int32x2_t x);`         |
+| `int8x8_t __riscv_preinterpet_u8x8_i8x8(uint8x8_t x);`           |
+| `int8x8_t __riscv_preinterpet_u16x4_i8x8(uint16x4_t x);`         |
+| `int8x8_t __riscv_preinterpet_i16x4_i8x8(int16x4_t x);`          |
+| `int8x8_t __riscv_preinterpet_u32x2_i8x8(uint32x2_t x);`         |
+| `int8x8_t __riscv_preinterpet_i32x2_i8x8(int32x2_t x);`          |
+| `uint16x4_t __riscv_preinterpet_u8x8_u16x4(uint8x8_t x);`        |
+| `uint16x4_t __riscv_preinterpet_i8x8_u16x4(int8x8_t x);`         |
+| `uint16x4_t __riscv_preinterpet_i16x4_u16x4(int16x4_t x);`       |
+| `uint16x4_t __riscv_preinterpet_u32x2_u16x4(uint32x2_t x);`      |
+| `uint16x4_t __riscv_preinterpet_i32x2_u16x4(int32x2_t x);`       |
+| `int16x4_t __riscv_preinterpet_u8x8_i16x4(uint8x8_t x);`         |
+| `int16x4_t __riscv_preinterpet_i8x8_i16x4(int8x8_t x);`          |
+| `int16x4_t __riscv_preinterpet_u16x4_i16x4(uint16x4_t x);`       |
+| `int16x4_t __riscv_preinterpet_u32x2_i16x4(uint32x2_t x);`       |
+| `int16x4_t __riscv_preinterpet_i32x2_i16x4(int32x2_t x);`        |
+| `uint32x2_t __riscv_preinterpet_u8x8_u32x2(uint8x8_t x);`        |
+| `uint32x2_t __riscv_preinterpet_i8x8_u32x2(int8x8_t x);`         |
+| `uint32x2_t __riscv_preinterpet_u16x4_u32x2(uint16x4_t x);`      |
+| `uint32x2_t __riscv_preinterpet_i16x4_u32x2(int16x4_t x);`       |
+| `uint32x2_t __riscv_preinterpet_i32x2_u32x2(int32x2_t x);`       |
+| `int32x2_t __riscv_preinterpet_u8x8_i32x2(uint8x8_t x);`         |
+| `int32x2_t __riscv_preinterpet_i8x8_i32x2(int8x8_t x);`          |
+| `int32x2_t __riscv_preinterpet_u16x4_i32x2(uint16x4_t x);`       |
+| `int32x2_t __riscv_preinterpet_i16x4_i32x2(int16x4_t x);`        |
+| `int32x2_t __riscv_preinterpet_u32x2_i32x2(uint32x2_t x);`       |
