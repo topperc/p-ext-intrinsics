@@ -32,18 +32,19 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_ssh1sadd_32(int32_t rs1, int32_t rs2);`                 | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
 | `int32_t __riscv_mulh_32(int32_t rs1, int32_t rs2);`                     | `mulh`(RV32), various(RV64)           | Emulated on RV64                                   |
 | `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
+| `int32_t __riscv_mhacc_32(int32_t rd, int32_t rs1, int32_t rs2);`        | `mhacc`(RV32), `pmhacc.w`?(RV64)      |                                                    |
 | `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
 | `uint32_t __riscv_mulhu_32(uint32_t rs1, uint32_t rs2);`                 | `mulhu`(RV32), various(RV64)          | Emulated on RV64                                   |
 | `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
+| `uint32_t __riscv_mhaccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`   | `mhaccu`(RV32), `pmhaccu.w`?(RV64)    |                                                    |
 | `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhraccu`(RV32), `pmhraccu.w`(RV64)   |                                                    |
 | `int32_t __riscv_mulhsu_32(int32_t rs1, uint32_t rs2);`                  | `mulhsu`(RV32), various(RV64)         | Emulated on RV64                                   |
 | `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);`                 | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
+| `int32_t __riscv_mhaccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`     | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)  |                                                    |
 | `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
 | `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
 | `int32_t __riscv_mulqr_32(int32_t rs1, uint32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
 
-* TODO: Do we need intrinsic for MHACC(U)
-* TODO: Do we need intrinsic for MULHRACC(U)
 * TODO: Do we need intrinsics for MSEQ/MSLT/MSLTU
 * TODO: How to handle VXSAT?
 
