@@ -30,10 +30,13 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_srari_32(int32_t rs1, const unsigned shamt);`           | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
 | `int32_t __riscv_sati_32(int32_t rs1, const unsigned shamt);`            | `sati`(RV32), `psati.w`(RV64)         |                                                    |
 | `int32_t __riscv_ssh1sadd_32(int32_t rs1, int32_t rs2);`                 | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
+| `int32_t __riscv_mulh_32(int32_t rs1, int32_t rs2);`                     | `mulh`(RV32), various(RV64)           | Emulated on RV64                                   |
 | `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
 | `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
+| `uint32_t __riscv_mulhu_32(uint32_t rs1, uint32_t rs2);`                 | `mulhu`(RV32), various(RV64)          | Emulated on RV64                                   |
 | `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
 | `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhraccu`(RV32), `pmhraccu.w`(RV64)   |                                                    |
+| `int32_t __riscv_mulhsu_32(int32_t rs1, uint32_t rs2);`                  | `mulhsu`(RV32), various(RV64)         | Emulated on RV64                                   |
 | `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);`                 | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
 | `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
 | `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
