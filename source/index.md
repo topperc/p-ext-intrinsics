@@ -124,8 +124,6 @@ The intrinsic interface is designed as much as possible to be source code portab
 on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
 * TODO: Packed intrinsics for (un)zip(8|16)8(h)p?
-* TODO: `__riscv_pm2add_x_i16x2` or `__riscv_pm2addx_i16x2`
-* TODO: Should we have (u)int32x1_t for symmetry with (u)int32x2_t. Intrinsics would then be named __riscv_p*.
 
 ### Packed Splat
 
@@ -855,8 +853,6 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 
 ### Packed Multiply Parts
 
-* TODO: Is the input type here what we want?
-
 #### 32-bit
 
 | Prototype                                                            | Instruction                             |
@@ -911,8 +907,6 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 
 ### Packed Multiply Parts Accumulate
 
-* TODO: Is the input type here what we want?
-
 #### 32-bit
 
 | Prototype                                                                          | Instruction                               |
@@ -952,8 +946,6 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 
 ### Packed "Q-format" Multiply Parts Accumulate
 
-* TODO: Is the input type here what we want?
-
 #### 32-bit
 
 | Prototype                                                                          | Instruction                               |
@@ -986,8 +978,6 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 
 ### Packed Multiply High Parts
 
-* TODO: Is the input type here what we want?
-
 #### 32-bit
 
 | Prototype                                                            | Instruction                             |
@@ -1017,8 +1007,6 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 | `int32x2_t __riscv_pmulhsu_b1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`                          |
 
 ### Packed Multiply High Parts Accumulate
-
-* TODO: Is the input type here what we want?
 
 #### 32-bit
 
