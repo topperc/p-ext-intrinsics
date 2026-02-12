@@ -29,7 +29,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_usati_32(int32_t rs1, const unsigned shamt);`          | `usati`(RV32), `pusati.w`(RV64)       |                                                    |
 | `int32_t __riscv_srari_32(int32_t rs1, const unsigned shamt);`           | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
 | `int32_t __riscv_sati_32(int32_t rs1, const unsigned shamt);`            | `sati`(RV32), `psati.w`(RV64)         |                                                    |
-| `int32_t __riscv_ssh1sadd_32(int32_t rs1, const unsigned shamt);`        | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
+| `int32_t __riscv_ssh1sadd_32(int32_t rs1, int32_t rs2);`                 | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
 | `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
 | `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
 | `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
