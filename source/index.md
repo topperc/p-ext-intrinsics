@@ -50,30 +50,12 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 |------------------------------------------------------------------------|-----------------------------|
 | `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                       |
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                       |
-| `uint64_t __riscv_wsll_64(uint32_t rs1, unsigned shamt);`              | `wsll[i]`                   |
-| `int64_t __riscv_wsla_64(int32_t rs1, unsigned shamt);`                | `wsla[i]`                   |
 | `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                    |
 | `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                   |
-| `int64_t __riscv_wadd_64(int32_t rs1, int32_t rs2);`                   | `wadd`                      |
-| `int64_t __riscv_wadda_64(int64_t rd, int32_t rs1, int32_t rs2);`      | `wadda`                     |
-| `uint64_t __riscv_waddu_64(uint32_t rs1, uint32_t rs2);`               | `waddu`                     |
-| `uint64_t __riscv_waddau_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `waddau`                    |
-| `int64_t __riscv_wmul_64(int32_t rs1, int32_t rs2);`                   | `wmul`                      |
-| `int64_t __riscv_wmacc_64(int32_t rd, int32_t rs1, int32_t rs2);`      | `wmacc`                     |
-| `int64_t __riscv_wmulu_64(uint32_t rs1, uint32_t rs2);`                | `wmulu`                     |
-| `uint64_t __riscv_wmaccu_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wmaccu`                    |
-| `int64_t __riscv_wsub_64(int32_t rs1, int32_t rs2);`                   | `wsub`                      |
-| `int64_t __riscv_wsuba_64(int64_t rd, int32_t rs1, int32_t rs2);`      | `wsuba`                     |
-| `uint64_t __riscv_wsubu_64(uint32_t rs1, uint32_t rs2);`               | `wsubu`                     |
-| `uint64_t __riscv_wsubau_64(uint64_t rd, uint32_t rs1, uint32_t rs2);` | `wsubau`                    |
-| `int64_t __riscv_wmulsu_64(int32_t rs1, uint32_t rs2);`                | `wmulsu`                    |
-| `int64_t __riscv_wmaccsu_64(int64_t rd, int32_t rs1, uint32_t rs2);`   | `wmaccsu`                   |
 | `int64_t __riscv_mqwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                    |
 | `int64_t __riscv_mqrwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                   |
-| `uint32_t __riscv_nsrl_32(uint64_t rs1_p, uint32_t rs2);`              | `nsrl[i]`                   |
 | `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | `nclip[i]u`                 |
 | `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | `nclipr[i]u`                |
-| `int32_t __riscv_nsra_32(int64_t rs1_p, uint32_t rs2);`                | `nsra[i]`                   |
 | `int32_t __riscv_nsrar_32(int64_t rs1_p, uint32_t rs2);`               | `nsrar[i]`                  |
 | `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | `nclip[i]`                  |
 | `int32_t __riscv_nclipr_32(int64_t rs1_p, uint32_t rs2);`              | `nclipr[i]`                 |
