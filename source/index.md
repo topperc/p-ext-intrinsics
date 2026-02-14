@@ -44,35 +44,31 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
 | `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
 | `int32_t __riscv_mulqr_32(int32_t rs1, uint32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
-| `uint32_t __riscv_mseq_u32(int32_t rs1, int32_t rs2);`                   | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
-| `int32_t __riscv_mseq_i32(uint32_t rs1, uint32_t rs2);`                  | `mseq`(RV32), `pmseq.w`(RV64)         |                                                    |
-| `uint32_t __riscv_mslt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         |                                                    |
-| `int32_t __riscv_mslt_i32(uint32_t rs1, uint32_t rs2);`                  | `mslt`(RV32), `pmslt.w`(RV64)         |                                                    |
-| `uint32_t __riscv_msgt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         | Swapped operands to use pmslt                      |
-| `int32_t __riscv_msgt_i32(uint32_t rs1, uint32_t rs2);`                  | `mslt`(RV32), `pmslt.w`(RV64)         | Swapped operands to use pmslt                      |
-| `uint32_t __riscv_msltu_u32(int32_t rs1, int32_t rs2);`                  | `msltu`(RV32), `pmsltu.w`(RV64)       |                                                    |
-| `int32_t __riscv_msltu_i32(uint32_t rs1, uint32_t rs2);`                 | `msltu`(RV32), `pmsltu.w`(RV64)       |                                                    |
-| `uint32_t __riscv_msgtu_u32(int32_t rs1, int32_t rs2);`                  | `msltu`(RV32), `pmsltu.w`(RV64)       | Swapped operands to use pmslt                      |
-| `int32_t __riscv_msgtu_i32(uint32_t rs1, uint32_t rs2);`                 | `msltu`(RV32), `pmsltu.w`(RV64)       | Swapped operands to use pmslt                      |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
 
 ### RV32 Only Scalar Intrinsics
 
-| Prototype                                                              | Instruction                 |
-|------------------------------------------------------------------------|-----------------------------|
-| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                       |
-| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                       |
-| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                    |
-| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                   |
-| `int64_t __riscv_mqwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                    |
-| `int64_t __riscv_mqrwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                   |
-| `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | `nclip[i]u`                 |
-| `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | `nclipr[i]u`                |
-| `int32_t __riscv_nsrar_32(int64_t rs1_p, uint32_t rs2);`               | `nsrar[i]`                  |
-| `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | `nclip[i]`                  |
-| `int32_t __riscv_nclipr_32(int64_t rs1_p, uint32_t rs2);`              | `nclipr[i]`                 |
+| Prototype                                                              | Instruction                     | Notes                         |
+|------------------------------------------------------------------------|---------------------------------|-------------------------------|
+| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                           |                               |
+| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                           |                               |
+| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
+| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
+| `int64_t __riscv_mqwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                        |                               |
+| `int64_t __riscv_mqrwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                       |                               |
+| `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | `nclip[i]u`                     |                               |
+| `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | `nclipr[i]u`                    |                               |
+| `int32_t __riscv_nsrar_32(int64_t rs1_p, uint32_t rs2);`               | `nsrar[i]`                      |                               |
+| `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | `nclip[i]`                      |                               |
+| `int32_t __riscv_nclipr_32(int64_t rs1_p, uint32_t rs2);`              | `nclipr[i]`                     |                               |
+| `uint32_t __riscv_mseq_i32(int32_t rs1, int32_t rs2);`                 | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
+| `uint32_t __riscv_mseq_u32(uint32_t rs1, uint32_t rs2);`               | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
+| `uint32_t __riscv_mslt_i32(int32_t rs1, int32_t rs2);`                 | `mslt`(RV32), `pmslt.w`(RV64)   |                               |
+| `uint32_t __riscv_msgt_i32(int32_t rs1, int32_t rs2);`                 | `mslt`(RV32), `pmslt.w`(RV64)   | Swap operands and use pmslt   |
+| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`              | `msltu`(RV32), `pmsltu.w`(RV64) |                               |
+| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`              | `msltu`(RV32), `pmsltu.w`(RV64) | Swap operands and use pmsltu  |
 
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
 
