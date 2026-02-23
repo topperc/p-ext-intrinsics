@@ -10,40 +10,42 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 ### Scalar Intrinsics Common to RV32 and RV64
 
+* TODO: cls and rev names match clz/ctz/rev8 names from bitmanip
+
 | Prototype                                                                | Instruction                           | Notes                                              |
 |--------------------------------------------------------------------------|---------------------------------------|----------------------------------------------------|
-| `uint32_t __riscv_abs_32(int32_t rs1);`                                  | `abs[w]`                              |                                                    |
+| `uint32_t __riscv_abs_u32(int32_t rs1);`                                 | `abs[w]`                              |                                                    |
 | `unsigned __riscv_cls_32(int32_t rs1);`                                  | `cls[w]`                              |                                                    |
 | `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | `rev`                                 | Emulated with rev+srai on RV64                     |
-| `int32_t __riscv_sslai_32(int32_t rs1, const unsigned shamt);`           | `sslai`(RV32), `psslai.w`(RV64)       |                                                    |
-| `int32_t __riscv_ssha_32(int32_t rs1, int rs2);`                         | `ssha`(RV32), `pssha.ws`(RV64)        |                                                    |
-| `int32_t __riscv_sshar_32(int32_t rs1, int rs2);`                        | `sshar`(RV32), `psshar.ws`(RV64)      |                                                    |
-| `int32_t __riscv_sadd_32(int32_t rs1, int32_t rs2);`                     | `sadd`(RV32), `psadd.w`(RV64)         |                                                    |
-| `int32_t __riscv_aadd_32(int32_t rs1, int32_t rs2);`                     | `aadd`(RV32), `paadd.w`(RV64)         |                                                    |
-| `uint32_t __riscv_saddu_32(uint32_t rs1, uint32_t rs2);`                 | `saddu`(RV32), `psaddu.w`(RV64)       |                                                    |
-| `uint32_t __riscv_aaddu_32(uint32_t rs1, uint32_t rs2);`                 | `aaddu`(RV32), `paaddu.w`(RV64)       |                                                    |
-| `int32_t __riscv_ssub_32(int32_t rs1, int32_t rs2);`                     | `ssub`(RV32), `pssub.w`(RV64)         |                                                    |
-| `int32_t __riscv_asub_32(int32_t rs1, int32_t rs2);`                     | `asub`(RV32), `pasub.w`(RV64)         |                                                    |
-| `uint32_t __riscv_ssubu_32(uint32_t rs1, uint32_t rs2);`                 | `ssubu`(RV32), `pssubu.w`(RV64)       |                                                    |
-| `uint32_t __riscv_asubu_32(uint32_t rs1, uint32_t rs2);`                 | `asubu`(RV32), `pasubu.w`(RV64)       |                                                    |
-| `uint32_t __riscv_usati_32(int32_t rs1, const unsigned shamt);`          | `usati`(RV32), `pusati.w`(RV64)       |                                                    |
-| `int32_t __riscv_srari_32(int32_t rs1, const unsigned shamt);`           | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
-| `int32_t __riscv_sati_32(int32_t rs1, const unsigned shamt);`            | `sati`(RV32), `psati.w`(RV64)         |                                                    |
-| `int32_t __riscv_ssh1sadd_32(int32_t rs1, int32_t rs2);`                 | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
-| `int32_t __riscv_mulh_32(int32_t rs1, int32_t rs2);`                     | `mulh`(RV32), various(RV64)           | Emulated on RV64                                   |
-| `int32_t __riscv_mulhr_32(int32_t rs1, int32_t rs2);`                    | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
-| `int32_t __riscv_mhacc_32(int32_t rd, int32_t rs1, int32_t rs2);`        | `mhacc`(RV32), `pmhacc.w`?(RV64)      |                                                    |
-| `int32_t __riscv_mhracc_32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
-| `uint32_t __riscv_mulhu_32(uint32_t rs1, uint32_t rs2);`                 | `mulhu`(RV32), various(RV64)          | Emulated on RV64                                   |
-| `uint32_t __riscv_mulhru_32(uint32_t rs1, uint32_t rs2);`                | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
-| `uint32_t __riscv_mhaccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`   | `mhaccu`(RV32), `pmhaccu.w`?(RV64)    |                                                    |
-| `uint32_t __riscv_mhraccu_32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhraccu`(RV32), `pmhraccu.w`(RV64)   |                                                    |
-| `int32_t __riscv_mulhsu_32(int32_t rs1, uint32_t rs2);`                  | `mulhsu`(RV32), various(RV64)         | Emulated on RV64                                   |
-| `int32_t __riscv_mulhrsu_32(int32_t rs1, uint32_t rs2);`                 | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
-| `int32_t __riscv_mhaccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`     | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)  |                                                    |
-| `int32_t __riscv_mhraccsu_32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
-| `int32_t __riscv_mulq_32(int32_t rs1, uint32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
-| `int32_t __riscv_mulqr_32(int32_t rs1, uint32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
+| `int32_t __riscv_sslai_i32(int32_t rs1, const unsigned shamt);`          | `sslai`(RV32), `psslai.w`(RV64)       |                                                    |
+| `int32_t __riscv_ssha_i32(int32_t rs1, int rs2);`                        | `ssha`(RV32), `pssha.ws`(RV64)        |                                                    |
+| `int32_t __riscv_sshar_i32(int32_t rs1, int rs2);`                       | `sshar`(RV32), `psshar.ws`(RV64)      |                                                    |
+| `int32_t __riscv_sadd_i32(int32_t rs1, int32_t rs2);`                    | `sadd`(RV32), `psadd.w`(RV64)         |                                                    |
+| `int32_t __riscv_aadd_i32(int32_t rs1, int32_t rs2);`                    | `aadd`(RV32), `paadd.w`(RV64)         |                                                    |
+| `uint32_t __riscv_saddu_u32(uint32_t rs1, uint32_t rs2);`                | `saddu`(RV32), `psaddu.w`(RV64)       |                                                    |
+| `uint32_t __riscv_aaddu_u32(uint32_t rs1, uint32_t rs2);`                | `aaddu`(RV32), `paaddu.w`(RV64)       |                                                    |
+| `int32_t __riscv_ssub_i32(int32_t rs1, int32_t rs2);`                    | `ssub`(RV32), `pssub.w`(RV64)         |                                                    |
+| `int32_t __riscv_asub_i32(int32_t rs1, int32_t rs2);`                    | `asub`(RV32), `pasub.w`(RV64)         |                                                    |
+| `uint32_t __riscv_ssubu_u32(uint32_t rs1, uint32_t rs2);`                | `ssubu`(RV32), `pssubu.w`(RV64)       |                                                    |
+| `uint32_t __riscv_asubu_u32(uint32_t rs1, uint32_t rs2);`                | `asubu`(RV32), `pasubu.w`(RV64)       |                                                    |
+| `uint32_t __riscv_usati_u32(int32_t rs1, const unsigned shamt);`         | `usati`(RV32), `pusati.w`(RV64)       |                                                    |
+| `int32_t __riscv_srari_i32(int32_t rs1, const unsigned shamt);`          | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
+| `int32_t __riscv_sati_i32(int32_t rs1, const unsigned shamt);`           | `sati`(RV32), `psati.w`(RV64)         |                                                    |
+| `int32_t __riscv_ssh1sadd_i32(int32_t rs1, int32_t rs2);`                | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
+| `int32_t __riscv_mulh_i32(int32_t rs1, int32_t rs2);`                    | `mulh`(RV32), various(RV64)           | Emulated on RV64                                   |
+| `int32_t __riscv_mulhr_i32(int32_t rs1, int32_t rs2);`                   | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
+| `int32_t __riscv_mhacc_i32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhacc`(RV32), `pmhacc.w`?(RV64)      |                                                    |
+| `int32_t __riscv_mhracc_i32(int32_t rd, int32_t rs1, int32_t rs2);`      | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
+| `uint32_t __riscv_mulhu_u32(uint32_t rs1, uint32_t rs2);`                | `mulhu`(RV32), various(RV64)          | Emulated on RV64                                   |
+| `uint32_t __riscv_mulhru_u32(uint32_t rs1, uint32_t rs2);`               | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
+| `uint32_t __riscv_mhaccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhaccu`(RV32), `pmhaccu.w`?(RV64)    |                                                    |
+| `uint32_t __riscv_mhraccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);` | `mhraccu`(RV32), `pmhraccu.w`(RV64)   |                                                    |
+| `int32_t __riscv_mulhsu_i32(int32_t rs1, uint32_t rs2);`                 | `mulhsu`(RV32), various(RV64)         | Emulated on RV64                                   |
+| `int32_t __riscv_mulhrsu_i32(int32_t rs1, uint32_t rs2);`                | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
+| `int32_t __riscv_mhaccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)  |                                                    |
+| `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
+| `int32_t __riscv_mulq_i32(int32_t rs1, uint32_t rs2);`                   | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
+| `int32_t __riscv_mulqr_i32(int32_t rs1, uint32_t rs2);`                  | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
@@ -52,17 +54,17 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 | Prototype                                                              | Instruction                     | Notes                         |
 |------------------------------------------------------------------------|---------------------------------|-------------------------------|
-| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                           |                               |
-| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                           |                               |
-| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
-| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
-| `int64_t __riscv_mqwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqwacc`                        |                               |
-| `int64_t __riscv_mqrwacc_64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqrwacc`                       |                               |
-| `uint32_t __riscv_nclipu_32(uint64_t rs1_p, uint32_t rs2);`            | `nclip[i]u`                     |                               |
-| `uint32_t __riscv_nclipru_32(uint64_t rs1_p, uint32_t rs2);`           | `nclipr[i]u`                    |                               |
-| `int32_t __riscv_nsrar_32(int64_t rs1_p, uint32_t rs2);`               | `nsrar[i]`                      |                               |
-| `int32_t __riscv_nclip_32(int64_t rs1_p, uint32_t rs2);`               | `nclip[i]`                      |                               |
-| `int32_t __riscv_nclipr_32(int64_t rs1_p, uint32_t rs2);`              | `nclipr[i]`                     |                               |
+| `uint32_t __riscv_slx_u32(uint32_t rd, uint32_t rs1, unsigned shamt);` | `slx`                           |                               |
+| `uint32_t __riscv_srx_u32(uint32_t rd, uint32_t rs1, unsigned shamt);` | `srx`                           |                               |
+| `uint64_t __riscv_wzip8p_u64(uint32_t rs1, uint32_t rs2);`             | `wzip8p`                        |                               |
+| `uint64_t __riscv_wzip16p_u64(uint32_t rs1, uint32_t rs2);`            | `wzip16p`                       |                               |
+| `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`    | `mqwacc`                        |                               |
+| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`   | `mqrwacc`                       |                               |
+| `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
+| `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, uint32_t rs2);`          | `nclipr[i]u`                    |                               |
+| `int32_t __riscv_nsrar_i32(int64_t rs1_p, uint32_t rs2);`              | `nsrar[i]`                      |                               |
+| `int32_t __riscv_nclip_i32(int64_t rs1_p, uint32_t rs2);`              | `nclip[i]`                      |                               |
+| `int32_t __riscv_nclipr_i32(int64_t rs1_p, uint32_t rs2);`             | `nclipr[i]`                     |                               |
 | `uint32_t __riscv_mseq_i32(int32_t rs1, int32_t rs2);`                 | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
 | `uint32_t __riscv_mseq_u32(uint32_t rs1, uint32_t rs2);`               | `mseq`(RV32), `pmseq.w`(RV64)   |                               |
 | `uint32_t __riscv_mslt_i32(int32_t rs1, int32_t rs2);`                 | `mslt`(RV32), `pmslt.w`(RV64)   |                               |
@@ -71,30 +73,33 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`              | `msltu`(RV32), `pmsltu.w`(RV64) | Swap operands and use pmsltu  |
 
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
+* TODO: mseq/mslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
 
 ### RV64 Only Scalar Intrinsics
 
+* TODO: cls and rev names match clz/ctz/rev8 names from bitmanip
+
 | Prototype                                                              | Instruction                 |
 |------------------------------------------------------------------------|-----------------------------|
-| `uint64_t __riscv_abs_64(int64_t rs1);`                                | `abs`                       |
+| `uint64_t __riscv_abs_u64(int64_t rs1);`                               | `abs`                       |
 | `unsigned __riscv_cls_64(int64_t rs1);`                                | `cls`                       |
 | `uint64_t __riscv_rev_64(uint64_t rs1);`                               | `rev`                       |
-| `uint64_t __riscv_rev16_64(uint64_t rs1);`                             | `rev16`                     |
-| `int64_t __riscv_sha_64(int64_t rs1, int rs2);`                        | `sha`                       |
-| `int64_t __riscv_shar_64(int64_t rs1, int rs2);`                       | `shar`                      |
-| `uint64_t __riscv_usati_64(int64_t rs1, const unsigned shamt);`        | `usati`                     |
-| `int64_t __riscv_srari_64(int64_t rs1, const unsigned shamt);`         | `srari`                     |
-| `int64_t __riscv_sati_64(int64_t rs1, const unsigned shamt);`          | `sati`                      |
-| `uint64_t __riscv_slx_64(uint64_t rd, uint64_t rs1, unsigned shamt);`  | `slx`                       |
-| `uint64_t __riscv_srx_64(uint64_t rd, uint64_t rs1, unsigned shamt);`  | `srx`                       |
-| `uint64_t __riscv_unzip8p_64(uint64_t rs1, uint64_t rs2);`             | `unzip8p`                   |
-| `uint64_t __riscv_unzip16p_64(uint64_t rs1, uint64_t rs2);`            | `unzip16p`                  |
-| `uint64_t __riscv_unzip8hp_64(uint64_t rs1, uint64_t rs2);`            | `unzip8hp`                  |
-| `uint64_t __riscv_unzip16hp_64(uint64_t rs1, uint64_t rs2);`           | `unzip16hp`                 |
-| `uint64_t __riscv_zip8p_64(uint64_t rs1, uint64_t rs2);`               | `zip8p`                     |
-| `uint64_t __riscv_zip16p_64(uint64_t rs1, uint64_t rs2);`              | `zip16p`                    |
-| `uint64_t __riscv_zip8hp_64(uint64_t rs1, uint64_t rs2);`              | `zip8hp`                    |
-| `uint64_t __riscv_zip16hp_64(uint64_t rs1, uint64_t rs2);`             | `zip16hp`                   |
+| `uint64_t __riscv_rev16_u64(uint64_t rs1);`                            | `rev16`                     |
+| `int64_t __riscv_sha_i64(int64_t rs1, int rs2);`                       | `sha`                       |
+| `int64_t __riscv_shar_i64(int64_t rs1, int rs2);`                      | `shar`                      |
+| `uint64_t __riscv_usati_u64(int64_t rs1, const unsigned shamt);`       | `usati`                     |
+| `int64_t __riscv_srari_i64(int64_t rs1, const unsigned shamt);`        | `srari`                     |
+| `int64_t __riscv_sati_i64(int64_t rs1, const unsigned shamt);`         | `sati`                      |
+| `uint64_t __riscv_slx_u64(uint64_t rd, uint64_t rs1, unsigned shamt);` | `slx`                       |
+| `uint64_t __riscv_srx_u64(uint64_t rd, uint64_t rs1, unsigned shamt);` | `srx`                       |
+| `uint64_t __riscv_unzip8p_u64(uint64_t rs1, uint64_t rs2);`            | `unzip8p`                   |
+| `uint64_t __riscv_unzip16p_u64(uint64_t rs1, uint64_t rs2);`           | `unzip16p`                  |
+| `uint64_t __riscv_unzip8hp_u64(uint64_t rs1, uint64_t rs2);`           | `unzip8hp`                  |
+| `uint64_t __riscv_unzip16hp_u64(uint64_t rs1, uint64_t rs2);`          | `unzip16hp`                 |
+| `uint64_t __riscv_zip8p_u64(uint64_t rs1, uint64_t rs2);`              | `zip8p`                     |
+| `uint64_t __riscv_zip16p_u64(uint64_t rs1, uint64_t rs2);`             | `zip16p`                    |
+| `uint64_t __riscv_zip8hp_u64(uint64_t rs1, uint64_t rs2);`             | `zip8hp`                    |
+| `uint64_t __riscv_zip16hp_u64(uint64_t rs1, uint64_t rs2);`            | `zip16hp`                   |
 
 ## Packed SIMD Types
 
@@ -686,7 +691,7 @@ zext.w to extend result in some circumstances.
 
 ### Packed Comparisons
 
-Result of all comparison is an unsigned type regardless of input type. `pmeq`
+Result of all comparison is an unsigned type regardless of input type. `pmseq`
 is provided a signed and unsigned version.
 
 #### 32-bit
@@ -705,6 +710,8 @@ is provided a signed and unsigned version.
 | `uint16x2_t __riscv_pmsltu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h`                         |
 | `uint8x4_t __riscv_pmsgtu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b` swapped operands        |
 | `uint16x2_t __riscv_pmsgtu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h` swapped operands        |
+
+* TODO: pmseq/pmslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
 
 #### 64-bit
 
