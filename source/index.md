@@ -1215,6 +1215,114 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `int64_t __riscv_pm2waddsu_u64(int16x2_t rs1, uint16x2_t rs2);`                | `pm2waddsu.h`  |
 | `int64_t __riscv_pm2waddasu_u64(int64_t rd, int16x2_t rs1, uint16x2_t rs2);`   | `pm2waddasu.h` |
 
+### Packed Widening Convert
+
+| Prototype                                          | Instruction                                                 |
+|----------------------------------------------------|-------------------------------------------------------------|
+| `int16x4_t __riscv_pwcvt_i16x4(int8x4_t rs1);`     | `pwadd.b`(rs2=x0)(RV32), `zip8p`(rs2=x0)+`psext.h.b`(RV64)  |
+| `int32x2_t __riscv_pwcvt_i32x2(int16x2_t rs1);`    | `pwadd.h`(rs2=x0)(RV32), `zip16p`(rs2=x0)+`psext.w.h`(RV64) |
+| `uint16x4_t __riscv_pwcvtu_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs2=x0)(RV32), `zip8p`(rs2=x0)                     |
+| `uint32x2_t __riscv_pwcvtu_u32x2(uint16x2_t rs1);` | `wzip16p`(rs2=x0)(RV32), `zip16p`(rs2=x0)                   |
+| `int16x4_t __riscv_pwcvth_i16x4(int8x4_t rs1);`    | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)                     |
+| `uint16x4_t __riscv_pwcvth_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)                     |
+| `int32x2_t __riscv_pwcvth_i32x2(int16x2_t rs1);`   | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)                   |
+| `uint32x2_t __riscv_pwcvth_u32x2(uint16x2_t rs1);` | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)                   |
+
+### Packed Narrowing Convert
+
+| Prototype                                          | Instruction                                                 |
+|----------------------------------------------------|-------------------------------------------------------------|
+| `int8x4_t __riscv_pncvt_i8x4(int16x4_t rs1);`      | `pnsrli.b`(imm=0)(RV32), `unzip8p`(rs2=x0)(RV64)            |
+| `uint8x4_t __riscv_pncvt_u8x4(uint16x4_t rs1);`    | `pnsrli.b`(imm=0)(RV32), `unzip8p`(rs2=x0)(RV64)            |
+| `int16x2_t __riscv_pncvt_i16x2(int32x2_t rs1);`    | `pnsrli.h`(imm=0)(RV32), `unzip16p`(rs2=x0)(RV64)           |
+| `uint16x2_t __riscv_pncvt_u16x2(uint32x2_t rs1);`  | `pnsrli.h`(imm=0)(RV32), `unzip16p`(rs2=x0)(RV64)           |
+| `int8x4_t __riscv_pncvth_i8x4(int16x4_t rs1);`     | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(rs2=x0)(RV64)           |
+| `uint8x4_t __riscv_pncvth_u8x4(uint16x4_t rs1);`   | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(rs2=x0)(RV64)           |
+| `int16x2_t __riscv_pncvth_i16x2(int32x2_t rs1);`   | `pnsrli.h`(imm=16)(RV32), `unzip16hp`(rs2=x0)(RV64)         |
+| `uint16x2_t __riscv_pncvth_u16x2(uint32x2_t rs1);` | `pnsrli.h`(imm=16)(RV32), `unzip16hp`(rs2=x0)(RV64)         |
+
+### Packed Zip
+
+| Prototype                                                        | Instruction                                   |
+|------------------------------------------------------------------|-----------------------------------------------|
+| `int8x8_t __riscv_pzip_i8x8(int8x4_t rs1, int8x4_t rs2);`        | `wzip8p`(RV32), `zip8p`(RV64)                 |
+| `uint8x8_t __riscv_pzip_u8x8(uint8x4_t rs1, uint8x4_t rs2);`     | `wzip8p`(RV32), `zip8p`(RV64)                 |
+| `int16x4_t __riscv_pzip_i16x4(int16x2_t rs1, int16x2_t rs2);`    | `wzip16p`(RV32), `zip16p`(RV64)               |
+| `uint16x4_t __riscv_pzip_u16x4(uint16x2_t rs1, uint16x2_t rs2);` | `wzip16p`(RV32), `zip16p`(RV64)               |
+
+### Packed Unzip
+
+| Prototype                                                        | Instruction                                   |
+|------------------------------------------------------------------|-----------------------------------------------|
+| `int8x4_t __riscv_punzipe_i8x4(int8x8_t rs1);`                   | `pnsrli.b`(imm=0)(RV32), `unzip8p`(RV64)      |
+| `int8x4_t __riscv_punzipo_i8x4(int8x8_t rs1);`                   | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(RV64)     |
+| `uint8x4_t __riscv_punzipe_u8x4(uint8x8_t rs1);`                 | `pnsrli.b`(imm=0)(RV32), `unzip8p`(RV64)      |
+| `uint8x4_t __riscv_punzipo_u8x4(uint8x8_t rs1);`                 | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(RV64)     |
+| `int16x2_t __riscv_punzipe_i16x2(int16x4_t rs1);`                | `pnsrli.h`(imm=0)(RV32), `unzip16p`(RV64)     |
+| `int16x2_t __riscv_punzipo_i16x2(int16x4_t rs1);`                | `pnsrli.h`(imm=16)(RV32), `unzip16p`(RV64)    |
+| `uint16x2_t __riscv_punzipe_u16x2(uint16x4_t rs1);`              | `pnsrli.h`(imm=0)(RV32), `unzip16p`(RV64)     |
+| `uint16x2_t __riscv_punzipo_u16x2(uint16x4_t rs1);`              | `pnsrli.h`(imm=16)(RV32), `unzip16p`(RV64)    |
+
+### Packed Narrowing Zip
+
+#### 32-bit
+
+| Prototype                                                        | Instruction                                   |
+|------------------------------------------------------------------|-----------------------------------------------|
+| `int8x4_t __riscv_pnzip_i8x4(int16x2_t rs1, int16x2_t rs2);`     | `ppaire.b`                                    |
+| `uint8x4_t __riscv_pnzip_u8x4(uint16x2_t rs1, uint16x2_t rs2);`  | `ppaire.b`                                    |
+| `int8x4_t __riscv_pnziph_i8x4(int16x2_t rs1, int16x2_t rs2);`    | `ppairo.b`                                    |
+| `uint8x4_t __riscv_pnziph_u8x4(uint16x2_t rs1, uint16x2_t rs2);` | `ppairo.b`                                    |
+
+#### 64-bit
+
+| Prototype                                                          | Instruction                                 |
+|--------------------------------------------------------------------|---------------------------------------------|
+| `int8x8_t __riscv_pnzip_i8x8(int16x4_t rs1, int16x4_t rs2);`       | `ppaire.db`(RV32), `ppaire.b`(RV64)         |
+| `uint8x8_t __riscv_pnzip_u8x8(uint16x4_t rs1, uint16x4_t rs2);`    | `ppaire.db`(RV32), `ppaire.b`(RV64)         |
+| `int16x4_t __riscv_pnzip_i16x4(int32x2_t rs1, int32x2_t rs2);`     | `ppaire.dh`(RV32), `ppaire.h`(RV64)         |
+| `uint16x4_t __riscv_pnzip_u16x4(uint32x2_t rs1, uint32x2_t rs2);`  | `ppaire.dh`(RV32), `ppaire.h`(RV64)         |
+| `int8x8_t __riscv_pnziph_i8x8(int16x4_t rs1, int16x4_t rs2);`      | `ppairo.db`(RV32), `ppairo.b`(RV64)         |
+| `uint8x8_t __riscv_pnziph_u8x8(uint16x4_t rs1, uint16x4_t rs2);`   | `ppairo.db`(RV32), `ppairo.b`(RV64)         |
+| `int16x4_t __riscv_pnziph_i16x4(int32x2_t rs1, int32x2_t rs2);`    | `ppairo.dh`(RV32), `ppairo.h`(RV64)         |
+| `uint16x4_t __riscv_pnziph_u16x4(uint32x2_t rs1, uint32x2_t rs2);` | `ppairo.dh`(RV32), `ppairo.h`(RV64)         |
+
+### Packed Narrowing Unzip
+
+#### 32-bit
+
+| Prototype                                                          | Instruction                                 |
+|--------------------------------------------------------------------|---------------------------------------------|
+| `int16x2_t __riscv_pwunzipe_i16x2(int8x4_t rs1);`                  | `psext.h.b`                                 |
+| `int16x2_t __riscv_pwunzipo_i16x2(int8x4_t rs1);`                  | `psrai.h`(imm=8)                            |
+| `uint16x2_t __riscv_pwunzipue_u16x2(uint8x4_t rs1);`               | `ppaire.b`(rs2=0)                           |
+| `uint16x2_t __riscv_pwunzipuo_u16x2(uint8x4_t rs1);`               | `ppairo.b`(rs2=0)                           |
+| `int16x2_t __riscv_pwunziphe_i16x2(int8x4_t rs1);`                 | `pslli.h`(imm=8)                            |
+| `int16x2_t __riscv_pwunzipho_i16x2(int8x4_t rs1);`                 | `ppairo.b`(rs1=0)                           |
+| `uint16x2_t __riscv_pwunziphe_u16x2(uint8x4_t rs1);`               | `pslli.h`(imm=8)                            |
+| `uint16x2_t __riscv_pwunzipho_u16x2(uint8x4_t rs1);`               | `ppairo.b`(rs1=0)                           |
+
+#### 64-bit
+
+| Prototype                                                          | Instruction                                         |
+|--------------------------------------------------------------------|-----------------------------------------------------|
+| `int16x4_t __riscv_pwunzipe_i16x4(int8x8_t rs1);`                  | `psext.h.b`(RV64), `psext.dh.b`(RV32)               |
+| `int16x4_t __riscv_pwunzipo_i16x4(int8x8_t rs1);`                  | `psrai.h`(imm=8)(RV64), `psrai.dh`(imm=8)(RV32)     |
+| `uint16x4_t __riscv_pwunzipue_u16x4(uint8x8_t rs1);`               | `ppaire.b`(rs2=0)(RV64), `ppaire.db`(rs2_p=0)(RV32) |
+| `uint16x4_t __riscv_pwunzipuo_u16x4(uint8x8_t rs1);`               | `ppairo.b`(rs2=0)(RV64), `ppairo.db`(rs2_p=0)(RV32) |
+| `int32x2_t __riscv_pwunzipe_i32x2(int16x4_t rs1);`                 | `psext.w.h`(RV64), `psext.dw.h`(RV32)               |
+| `int32x2_t __riscv_pwunzipo_i32x2(int16x4_t rs1);`                 | `psrai.w`(imm=16)(RV64), `psrai.dw`(imm=16)(RV32)   |
+| `uint32x2_t __riscv_pwunzipue_u32x2(uint16x4_t rs1);`              | `ppaire.h`(rs2=0)(RV64), `ppaire.dh`(rs2_p=0)(RV32) |
+| `uint32x2_t __riscv_pwunzipuo_u32x2(uint16x4_t rs1);`              | `ppairo.h`(rs2=0)(RV64), `ppairo.dh`(rs2_p=0)(RV32) |
+| `int16x4_t __riscv_pwunziphe_i16x4(int8x8_t rs1);`                 | `pslli.h`(imm=8)(RV64), `pslli.dh`(imm=8)(RV32)     |
+| `int16x4_t __riscv_pwunzipho_i16x4(int8x8_t rs1);`                 | `ppairo.b`(rs1=0)(RV64), `ppairo.db`(rs1_p=0)(RV32) |
+| `uint16x4_t __riscv_pwunziphe_u16x4(uint8x8_t rs1);`               | `pslli.h`(imm=8)(RV64), `pslli.dh`(imm=8)(RV32)     |
+| `uint16x4_t __riscv_pwunzipho_u16x4(uint8x8_t rs1);`               | `ppairo.b`(rs1=0)(RV64), `ppairo.db`(rs1_p=0)(RV32) |
+| `int32x2_t __riscv_pwunziphe_i32x2(int16x4_t rs1);`                | `pslli.w`(imm=16)(RV64), `pslli.dw`(imm=16)(RV32)   |
+| `int32x2_t __riscv_pwunzipho_i32x2(int16x4_t rs1);`                | `ppairo.h`(rs1=0)(RV64), `ppairo.dh`(rs1_p=0)(RV32) |
+| `uint32x2_t __riscv_pwunziphe_u32x2(uint16x4_t rs1);`              | `pslli.w`(imm=16)(RV64), `pslli.dw`(imm=16)(RV32)   |
+| `uint32x2_t __riscv_pwunzipho_u32x2(uint16x4_t rs1);`              | `ppairo.h`(rs1=0)(RV64), `ppairo.dh`(rs1_p=0)(RV32) |
+
 ## Packed Load and Store
 
 Load and store intrinsics. These assume the pointer is aligned to the element
