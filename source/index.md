@@ -1221,12 +1221,12 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 |----------------------------------------------------|-------------------------------------------------------------|
 | `int16x4_t __riscv_pwcvt_i16x4(int8x4_t rs1);`     | `pwadd.b`(rs2=x0)(RV32), `zip8p`(rs2=x0)+`psext.h.b`(RV64)  |
 | `int32x2_t __riscv_pwcvt_i32x2(int16x2_t rs1);`    | `pwadd.h`(rs2=x0)(RV32), `zip16p`(rs2=x0)+`psext.w.h`(RV64) |
-| `uint16x4_t __riscv_pwcvtu_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs2=x0)(RV32), `zip8p`(rs2=x0)                     |
-| `uint32x2_t __riscv_pwcvtu_u32x2(uint16x2_t rs1);` | `wzip16p`(rs2=x0)(RV32), `zip16p`(rs2=x0)                   |
-| `int16x4_t __riscv_pwcvth_i16x4(int8x4_t rs1);`    | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)                     |
-| `uint16x4_t __riscv_pwcvth_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)                     |
-| `int32x2_t __riscv_pwcvth_i32x2(int16x2_t rs1);`   | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)                   |
-| `uint32x2_t __riscv_pwcvth_u32x2(uint16x2_t rs1);` | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)                   |
+| `uint16x4_t __riscv_pwcvtu_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs2=x0)(RV32), `zip8p`(rs2=x0)(RV64)               |
+| `uint32x2_t __riscv_pwcvtu_u32x2(uint16x2_t rs1);` | `wzip16p`(rs2=x0)(RV32), `zip16p`(rs2=x0)(RV64)             |
+| `int16x4_t __riscv_pwcvth_i16x4(int8x4_t rs1);`    | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)(RV64)               |
+| `uint16x4_t __riscv_pwcvth_u16x4(uint8x4_t rs1);`  | `wzip8p`(rs1=x0)(RV32), `zip8p`(rs1=x0)(RV64)               |
+| `int32x2_t __riscv_pwcvth_i32x2(int16x2_t rs1);`   | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)(RV64)             |
+| `uint32x2_t __riscv_pwcvth_u32x2(uint16x2_t rs1);` | `wzip16p`(rs1=x0)(RV32), `zip16p`(rs1=x0)(RV64)             |
 
 ### Packed Narrowing Convert
 
