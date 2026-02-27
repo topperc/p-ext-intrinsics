@@ -44,8 +44,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_mulhrsu_i32(int32_t rs1, uint32_t rs2);`                | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
 | `int32_t __riscv_mhaccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)  |                                                    |
 | `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
-| `int32_t __riscv_mulq_i32(int32_t rs1, uint32_t rs2);`                   | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
-| `int32_t __riscv_mulqr_i32(int32_t rs1, uint32_t rs2);`                  | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
+| `int32_t __riscv_mulq_i32(int32_t rs1, int32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)         |                                                    |
+| `int32_t __riscv_mulqr_i32(int32_t rs1, int32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)       |                                                    |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
