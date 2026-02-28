@@ -199,9 +199,9 @@ with 'i' in the name require a constant shift amount.
 | `int16x4_t __riscv_psrari_i16x4(int16x4_t rs1, const unsigned shamt);` | `psrari.h`(RV64), `psrari.dh`(RV32)                       |
 | `int32x2_t __riscv_psrari_i32x2(int32x2_t rs1, const unsigned shamt);` | `psrari.w`(RV64), `psrari.dw`(RV32)                       |
 
-### Packed Sign Extend
+### Packed Sign and Zero Extend
 
-Sign extend within each element. Does not change the start position of each
+Sign or zero extend within each element. Does not change the start position of each
 element.
 
 #### 32-bit
@@ -209,17 +209,17 @@ element.
 | Prototype                                         | Instruction                           |
 |---------------------------------------------------|---------------------------------------|
 | `int16x2_t __riscv_psext_b_i16x2(int16x2_t rs1);` | `psext.h.b`                           |
-| `int16x2_t __riscv_pzext_b_i16x2(int16x2_t rs1);` | `ppaire.b`(rs2=x0)                    |
+| `uint16x2_t __riscv_pzext_b_i16x2(uint16x2_t rs1);` | `ppaire.b`(rs2=x0)                    |
 
 ### 64-bit
 
-| Prototype                                         | Instruction                                           |
-|---------------------------------------------------|-------------------------------------------------------|
-| `int16x4_t __riscv_psext_b_i16x4(int16x4_t rs1);` | `psext.h.b`(RV64), `psext.dh.b`(RV32)                 |
-| `int32x2_t __riscv_psext_b_i32x2(int32x2_t rs1);` | `psext.w.b`(RV64), `psext.dw.b`(RV32)                 |
-| `int32x2_t __riscv_psext_h_i32x2(int32x2_t rs1);` | `psext.w.h`(RV64), `psext.dw.h`(RV32)                 |
-| `int16x4_t __riscv_pzext_b_i16x4(int16x4_t rs1);` | `ppaire.b`(rs2=x0)(RV64), `ppaire.db`(rs2_p=x0)(RV32) |
-| `int32x2_t __riscv_pzext_h_i32x2(int32x2_t rs1);` | `ppaire.h`(rs2=x0)(RV64), `ppaire.dh`(rs2_p=x0)(RV32) |
+| Prototype                                           | Instruction                                           |
+|-----------------------------------------------------|-------------------------------------------------------|
+| `int16x4_t __riscv_psext_b_i16x4(int16x4_t rs1);`   | `psext.h.b`(RV64), `psext.dh.b`(RV32)                 |
+| `int32x2_t __riscv_psext_b_i32x2(int32x2_t rs1);`   | `psext.w.b`(RV64), `psext.dw.b`(RV32)                 |
+| `int32x2_t __riscv_psext_h_i32x2(int32x2_t rs1);`   | `psext.w.h`(RV64), `psext.dw.h`(RV32)                 |
+| `uint16x4_t __riscv_pzext_b_i16x4(uint16x4_t rs1);` | `ppaire.b`(rs2=x0)(RV64), `ppaire.db`(rs2_p=x0)(RV32) |
+| `uint32x2_t __riscv_pzext_h_i32x2(uint32x2_t rs1);` | `ppaire.h`(rs2=x0)(RV64), `ppaire.dh`(rs2_p=x0)(RV32) |
 
 ### Packed Saturating Absolute Value
 
