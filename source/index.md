@@ -502,19 +502,22 @@ zext.w to extend result in some circumstances.
 
 #### 32-bit
 
-| Prototype                                                          | Instruction                               |
-|--------------------------------------------------------------------|-------------------------------------------|
-| `int16x2_t __riscv_psh1add_i16x2(int16x2_t rs1, int16x2_t rs2);`   | `psh1add.h`                               |
-| `int16x2_t __riscv_pssh1sadd_i16x2(int16x2_t rs1, int16x2_t rs2);` | `pssh1sadd.h`                             |
+| Prototype                                                           | Instruction                               |
+|---------------------------------------------------------------------|-------------------------------------------|
+| `int16x2_t __riscv_psh1add_i16x2(int16x2_t rs1, int16x2_t rs2);`    | `psh1add.h`                               |
+| `uint16x2_t __riscv_psh1add_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `psh1add.h`                               |
+| `int16x2_t __riscv_pssh1sadd_i16x2(int16x2_t rs1, int16x2_t rs2);`  | `pssh1sadd.h`                             |
 
 #### 64-bit
 
-| Prototype                                                          | Instruction                               |
-|--------------------------------------------------------------------|-------------------------------------------|
-| `int16x4_t __riscv_psh1add_i16x4(int16x4_t rs1, int16x4_t rs2);`   | `psh1add.h`(RV64), `psh1add.dh`(RV32)     |
-| `int32x2_t __riscv_psh1add_i32x2(int32x2_t rs1, int32x2_t rs2);`   | `psh1add.w`(RV64), `psh1add.dw`(RV32)     |
-| `int16x4_t __riscv_pssh1sadd_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pssh1sadd.h`(RV64), `pssh1sadd.dh`(RV32) |
-| `int32x2_t __riscv_pssh1sadd_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pssh1sadd.w`(RV64), `pssh1sadd.dw`(RV32) |
+| Prototype                                                           | Instruction                               |
+|---------------------------------------------------------------------|-------------------------------------------|
+| `int16x4_t __riscv_psh1add_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `psh1add.h`(RV64), `psh1add.dh`(RV32)     |
+| `uint16x4_t __riscv_psh1add_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `psh1add.h`(RV64), `psh1add.dh`(RV32)     |
+| `int32x2_t __riscv_psh1add_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `psh1add.w`(RV64), `psh1add.dw`(RV32)     |
+| `uint32x2_t __riscv_psh1add_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `psh1add.w`(RV64), `psh1add.dw`(RV32)     |
+| `int16x4_t __riscv_pssh1sadd_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pssh1sadd.h`(RV64), `pssh1sadd.dh`(RV32) |
+| `int32x2_t __riscv_pssh1sadd_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pssh1sadd.w`(RV64), `pssh1sadd.dw`(RV32) |
 
 ### Packed Pair
 
