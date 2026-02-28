@@ -645,8 +645,8 @@ zext.w to extend result in some circumstances.
 | `int64_t __riscv_pm2suba_x_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pm2suba.wx`  |
 | `int64_t __riscv_pm2addsu_i32x2(int32x2_t rs1, uint32x2_t rs2);`                    | `pm2addsu.w`  |
 | `int64_t __riscv_pm2addasu_i32x2(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `pm2addasu.w` |
-| `int64_t __riscv_pmqr2add_i16x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`  |
-| `int64_t __riscv_pmqr2adda_i16x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w` |
+| `int64_t __riscv_pmqr2add_i32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmqr2add.w`  |
+| `int64_t __riscv_pmqr2adda_i32x2(int64_t rd, int32x2_t rs1, int32x2_t rs2);`        | `pmqr2adda.w` |
 | `int64_t __riscv_pm4add_i16x4(int16x4_t rs1, int16x4_t rs2);`                       | `pm4add.h`    |
 | `int64_t __riscv_pm4adda_i16x4(int64_t rd, int16x4_t rs1, int16x4_t rs2);`          | `pm4adda.h`   |
 | `uint64_t __riscv_pm4addu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                   | `pm4addu.h`   |
