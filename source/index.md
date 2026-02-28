@@ -299,7 +299,7 @@ zext.w to extend result in some circumstances.
 | `int32_t __riscv_predsum_i8x4_i32(int8x4_t rs1, int32_t rs2);`       | `predsum.bs`                              |
 | `uint32_t __riscv_predsumu_u8x4_u32(uint8x4_t rs1, uint32_t rs2);`   | `predsumu.bs`                             |
 | `int32_t __riscv_predsum_i16x2_i32(int16x2_t rs1, int32_t rs2);`     | `predsum.hs`                              |
-| `uint32_t __riscv_predsumu_i16x2_u32(uint16x2_t rs1, uint32_t rs2);` | `predsumu.hs`                             |
+| `uint32_t __riscv_predsumu_u16x2_u32(uint16x2_t rs1, uint32_t rs2);` | `predsumu.hs`                             |
 
 #### 64-bit
 
@@ -311,13 +311,13 @@ This will incur additional instructions when accumulator size is not XLEN.
 | `int32_t __riscv_predsum_i8x8_i32(int8x8_t rs1, int32_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
 | `uint32_t __riscv_predsumu_u8x8_u32(uint8x8_t rs1, uint32_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
 | `int32_t __riscv_predsum_i16x4_i32(int16x4_t rs1, int32_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
-| `uint32_t __riscv_predsumu_i16x4_u32(uint16x4_t rs1, uint32_t rs2);` | `predsumu.hs`(RV64), `predsumu.dhs`(RV32) |
+| `uint32_t __riscv_predsumu_u16x4_u32(uint16x4_t rs1, uint32_t rs2);` | `predsumu.hs`(RV64), `predsumu.dhs`(RV32) |
 | `int64_t __riscv_predsum_i8x8_i64(int8x8_t rs1, int64_t rs2);`       | `predsum.bs`(RV64), `predsum.dbs`(RV32)   |
 | `uint64_t __riscv_predsumu_u8x8_u64(uint8x8_t rs1, uint64_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
 | `int64_t __riscv_predsum_i16x4_i64(int16x4_t rs1, int64_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
-| `uint64_t __riscv_predsumu_i16x4_u64(uint16x4_t rs1, uint64_t rs2);` | `predsumu.hs`(RV64), `predsum.dhs`(RV32)  |
-| `int64_t __riscv_predsum_i32x2_i64(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `waddu`+`addd`(RV32)  |
-| `uint64_t __riscv_predsumu_i32x2_u64(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `wadd`+`addd`(RV32)  |
+| `uint64_t __riscv_predsumu_u16x4_u64(uint16x4_t rs1, uint64_t rs2);` | `predsumu.hs`(RV64), `predsum.dhs`(RV32)  |
+| `int64_t __riscv_predsum_i32x2_i64(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `wadda``(RV32)        |
+| `uint64_t __riscv_predsumu_u32x2_u64(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `waddau``(RV32)      |
 
 ### Packed Addition and Subtraction
 
