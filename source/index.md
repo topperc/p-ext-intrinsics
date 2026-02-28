@@ -425,12 +425,14 @@ to avoid casts.
 | `uint16x4_t __riscv_pasubu_u16x4(uint16x4_t rs1, uint16x4_t rs2);` | `pasubu.h`(RV64), `pasubu.dh`(RV32) |
 | `uint32x2_t __riscv_pasubu_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `pasubu.w`(RV64), `pasubu.dw`(RV32) |
 
-### Packed Absolute Difference
+### Packed Absolute Value and Absolute Difference
 
 #### 32-bit
 
 | Prototype                                                         | Instruction                       |
 |-------------------------------------------------------------------|-----------------------------------|
+| `uint8x4_t __riscv_pabs_i8x4(int8x4_t rs1);`                      | `pabd.b`(rs2=x0)                  |
+| `uint16x2_t __riscv_pabs_i16x2(int16x2_t rs1);`                   | `pabd.h`(rs2=x0)                  |
 | `uint8x4_t __riscv_pabd_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `pabd.b`                          |
 | `uint16x2_t __riscv_pabd_i16x2(int16x2_t rs1, int16x2_t rs2);`    | `pabd.h`                          |
 | `uint8x4_t __riscv_pabdu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `pabdu.b`                         |
@@ -440,6 +442,8 @@ to avoid casts.
 
 | Prototype                                                         | Instruction                       |
 |-------------------------------------------------------------------|-----------------------------------|
+| `uint8x8_t __riscv_pabs_i8x8(int8x8_t rs1);`                      | `pabd.b`(rs2=x0)(RV64), `pabd.db`(rs2_p=x0)(RV32)   |
+| `uint16x4_t __riscv_pabs_i16x4(int16x4_t rs1);`                   | `pabd.h`(rs2=x0)(RV64), `pabd.dh`(rs2_p=x0)(RV32)   |
 | `uint8x8_t __riscv_pabd_i8x8(int8x8_t rs1, int8x8_t rs2);`        | `pabd.b`(RV64), `pabd.db`(RV32)   |
 | `uint16x4_t __riscv_pabd_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `pabd.h`(RV64), `pabd.dh`(RV32)   |
 | `uint8x8_t __riscv_pabdu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`     | `pabdu.b`(RV64), `pabdu.db`(RV32) |
