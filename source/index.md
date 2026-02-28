@@ -561,19 +561,14 @@ zext.w to extend result in some circumstances.
 | `int16x4_t __riscv_ppairoe_i16x4(int16x4_t rs1, int16x4_t rs2);`    | `ppairoe.h`(RV64), `ppairoe.dh`(RV32) |
 | `uint16x4_t __riscv_ppairo_u16x4(uint16x4_t rs1, uint16x4_t rs2);`  | `ppairo.h`(RV64), `ppairo.dh`(RV32)   |
 | `int16x4_t __riscv_ppairo_i16x4(int16x4_t rs1, int16x4_t rs2);`     | `ppairo.h`(RV64), `ppairo.dh`(RV32)   |
-
-#### 64-bit (RV64 Only)
-
-| Prototype                                                           | Instruction                           |
-|---------------------------------------------------------------------|---------------------------------------|
-| `uint32x2_t __riscv_ppaire_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pack`                                |
-| `int32x2_t __riscv_ppaire_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `pack`                                |
-| `uint32x2_t __riscv_ppaireo_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppaireo.w`                           |
-| `int32x2_t __riscv_ppaireo_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `ppaireo.w`                           |
-| `uint32x2_t __riscv_ppairoe_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppairoe.w`                           |
-| `int32x2_t __riscv_ppairoe_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `ppairoe.w`                           |
-| `uint32x2_t __riscv_ppairo_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `ppairo.w`                            |
-| `int32x2_t __riscv_ppairo_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `ppairo.w`                            |
+| `uint32x2_t __riscv_ppaire_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `pack`(RV64), `mv`(RV32)              |
+| `int32x2_t __riscv_ppaire_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `pack`(RV64), `mv`(RV32)              |
+| `uint32x2_t __riscv_ppaireo_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppaireo.w`(RV64), `mv`(RV32)         |
+| `int32x2_t __riscv_ppaireo_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `ppaireo.w`(RV64), `mv`(RV32)         |
+| `uint32x2_t __riscv_ppairoe_u32x2(uint32x2_t rs1, uint32x2_t rs2);` | `ppairoe.w`(RV64), `mv`(RV32)         |
+| `int32x2_t __riscv_ppairoe_i32x2(int32x2_t rs1, int32x2_t rs2);`    | `ppairoe.w`(RV64), `mv`(RV32)         |
+| `uint32x2_t __riscv_ppairo_u32x2(uint32x2_t rs1, uint32x2_t rs2);`  | `ppairo.w`(RV64), `mv`(RV32)          |
+| `int32x2_t __riscv_ppairo_i32x2(int32x2_t rs1, int32x2_t rs2);`     | `ppairo.w`(RV64), `mv`(RV32)          |
 
 ### Packed Multiplication with Horizontal Addition
 
