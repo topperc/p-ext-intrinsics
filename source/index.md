@@ -468,6 +468,8 @@ Compiler will choose `merge`, `mvm`, or `mvmn` opcode to minimize register copie
 
 #### 64-bit
 
+Requires 2 instructions on RV32.
+
 | Prototype                                                                         | Instruction            |
 |-----------------------------------------------------------------------------------|------------------------|
 | `uint8x8_t __riscv_pmerge_u8x8(uint8x8_t rd, uint8x8_t rs1, uint8x8_t rs2);`      | `merge`, `mvm`, `mvmn` |
