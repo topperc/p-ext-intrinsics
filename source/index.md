@@ -931,24 +931,24 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 
 * TODO: Could be emulated on RV32 with 2 instructions.
 
-| Prototype                                                                          | Instruction                               |
-|------------------------------------------------------------------------------------|-------------------------------------------|
-| `int32x2_t __riscv_pmacc_h00_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h00`                             |
-| `int32x2_t __riscv_pmacc_h01_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h01`                             |
-| `int32x2_t __riscv_pmacc_h11_i32x2(int32x2_t rd, int16x4_t rs1, int8x8_t rs2);`    | `pmacc.w.h11`                             |
-| `uint32x2_t __riscv_pmaccu_h00_u32x2(uint32x2_t, uint16x4_t rs1, uint8x8_t rs2);`  | `pmaccu.w.h00`                            |
-| `uint32x2_t __riscv_pmaccu_h01_u32x2(uint32x2_t, uint16x4_t rs1, uint8x8_t rs2);`  | `pmaccu.w.h01`                            |
-| `uint32x2_t __riscv_pmaccu_h11_u32x2(uint32x2_t, uint16x4_t rs1, uint8x8_t rs2);`  | `pmaccu.w.h11`                            |
-| `int32x2_t __riscv_pmaccsu_h00_i32x2(int32x2_t rd, int16x4_t rs1, uint8x8_t rs2);` | `pmaccsu.w.h00`                           |
-| `int32x2_t __riscv_pmaccsu_h11_i32x2(int32x2_t rd, int16x4_t rs1, uint8x8_t rs2);` | `pmaccsu.w.h11`                           |
-| `int64_t __riscv_macc_w00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w00`                                |
-| `int64_t __riscv_macc_w01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w01`                                |
-| `int64_t __riscv_macc_w11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`          | `macc.w11`                                |
-| `uint64_t __riscv_maccu_w00_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w00`                               |
-| `uint64_t __riscv_maccu_w01_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w01`                               |
-| `uint64_t __riscv_maccu_w11_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`     | `maccu.w11`                               |
-| `int64_t __riscv_maccsu_w00_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `maccsu.w00`                              |
-| `int64_t __riscv_maccsu_w11_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`       | `maccsu.w11`                              |
+| Prototype                                                                           | Instruction                               |
+|-------------------------------------------------------------------------------------|-------------------------------------------|
+| `int32x2_t __riscv_pmacc_h00_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmacc.w.h00`                             |
+| `int32x2_t __riscv_pmacc_h01_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmacc.w.h01`                             |
+| `int32x2_t __riscv_pmacc_h11_i32x2(int32x2_t rd, int16x4_t rs1, int16x4_t rs2);`    | `pmacc.w.h11`                             |
+| `uint32x2_t __riscv_pmaccu_h00_u32x2(uint32x2_t, uint16x4_t rs1, uint16x4_t rs2);`  | `pmaccu.w.h00`                            |
+| `uint32x2_t __riscv_pmaccu_h01_u32x2(uint32x2_t, uint16x4_t rs1, uint16x4_t rs2);`  | `pmaccu.w.h01`                            |
+| `uint32x2_t __riscv_pmaccu_h11_u32x2(uint32x2_t, uint16x4_t rs1, uint16x4_t rs2);`  | `pmaccu.w.h11`                            |
+| `int32x2_t __riscv_pmaccsu_h00_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);` | `pmaccsu.w.h00`                           |
+| `int32x2_t __riscv_pmaccsu_h11_i32x2(int32x2_t rd, int16x4_t rs1, uint16x4_t rs2);` | `pmaccsu.w.h11`                           |
+| `int64_t __riscv_macc_w00_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w00`                                |
+| `int64_t __riscv_macc_w01_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w01`                                |
+| `int64_t __riscv_macc_w11_i64(int64_t rd, int32x2_t rs1, int32x2_t rs2);`           | `macc.w11`                                |
+| `uint64_t __riscv_maccu_w00_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w00`                               |
+| `uint64_t __riscv_maccu_w01_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w01`                               |
+| `uint64_t __riscv_maccu_w11_u64(uint64_t rd, uint32x2_t rs1, uint32x2_t rs2);`      | `maccu.w11`                               |
+| `int64_t __riscv_maccsu_w00_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`        | `maccsu.w00`                              |
+| `int64_t __riscv_maccsu_w11_i64(int64_t rd, int32x2_t rs1, uint32x2_t rs2);`        | `maccsu.w11`                              |
 
 
 ### Packed "Q-format" Multiply Parts Accumulate
