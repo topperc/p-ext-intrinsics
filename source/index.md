@@ -541,7 +541,7 @@ zext.w to extend result in some circumstances.
 | `uint16x2_t __riscv_ppairo_u16x2(uint16x2_t rs1, uint16x2_t rs2);`  | `ppairo.h`                            |
 | `int16x2_t __riscv_ppairo_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `ppairo.h`                            |
 
-# ### 64-bit
+#### 64-bit
 
 | Prototype                                                           | Instruction                           |
 |---------------------------------------------------------------------|---------------------------------------|
