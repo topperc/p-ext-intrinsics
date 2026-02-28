@@ -280,8 +280,8 @@ Saturate every element to the specified width.
 |-------------------------------------------------------------------------|-------------------------------------|
 | `uint16x4_t __riscv_pusati_u16x4(int16x4_t rs1, const unsigned width);` | `pusati.h`(RV64), `pusati.dh`(RV32) |
 | `uint32x2_t __riscv_pusati_u32x2(int32x2_t rs1, const unsigned width);` | `pusati.w`(RV64), `pusati.dw`(RV32) |
-| `int16x4_t __riscv_psati_i16x4(int16x4_t rs1, const unsigned width);`   | `psati.h`(RV64), `psati.h`(RV32)    |
-| `int32x2_t __riscv_psati_i32x2(int32x2_t rs1, const unsigned width);`   | `psati.w`(RV64), `psati.w`(RV32)    |
+| `int16x4_t __riscv_psati_i16x4(int16x4_t rs1, const unsigned width);`   | `psati.h`(RV64), `psati.dh`(RV32)   |
+| `int32x2_t __riscv_psati_i32x2(int32x2_t rs1, const unsigned width);`   | `psati.w`(RV64), `psati.dw`(RV32)   |
 
 ### Packed Reduction Sum
 
