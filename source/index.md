@@ -1409,21 +1409,21 @@ Intrinsics to join multiple scalars into a packed vector.
 
 #### 32-bit
 
-| Prototype                                                                      | Instruction                          |
-|--------------------------------------------------------------------------------|--------------------------------------|
-| `int8x4_t __riscv_join4_i8x4(int8_t e0, int8_t e1, int8_t e2, int8_t e3)`      | Multiple pack or ppair instructions. |
-| `uint8x4_t __riscv_join4_u8x4(uint8_t e0, uint8_t e1, uint8_t e2, uint8_t e3)` | Multiple pack or ppair instructions. |
-| `int16x2_t __riscv_join2_i16x2(int16_t e0, int16_t e1)`                        | `pack`(RV32), `ppaire.h`(RV64)       |
-| `uint16x2_t __riscv_join2_u16x2(uint16_t e0, uint16_t e1)`                     | `pack`(RV32), `ppaire.h`(RV64)       |
+| Prototype                                                                       | Instruction                          |
+|---------------------------------------------------------------------------------|--------------------------------------|
+| `int8x4_t __riscv_pjoin4_i8x4(int8_t e0, int8_t e1, int8_t e2, int8_t e3)`      | Multiple pack or ppair instructions. |
+| `uint8x4_t __riscv_pjoin4_u8x4(uint8_t e0, uint8_t e1, uint8_t e2, uint8_t e3)` | Multiple pack or ppair instructions. |
+| `int16x2_t __riscv_pjoin2_i16x2(int16_t e0, int16_t e1)`                        | `pack`(RV32), `ppaire.h`(RV64)       |
+| `uint16x2_t __riscv_pjoin2_u16x2(uint16_t e0, uint16_t e1)`                     | `pack`(RV32), `ppaire.h`(RV64)       |
 
 #### 64-bit
 
-| Prototype                                                                            | Instruction                         |
-|--------------------------------------------------------------------------------------|-------------------------------------|
-| `int16x4_t __riscv_join4_i16x4(int16_t e0, int16_t e1, int16_t e2, int16_t e3)`      | Multiple pack or ppair instructions |
-| `uint16x4_t __riscv_join4_u16x4(uint16_t e0, uint16_t e1, uint16_t e2, uint16_t e3)` | Multiple pack or ppair instructions |
-| `int32x2_t __riscv_join2_i32x2(int32_t e0, int32_t e1)`                              | `mv`(RV32), `ppaire.h`(RV64)        |
-| `uint32x2_t __riscv_join2_u32x2(uint32_t e0, uint32_t e1)`                           | `mv`(RV32), `ppaire.h`(RV64)        |
+| Prototype                                                                             | Instruction                         |
+|---------------------------------------------------------------------------------------|-------------------------------------|
+| `int16x4_t __riscv_pjoin4_i16x4(int16_t e0, int16_t e1, int16_t e2, int16_t e3)`      | Multiple pack or ppair instructions |
+| `uint16x4_t __riscv_pjoin4_u16x4(uint16_t e0, uint16_t e1, uint16_t e2, uint16_t e3)` | Multiple pack or ppair instructions |
+| `int32x2_t __riscv_pjoin2_i32x2(int32_t e0, int32_t e1)`                              | `mv`(RV32), `ppaire.h`(RV64)        |
+| `uint32x2_t __riscv_pjoin2_u32x2(uint32_t e0, uint32_t e1)`                           | `mv`(RV32), `ppaire.h`(RV64)        |
 
 ### Packed Subvector Insert and Extract
 
