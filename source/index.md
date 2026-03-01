@@ -1256,16 +1256,16 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Unzip
 
-| Prototype                                                        | Instruction                                   |
-|------------------------------------------------------------------|-----------------------------------------------|
-| `int8x4_t __riscv_punzipe_i8x4(int8x8_t rs1);`                   | `pnsrli.b`(imm=0)(RV32), `unzip8p`(RV64)      |
-| `int8x4_t __riscv_punzipo_i8x4(int8x8_t rs1);`                   | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(RV64)     |
-| `uint8x4_t __riscv_punzipe_u8x4(uint8x8_t rs1);`                 | `pnsrli.b`(imm=0)(RV32), `unzip8p`(RV64)      |
-| `uint8x4_t __riscv_punzipo_u8x4(uint8x8_t rs1);`                 | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(RV64)     |
-| `int16x2_t __riscv_punzipe_i16x2(int16x4_t rs1);`                | `pnsrli.h`(imm=0)(RV32), `unzip16p`(RV64)     |
-| `int16x2_t __riscv_punzipo_i16x2(int16x4_t rs1);`                | `pnsrli.h`(imm=16)(RV32), `unzip16p`(RV64)    |
-| `uint16x2_t __riscv_punzipe_u16x2(uint16x4_t rs1);`              | `pnsrli.h`(imm=0)(RV32), `unzip16p`(RV64)     |
-| `uint16x2_t __riscv_punzipo_u16x2(uint16x4_t rs1);`              | `pnsrli.h`(imm=16)(RV32), `unzip16p`(RV64)    |
+| Prototype                                           | Instruction                                        |
+|-----------------------------------------------------|----------------------------------------------------|
+| `int8x4_t __riscv_punzipe_i8x4(int8x8_t rs1);`      | `pnsrli.b`(imm=0)(RV32), `unzip8p`(rs2=x0)(RV64)   |
+| `int8x4_t __riscv_punzipo_i8x4(int8x8_t rs1);`      | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(rs2=x0)(RV64)  |
+| `uint8x4_t __riscv_punzipe_u8x4(uint8x8_t rs1);`    | `pnsrli.b`(imm=0)(RV32), `unzip8p`(rs2=x0)(RV64)   |
+| `uint8x4_t __riscv_punzipo_u8x4(uint8x8_t rs1);`    | `pnsrli.b`(imm=8)(RV32), `unzip8hp`(rs2=x0)(RV64)  |
+| `int16x2_t __riscv_punzipe_i16x2(int16x4_t rs1);`   | `pnsrli.h`(imm=0)(RV32), `unzip16p`(rs2=x0)(RV64)  |
+| `int16x2_t __riscv_punzipo_i16x2(int16x4_t rs1);`   | `pnsrli.h`(imm=16)(RV32), `unzip16p`(rs2=x0)(RV64) |
+| `uint16x2_t __riscv_punzipe_u16x2(uint16x4_t rs1);` | `pnsrli.h`(imm=0)(RV32), `unzip16p`(rs2=x0)(RV64)  |
+| `uint16x2_t __riscv_punzipo_u16x2(uint16x4_t rs1);` | `pnsrli.h`(imm=16)(RV32), `unzip16p`(rs2=x0)(RV64) |
 
 ### Packed Narrowing Zip
 
