@@ -1496,7 +1496,7 @@ Intrinsics to join multiple 32-bit subvectors into a 64-bit vector.
 | `int64_t __riscv_preinterpret_i32x2_i64(int32x2_t x);`           |
 | `uint8x8_t __riscv_preinterpret_u64_u8x8(uint64_t x);`           |
 | `uint16x4_t __riscv_preinterpret_u64_u16x4(uint64_t x);`         |
-| `uint32x2_t __riscv_preinterpret_u64_u64x2(uint64_t x);`         |
+| `uint32x2_t __riscv_preinterpret_u64_u32x2(uint64_t x);`         |
 | `int8x8_t __riscv_preinterpret_u64_i8x8(uint64_t x);`            |
 | `int16x4_t __riscv_preinterpret_u64_i16x4(uint64_t x);`          |
 | `int32x2_t __riscv_preinterpret_u64_i32x2(uint64_t x);`          |
