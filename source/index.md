@@ -1291,7 +1291,7 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `int16x4_t __riscv_pnziph_i16x4(int32x2_t rs1, int32x2_t rs2);`    | `ppairo.dh`(RV32), `ppairo.h`(RV64)         |
 | `uint16x4_t __riscv_pnziph_u16x4(uint32x2_t rs1, uint32x2_t rs2);` | `ppairo.dh`(RV32), `ppairo.h`(RV64)         |
 
-### Packed Narrowing Unzip
+### Packed Widening Unzip
 
 #### 32-bit
 
