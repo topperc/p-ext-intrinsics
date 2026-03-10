@@ -7158,7 +7158,9 @@ __riscv_pwunzipho_u32x2(uint16x4_t __rs1) {
   return __result;
 }
 
-// Packed Load and Store (RV32 only - 32-bit types)
+#endif // __riscv_xlen == 32
+
+// Packed Load and Store (32-bit types)
 
 static __inline__ int8x4_t __DEFAULT_FN_ATTRS
 __riscv_pload_i8x4(const int8_t *__p) {
@@ -7282,7 +7284,7 @@ __riscv_pstore_u32x2(uint32_t *__p, uint32x2_t __v) {
   __builtin_memcpy(__p, &__v, sizeof(__v));
 }
 
-// Packed Element Extract (RV32 only - 32-bit types)
+// Packed Element Extract (32-bit types)
 
 #define __riscv_pget_i8x4_i8(v, idx) __extension__ ({ \
   int8_t __result; \
@@ -7316,7 +7318,7 @@ __riscv_pstore_u32x2(uint32_t *__p, uint32x2_t __v) {
   __result; \
 })
 
-// Packed Element Insert (RV32 only - 32-bit types)
+// Packed Element Insert (32-bit types)
 
 #define __riscv_pset_i8_i8x4(v, e, idx) __extension__ ({ \
   int8x4_t __result = (v); \
@@ -7358,7 +7360,7 @@ __riscv_pstore_u32x2(uint32_t *__p, uint32x2_t __v) {
   __result; \
 })
 
-// Packed Element Join (RV32 only - 32-bit types)
+// Packed Element Join (32-bit types)
 
 static __inline__ int8x4_t __DEFAULT_FN_ATTRS
 __riscv_pjoin4_i8x4(int8_t __e0, int8_t __e1, int8_t __e2, int8_t __e3) {
@@ -7395,8 +7397,6 @@ __riscv_pjoin2_u16x2(uint16_t __e0, uint16_t __e1) {
                    (((uint32_t)__e1) << 16);
   return __result;
 }
-
-#endif // __riscv_xlen == 32
 
 // Packed Widening Convert (RV64)
 
@@ -7773,80 +7773,6 @@ __riscv_pwunzipho_u32x2(uint16x4_t __rs1) {
   uint32x2_t __result;
   __asm__("ppairo.h %0, x0, %1" : "=r"(__result.__val) : "r"(__rs1.__val));
   return __result;
-}
-
-// Packed Load and Store (RV64 - 64-bit types)
-
-static __inline__ int8x8_t __DEFAULT_FN_ATTRS
-__riscv_pload_i8x8(const int8_t *__p) {
-  int8x8_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ uint8x8_t __DEFAULT_FN_ATTRS
-__riscv_pload_u8x8(const uint8_t *__p) {
-  uint8x8_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ int16x4_t __DEFAULT_FN_ATTRS
-__riscv_pload_i16x4(const int16_t *__p) {
-  int16x4_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ uint16x4_t __DEFAULT_FN_ATTRS
-__riscv_pload_u16x4(const uint16_t *__p) {
-  uint16x4_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ int32x2_t __DEFAULT_FN_ATTRS
-__riscv_pload_i32x2(const int32_t *__p) {
-  int32x2_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ uint32x2_t __DEFAULT_FN_ATTRS
-__riscv_pload_u32x2(const uint32_t *__p) {
-  uint32x2_t __result;
-  __builtin_memcpy(&__result, __p, sizeof(__result));
-  return __result;
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_i8x8(int8_t *__p, int8x8_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_u8x8(uint8_t *__p, uint8x8_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_i16x4(int16_t *__p, int16x4_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_u16x4(uint16_t *__p, uint16x4_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_i32x2(int32_t *__p, int32x2_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
-}
-
-static __inline__ void __DEFAULT_FN_ATTRS
-__riscv_pstore_u32x2(uint32_t *__p, uint32x2_t __v) {
-  __builtin_memcpy(__p, &__v, sizeof(__v));
 }
 
 #endif // __riscv_xlen == 64
