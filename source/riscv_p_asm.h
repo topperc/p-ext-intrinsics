@@ -6898,36 +6898,6 @@ __riscv_punzipo_u16x2(uint16x4_t __rs1) {
   return __result;
 }
 
-// Packed Narrowing Zip (RV32 only - 32-bit types)
-
-static __inline__ int8x4_t __DEFAULT_FN_ATTRS
-__riscv_pnzip_i8x4(int16x2_t __rs1, int16x2_t __rs2) {
-  int8x4_t __result;
-  __asm__("ppaire.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
-  return __result;
-}
-
-static __inline__ uint8x4_t __DEFAULT_FN_ATTRS
-__riscv_pnzip_u8x4(uint16x2_t __rs1, uint16x2_t __rs2) {
-  uint8x4_t __result;
-  __asm__("ppaire.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
-  return __result;
-}
-
-static __inline__ int8x4_t __DEFAULT_FN_ATTRS
-__riscv_pnziph_i8x4(int16x2_t __rs1, int16x2_t __rs2) {
-  int8x4_t __result;
-  __asm__("ppairo.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
-  return __result;
-}
-
-static __inline__ uint8x4_t __DEFAULT_FN_ATTRS
-__riscv_pnziph_u8x4(uint16x2_t __rs1, uint16x2_t __rs2) {
-  uint8x4_t __result;
-  __asm__("ppairo.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
-  return __result;
-}
-
 // Packed Narrowing Zip (RV32 only - 64-bit types)
 
 static __inline__ int8x8_t __DEFAULT_FN_ATTRS
@@ -6983,64 +6953,6 @@ static __inline__ uint16x4_t __DEFAULT_FN_ATTRS
 __riscv_pnziph_u16x4(uint32x2_t __rs1, uint32x2_t __rs2) {
   uint16x4_t __result;
   __asm__("ppairo.dh %0, %1, %2" : "=R"(__result) : "R"(__rs1), "R"(__rs2));
-  return __result;
-}
-
-// Packed Narrowing Unzip (RV32 only - 32-bit types)
-
-static __inline__ int16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipe_i16x2(int8x4_t __rs1) {
-  int16x2_t __result;
-  __asm__("psext.h.b %0, %1" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ int16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipo_i16x2(int8x4_t __rs1) {
-  int16x2_t __result;
-  __asm__("psrai.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipue_u16x2(uint8x4_t __rs1) {
-  uint16x2_t __result;
-  __asm__("ppaire.b %0, %1, x0" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipuo_u16x2(uint8x4_t __rs1) {
-  uint16x2_t __result;
-  __asm__("ppairo.b %0, %1, x0" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ int16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunziphe_i16x2(int8x4_t __rs1) {
-  int16x2_t __result;
-  __asm__("pslli.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ int16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipho_i16x2(int8x4_t __rs1) {
-  int16x2_t __result;
-  __asm__("ppairo.b %0, x0, %1" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunziphe_u16x2(uint8x4_t __rs1) {
-  uint16x2_t __result;
-  __asm__("pslli.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
-  return __result;
-}
-
-static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
-__riscv_pwunzipho_u16x2(uint8x4_t __rs1) {
-  uint16x2_t __result;
-  __asm__("ppairo.b %0, x0, %1" : "=r"(__result) : "r"(__rs1));
   return __result;
 }
 
@@ -7776,6 +7688,94 @@ __riscv_pwunzipho_u32x2(uint16x4_t __rs1) {
 }
 
 #endif // __riscv_xlen == 64
+
+// Packed Narrowing Zip (32-bit types - shared by RV32 and RV64)
+
+static __inline__ int8x4_t __DEFAULT_FN_ATTRS
+__riscv_pnzip_i8x4(int16x2_t __rs1, int16x2_t __rs2) {
+  int8x4_t __result;
+  __asm__("ppaire.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
+static __inline__ uint8x4_t __DEFAULT_FN_ATTRS
+__riscv_pnzip_u8x4(uint16x2_t __rs1, uint16x2_t __rs2) {
+  uint8x4_t __result;
+  __asm__("ppaire.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
+static __inline__ int8x4_t __DEFAULT_FN_ATTRS
+__riscv_pnziph_i8x4(int16x2_t __rs1, int16x2_t __rs2) {
+  int8x4_t __result;
+  __asm__("ppairo.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
+static __inline__ uint8x4_t __DEFAULT_FN_ATTRS
+__riscv_pnziph_u8x4(uint16x2_t __rs1, uint16x2_t __rs2) {
+  uint8x4_t __result;
+  __asm__("ppairo.b %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
+// Packed Widening Unzip (32-bit types - shared by RV32 and RV64)
+
+static __inline__ int16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipe_i16x2(int8x4_t __rs1) {
+  int16x2_t __result;
+  __asm__("psext.h.b %0, %1" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ int16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipo_i16x2(int8x4_t __rs1) {
+  int16x2_t __result;
+  __asm__("psrai.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipue_u16x2(uint8x4_t __rs1) {
+  uint16x2_t __result;
+  __asm__("ppaire.b %0, %1, x0" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipuo_u16x2(uint8x4_t __rs1) {
+  uint16x2_t __result;
+  __asm__("ppairo.b %0, %1, x0" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ int16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunziphe_i16x2(int8x4_t __rs1) {
+  int16x2_t __result;
+  __asm__("pslli.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ int16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipho_i16x2(int8x4_t __rs1) {
+  int16x2_t __result;
+  __asm__("ppairo.b %0, x0, %1" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunziphe_u16x2(uint8x4_t __rs1) {
+  uint16x2_t __result;
+  __asm__("pslli.h %0, %1, 8" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
+
+static __inline__ uint16x2_t __DEFAULT_FN_ATTRS
+__riscv_pwunzipho_u16x2(uint8x4_t __rs1) {
+  uint16x2_t __result;
+  __asm__("ppairo.b %0, x0, %1" : "=r"(__result) : "r"(__rs1));
+  return __result;
+}
 
 // Reinterpret casts - Packed <-> Scalar (32-bit types - shared by RV32 and RV64)
 
