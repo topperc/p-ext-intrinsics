@@ -316,8 +316,8 @@ This will incur additional instructions when accumulator size is not XLEN.
 | `uint64_t __riscv_predsumu_u8x8_u64(uint8x8_t rs1, uint64_t rs2);`   | `predsumu.bs`(RV64), `predsumu.dbs`(RV32) |
 | `int64_t __riscv_predsum_i16x4_i64(int16x4_t rs1, int64_t rs2);`     | `predsum.hs`(RV64), `predsum.dhs`(RV32)   |
 | `uint64_t __riscv_predsumu_u16x4_u64(uint16x4_t rs1, uint64_t rs2);` | `predsumu.hs`(RV64), `predsumu.dhs`(RV32) |
-| `int64_t __riscv_predsum_i32x2_i64(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `wadda``(RV32)        |
-| `uint64_t __riscv_predsumu_u32x2_u64(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `waddau``(RV32)      |
+| `int64_t __riscv_predsum_i32x2_i64(int32x2_t rs1, int64_t rs2);`     | `predsum.ws`(RV64), `wadda`(RV32)         |
+| `uint64_t __riscv_predsumu_u32x2_u64(uint32x2_t rs1, uint64_t rs2);` | `predsumu.ws`(RV64), `waddau`(RV32)       |
 
 ### Packed Addition and Subtraction
 
