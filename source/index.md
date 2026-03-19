@@ -1435,7 +1435,7 @@ specifies which subvector to extract. 0 - low, 1 - high.
 | `int8x4_t __riscv_pget_i8x8_i8x4(int8x8_t v, const unsigned idx);`                     | `srai`/`sext.w`(RV64), Free(RV32)    |
 | `uint8x4_t __riscv_pget_u8x8_u8x4(uint8x8_t v, const unsigned idx);`                   | `srli`/`zext.w`(RV64), Free(RV32)    |
 | `int16x2_t __riscv_pget_i16x4_i16x2(int16x4_t v, const unsigned idx);`                 | `srai`/`sext.w`(RV64), Free(RV32)    |
-| `uint16x2_t __riscv_pget_u16x4_u16x2(uint16x4_t , const unsigned idx);`                | `srli`/`zext.w`(RV64), Free(RV32)    |
+| `uint16x2_t __riscv_pget_u16x4_u16x2(uint16x4_t v, const unsigned idx);`               | `srli`/`zext.w`(RV64), Free(RV32)    |
 | `int8x8_t __riscv_pset_i8x4_i8x8(int8x8_t v, int8x4_t s, const unsigned idx);`         | Multiple(RV64), `mv`(RV32)           |
 | `uint8x8_t __riscv_pset_u8x4_u8x8(uint8x8_t v, uint8x4_t s, const unsigned idx);`      | Multiple(RV64), `mv`(RV32)           |
 | `int16x4_t __riscv_pset_i16x2_i16x4(int16x4_t v, int16x2_t s, const unsigned idx);`    | `pack`/`ppaireo.w`(RV64), `mv`(RV32) |
