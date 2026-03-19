@@ -187,8 +187,8 @@ with 'i' in the name require a constant shift amount.
 | `int16x4_t __riscv_psslai_i16x4(int16x4_t rs1, const unsigned shamt);` | `psslai.h`(RV64), `psslai.dh`(RV32)                       |
 | `int32x2_t __riscv_psslai_i32x2(int32x2_t rs1, const unsigned shamt);` | `psslai.w`(RV64), `psslai.dw`(RV32)                       |
 | `int16x4_t __riscv_pssha_s_i16x4(int16x4_t rs1, int shamt);`           | `pssha.hs`(RV64), `pssha.dhs`(RV32)                       |
-| `int32x2_t __riscv_pssha_s_i32x2(int16x4_t rs1, int shamt);`           | `pssha.ws`(RV64), `pssha.dws`(RV32)                       |
-| `int16x4_t __riscv_psshar_s_i16x4(int32x2_t rs1, int shamt);`          | `psshar.hs`(RV64), `psshar.dhs`(RV32)                     |
+| `int32x2_t __riscv_pssha_s_i32x2(int32x2_t rs1, int shamt);`           | `pssha.ws`(RV64), `pssha.dws`(RV32)                       |
+| `int16x4_t __riscv_psshar_s_i16x4(int16x4_t rs1, int shamt);`          | `psshar.hs`(RV64), `psshar.dhs`(RV32)                     |
 | `int32x2_t __riscv_psshar_s_i32x2(int32x2_t rs1, int shamt);`          | `psshar.ws`(RV64), `psshar.dws`(RV32)                     |
 | `uint8x8_t __riscv_psrl_s_u8x8(uint8x8_t rs1, unsigned shamt);`        | `psrli.b`, `psrl.bs`(RV64), `psrli.db`, `psrl.dbs`(RV32)  |
 | `uint16x4_t __riscv_psrl_s_u16x4(uint16x4_t rs1, unsigned shamt);`     | `psrli.h`, `psrl.hs`(RV64), `psrli.dh`, `psrl.dhs`(RV32)  |
