@@ -1008,10 +1008,10 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
 | `int16x4_t __riscv_pmulh_b1_i16x4(int16x4_t rs1, int8x8_t rs2);`     | `pmulh.h.b1`                            |
 | `int16x4_t __riscv_pmulhsu_b0_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b0`                          |
 | `int16x4_t __riscv_pmulhsu_b1_i16x4(int16x4_t rs1, uint8x8_t rs2);`  | `pmulhsu.h.b1`                          |
-| `int32x2_t __riscv_pmulh_b0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`                            |
-| `int32x2_t __riscv_pmulh_b1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`                            |
-| `int32x2_t __riscv_pmulhsu_b0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`                          |
-| `int32x2_t __riscv_pmulhsu_b1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`                          |
+| `int32x2_t __riscv_pmulh_h0_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h0`                            |
+| `int32x2_t __riscv_pmulh_h1_i32x2(int32x2_t rs1, int16x4_t rs2);`    | `pmulh.w.h1`                            |
+| `int32x2_t __riscv_pmulhsu_h0_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h0`                          |
+| `int32x2_t __riscv_pmulhsu_h1_i32x2(int32x2_t rs1, uint16x4_t rs2);` | `pmulhsu.w.h1`                          |
 
 ### Packed Multiply High Parts Accumulate
 
@@ -1356,7 +1356,7 @@ Compiler hints like `__builtin_assume_aligned` can help.
 | Prototype                                               | Instruction                         |
 |---------------------------------------------------------|-------------------------------------|
 | `int8x8_t __riscv_pload_i8x8(int8_t *p);`               | `ld` or multiple loads and pack     |
-| `uint8x8_t __riscv_pload_i8x8(uint8_t *p);`             | `ld` or multiple loads and pack     |
+| `uint8x8_t __riscv_pload_u8x8(uint8_t *p);`             | `ld` or multiple loads and pack     |
 | `int16x4_t __riscv_pload_i16x4(int16_t *p);`            | `ld` or multiple loads and pack     |
 | `uint16x4_t __riscv_pload_u16x4(uint16_t *p);`          | `ld` or multiple loads and pack     |
 | `int32x2_t __riscv_pload_i32x2(int32_t *p);`            | `ld` or multiple loads and pack     |
