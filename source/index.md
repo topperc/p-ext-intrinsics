@@ -1173,42 +1173,36 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 
 ### Packed Widening Shift
 
-#### 32-bit (RV32 Only)
-
-| Prototype                                                           | Instruction            |
-|---------------------------------------------------------------------|------------------------|
-| `uint16x4_t __riscv_pwsll_s_u16x4(uint8x4_t rs1, unsigned shamt);`  | `pwslli.b`, `pwsll.bs` |
-| `uint32x2_t __riscv_pwsll_s_u32x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs` |
-| `int16x4_t __riscv_pwsla_s_i16x4(int8x4_t rs1, unsigned shamt);`    | `pwslai.b`, `pwsla.bs` |
-| `int32x2_t __riscv_pwsla_s_i32x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs` |
+| Prototype                                                           | Instruction                                                                                        |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `uint16x4_t __riscv_pwsll_s_u16x4(uint8x4_t rs1, unsigned shamt);`  | `pwslli.b`, `pwsll.bs`(RV32), `zip8p`+`pslli.h`, `zip8p`+`psll.hs`(RV64)                           |
+| `uint32x2_t __riscv_pwsll_s_u32x2(uint16x2_t rs1, unsigned shamt);` | `pwslli.h`, `pwsll.hs`(RV32), `zip16p`+`pslli.w`, `zip16p`+`psll.ws`(RV64)                         |
+| `int16x4_t __riscv_pwsla_s_i16x4(int8x4_t rs1, unsigned shamt);`    | `pwslai.b`, `pwsla.bs`(RV32), `zip8p`+`psext.h.b`+`pslli.h`, `zip8p`+`psext.h.b`+`psll.hs`(RV64)   |
+| `int32x2_t __riscv_pwsla_s_i32x2(int16x2_t rs1, unsigned shamt);`   | `pwslai.h`, `pwsla.hs`(RV32), `zip16p`+`psext.w.h`+`pslli.w`, `zip16p`+`psext.w.h`+`psll.ws`(RV64) |
 
 ### Packed Narrowing Shift
 
-#### 32-bit (RV32 Only)
-
-| Prototype                                                           | Instruction              |
-|---------------------------------------------------------------------|--------------------------|
-| `uint8x4_t __riscv_pnsrl_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnsrli.b`, `pnsrl.bs`   |
-| `uint16x2_t __riscv_pnsrl_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnsrli.h`, `pnsrl.hs`   |
-| `int8x4_t __riscv_pnsra_s_i8x4(int16x4_t rs1, unsigned shamt);`     | `pnsrai.b`, `pnsra.bs`   |
-| `int16x2_t __riscv_pnsra_s_i16x2(int32x2_t rs1, unsigned shamt);`   | `pnsrai.h`, `pnsra.hs`   |
-| `int8x4_t __riscv_pnsrar_s_i8x4(int16x4_t rs1, unsigned shamt);`    | `pnsrari.b`, `pnsrar.bs` |
-| `int16x2_t __riscv_pnsrar_s_i16x2(int32x2_t rs1, unsigned shamt);`  | `pnsrari.h`, `pnsrar.hs` |
+| Prototype                                                           | Instruction                                                                                      |
+|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| `uint8x4_t __riscv_pnsrl_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnsrli.b`, `pnsrl.bs`(RV32), `psrli.h`+`unzip8p`, `psrl.hs`+`unzip8p`(RV64)                     |
+| `uint16x2_t __riscv_pnsrl_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnsrli.h`, `pnsrl.hs`(RV32), `psrli.w`+`unzip16p`, `psrl.ws`+`unzip16p`(RV64)                   |
+| `int8x4_t __riscv_pnsra_s_i8x4(int16x4_t rs1, unsigned shamt);`     | `pnsrai.b`, `pnsra.bs`(RV32), `psrai.h`+`unzip8p`, `psra.hs`+`unzip8p`(RV64)                     |
+| `int16x2_t __riscv_pnsra_s_i16x2(int32x2_t rs1, unsigned shamt);`   | `pnsrai.h`, `pnsra.hs`(RV32), `psrai.w`+`unzip16p`, `psra.ws`+`unzip16p`(RV64)                   |
+| `int8x4_t __riscv_pnsrar_s_i8x4(int16x4_t rs1, unsigned shamt);`    | `pnsrari.b`, `pnsrar.bs`(RV32), `psrari.h`+`unzip8p`, `andi`+`neg`+`psshar.hs`+`unzip8p`(RV64)   |
+| `int16x2_t __riscv_pnsrar_s_i16x2(int32x2_t rs1, unsigned shamt);`  | `pnsrari.h`, `pnsrar.hs`(RV32), `psrari.w`+`unzip16p`, `andi`+`neg`+`psshar.ws`+`unzip16p`(RV64) |
 
 ### Packed Narrowing Clip
 
-#### 32-bit (RV32 Only)
-
-| Prototype                                                              | Instruction                  |
-|------------------------------------------------------------------------|------------------------------|
-| `uint8x4_t __riscv_pnclipu_s_u8x4(uint16x4_t rs1, unsigned shamt);`    | `pnclipiu.b`, `pnclipu.bs`   |
-| `uint16x2_t __riscv_pnclipu_s_u16x2(uint32x2_t rs1, unsigned shamt);`  | `pnclipiu.h`, `pnclipu.hs`   |
-| `uint8x4_t __riscv_pnclipru_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnclipriu.b`, `pnclipru.bs` |
-| `uint16x2_t __riscv_pnclipru_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnclipriu.h`, `pnclipru.hs` |
-| `int8x4_t __riscv_pnclip_s_i8x4(int16x4_t rs1, unsigned shamt);`       | `pnclipi.b`, `pnclipu.bs`    |
-| `int16x2_t __riscv_pnclip_s_i16x2(int32x2_t rs1, unsigned shamt);`     | `pnclipi.h`, `pnclipu.hs`    |
-| `int8x4_t __riscv_pnclipr_s_i8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`   |
-| `int16x2_t __riscv_pnclipr_s_i16x2(int32x2_t rs1, unsigned shamt);`    | `pnclipri.h`, `pnclipr.hs`   |
+| Prototype                                                              | Instruction                                                                                          |
+|------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| `uint8x4_t __riscv_pnclipu_s_u8x4(uint16x4_t rs1, unsigned shamt);`    | `pnclipiu.b`, `pnclipu.bs`(RV32), `psrli.h`+`pnclipup.b`, `psrl.hs`+`pnclipup.b`(RV64)               |
+| `uint16x2_t __riscv_pnclipu_s_u16x2(uint32x2_t rs1, unsigned shamt);`  | `pnclipiu.h`, `pnclipu.hs`(RV32), `psrli.w`+`pnclipup.h`, `psrl.ws`+`pnclipup.h`(RV64)               |
+| `uint8x4_t __riscv_pnclipru_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnclipriu.b`, `pnclipru.bs`(RV32), `andi`+`neg`+`psshlr.hs`+`pnclipup.b`(RV64)                      |
+| `uint16x2_t __riscv_pnclipru_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnclipriu.h`, `pnclipru.hs`(RV32), `andi`+`neg`+`psshlr.ws`+`pnclipup.h`(RV64)                      |
+| `int8x4_t __riscv_pnclip_s_i8x4(int16x4_t rs1, unsigned shamt);`       | `pnclipi.b`, `pnclip.bs`(RV32), `psrai.h`+`pnclipp.b`, `psra.hs`+`pnclipp.b`(RV64)                   |
+| `int16x2_t __riscv_pnclip_s_i16x2(int32x2_t rs1, unsigned shamt);`     | `pnclipi.h`, `pnclip.hs`(RV32), `psrai.w`+`pnclipp.h`, `psra.ws`+`pnclipp.h`(RV64)                   |
+| `int8x4_t __riscv_pnclipr_s_i8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`(RV32), `psrari.h`+`pnclipp.b`, `andi`+`neg`+`psshar.hs`+`pnclipp.b`(RV64) |
+| `int16x2_t __riscv_pnclipr_s_i16x2(int32x2_t rs1, unsigned shamt);`    | `pnclipri.h`, `pnclipr.hs`(RV32), `psrari.w`+`pnclipp.h`, `andi`+`neg`+`psshar.ws`+`pnclipp.h`(RV64) |
 
 ### Packed Multiplication with Widening Horizontal Addition
 
