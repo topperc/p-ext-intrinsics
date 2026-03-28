@@ -103,6 +103,28 @@ __riscv_sshar_i32(int32_t __rs1, int __rs2) {
   return __result;
 }
 
+static __inline__ uint32_t __DEFAULT_FN_ATTRS
+__riscv_sshl_u32(uint32_t __rs1, int __rs2) {
+  uint32_t __result;
+#if __riscv_xlen == 32
+  __asm__("sshl %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+#else
+  __asm__("psshl.ws %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+#endif
+  return __result;
+}
+
+static __inline__ uint32_t __DEFAULT_FN_ATTRS
+__riscv_sshlr_u32(uint32_t __rs1, int __rs2) {
+  uint32_t __result;
+#if __riscv_xlen == 32
+  __asm__("sshlr %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+#else
+  __asm__("psshlr.ws %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+#endif
+  return __result;
+}
+
 static __inline__ int32_t __DEFAULT_FN_ATTRS
 __riscv_sadd_i32(int32_t __rs1, int32_t __rs2) {
   int32_t __result;
@@ -668,6 +690,20 @@ __riscv_shar_i64(int64_t __rs1, int __rs2) {
   return __result;
 }
 
+static __inline__ uint64_t __DEFAULT_FN_ATTRS
+__riscv_shl_u64(uint64_t __rs1, int __rs2) {
+  int64_t __result;
+  __asm__("shl %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
+static __inline__ uint64_t __DEFAULT_FN_ATTRS
+__riscv_shlr_u64(uint64_t __rs1, int __rs2) {
+  uint64_t __result;
+  __asm__("shlr %0, %1, %2" : "=r"(__result) : "r"(__rs1), "r"(__rs2));
+  return __result;
+}
+
 #define __riscv_usati_u64(rs1, shamt) \
   __extension__ ({ \
     uint64_t __result; \
@@ -1000,6 +1036,31 @@ __riscv_zip16hp_64(uint64_t __rs1, uint64_t __rs2) {
 #define __riscv_psshar_s_i32x2(rs1, shamt) __extension__ ({ \
   int32x2_t __result; \
   __asm__("psshar.dws %0, %1, %2" : "=R"(__result.__val) : "R"((rs1).__val), "r"(shamt)); \
+  __result; \
+})
+
+#define __riscv_psshl_s_u16x4(rs1, shamt) __extension__ ({ \
+  int16x4_t __result; \
+  __asm__("psshl.dhs %0, %1, %2" : "=R"(__result.__val) : "R"((rs1).__val), "r"(shamt)); \
+  __result; \
+})
+
+#define __riscv_psshl_s_u32x2(rs1, shamt) __extension__ ({ \
+  int32x2_t __result; \
+  __asm__("psshl.dws %0, %1, %2" : "=R"(__result.__val) : "R"((rs1).__val), "r"(shamt)); \
+  __result; \
+})
+
+// Packed saturating shift right logical with rounding and scalar
+#define __riscv_psshlr_s_u16x4(rs1, shamt) __extension__ ({ \
+  int16x4_t __result; \
+  __asm__("psshlr.dhs %0, %1, %2" : "=R"(__result.__val) : "R"((rs1).__val), "r"(shamt)); \
+  __result; \
+})
+
+#define __riscv_psshlr_s_u32x2(rs1, shamt) __extension__ ({ \
+  int32x2_t __result; \
+  __asm__("psshlr.dws %0, %1, %2" : "=R"(__result.__val) : "R"((rs1).__val), "r"(shamt)); \
   __result; \
 })
 
