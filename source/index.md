@@ -89,8 +89,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint64_t __riscv_rev16_64(uint64_t rs1);`                             | `rev16`                     |
 | `int64_t __riscv_sha_i64(int64_t rs1, int rs2);`                       | `sha`                       |
 | `int64_t __riscv_shar_i64(int64_t rs1, int rs2);`                      | `shar`                      |
-| `uint64_t __riscv_shl_u64(unt64_t rs1, int rs2);`                      | `shl`                       |
-| `uint64_t __riscv_shlr_u64(unt64_t rs1, int rs2);`                     | `shlr`                      |
+| `uint64_t __riscv_shl_u64(uint64_t rs1, int rs2);`                      | `shl`                       |
+| `uint64_t __riscv_shlr_u64(uint64_t rs1, int rs2);`                     | `shlr`                      |
 | `uint64_t __riscv_usati_u64(int64_t rs1, const unsigned shamt);`       | `usati`                     |
 | `int64_t __riscv_srari_i64(int64_t rs1, const unsigned shamt);`        | `srari`                     |
 | `int64_t __riscv_sati_i64(int64_t rs1, const unsigned shamt);`         | `sati`                      |
