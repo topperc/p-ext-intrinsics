@@ -159,3 +159,5 @@ cython_debug/
 # Other items not to include for RISC-V usage
 docs/conf.py
 docs/json/
+intrinsics.json
+api-test/
