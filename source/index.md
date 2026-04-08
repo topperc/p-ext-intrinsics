@@ -16,7 +16,7 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 |--------------------------------------------------------------------------|---------------------------------------|----------------------------------------------------|
 | `uint32_t __riscv_abs_u32(int32_t rs1);`                                 | `abs[w]`                              |                                                    |
 | `unsigned __riscv_cls_32(int32_t rs1);`                                  | `cls[w]`                              |                                                    |
-| `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | `rev`                                 | Emulated with rev+srai on RV64                     |
+| `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | `rev`(RV32), `rev`+`srai`(RV64)       |                                                    |
 | `int32_t __riscv_sslai_i32(int32_t rs1, const unsigned shamt);`          | `sslai`(RV32), `psslai.w`(RV64)       |                                                    |
 | `int32_t __riscv_ssha_i32(int32_t rs1, int rs2);`                        | `ssha`(RV32), `pssha.ws`(RV64)        |                                                    |
 | `int32_t __riscv_sshar_i32(int32_t rs1, int rs2);`                       | `sshar`(RV32), `psshar.ws`(RV64)      |                                                    |
@@ -34,15 +34,15 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `int32_t __riscv_srari_i32(int32_t rs1, const unsigned shamt);`          | `srari`(RV32), `psrari.w`(RV64)       |                                                    |
 | `int32_t __riscv_sati_i32(int32_t rs1, const unsigned shamt);`           | `sati`(RV32), `psati.w`(RV64)         |                                                    |
 | `int32_t __riscv_ssh1sadd_i32(int32_t rs1, int32_t rs2);`                | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64) |                                                    |
-| `int32_t __riscv_mulh_i32(int32_t rs1, int32_t rs2);`                    | `mulh`(RV32), various(RV64)           | Emulated on RV64                                   |
+| `int32_t __riscv_mulh_i32(int32_t rs1, int32_t rs2);`                    | `mulh`(RV32), various(RV64)           |                                                    |
 | `int32_t __riscv_mulhr_i32(int32_t rs1, int32_t rs2);`                   | `mulhr`(RV32), `pmulhr.w`(RV64)       |                                                    |
 | `int32_t __riscv_mhacc_i32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhacc`(RV32), `pmhacc.w`?(RV64)      |                                                    |
 | `int32_t __riscv_mhracc_i32(int32_t rd, int32_t rs1, int32_t rs2);`      | `mhracc`(RV32), `pmhracc.w`(RV64)     |                                                    |
-| `uint32_t __riscv_mulhu_u32(uint32_t rs1, uint32_t rs2);`                | `mulhu`(RV32), various(RV64)          | Emulated on RV64                                   |
+| `uint32_t __riscv_mulhu_u32(uint32_t rs1, uint32_t rs2);`                | `mulhu`(RV32), various(RV64)          |                                                    |
 | `uint32_t __riscv_mulhru_u32(uint32_t rs1, uint32_t rs2);`               | `mulhru`(RV32), `pmulhru.w`(RV64)     |                                                    |
 | `uint32_t __riscv_mhaccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhaccu`(RV32), `pmhaccu.w`?(RV64)    |                                                    |
 | `uint32_t __riscv_mhraccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);` | `mhraccu`(RV32), `pmhraccu.w`(RV64)   |                                                    |
-| `int32_t __riscv_mulhsu_i32(int32_t rs1, uint32_t rs2);`                 | `mulhsu`(RV32), various(RV64)         | Emulated on RV64                                   |
+| `int32_t __riscv_mulhsu_i32(int32_t rs1, uint32_t rs2);`                 | `mulhsu`(RV32), various(RV64)         |                                                    |
 | `int32_t __riscv_mulhrsu_i32(int32_t rs1, uint32_t rs2);`                | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)   |                                                    |
 | `int32_t __riscv_mhaccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)  |                                                    |
 | `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64) |                                                    |
@@ -56,6 +56,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_msgt_i32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)         | Swap operands and use pmslt                        |
 | `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)       |                                                    |
 | `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)       | Swap operands and use pmsltu                       |
+| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `slx`(RV32), `andi`+`slli`+`slx`(RV64)|                                                    |
+| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `srx`(RV32), `ori`+`slli`+`srx`(RV64) |                                                    |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
@@ -66,8 +68,6 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 | Prototype                                                              | Instruction                     | Notes                         |
 |------------------------------------------------------------------------|---------------------------------|-------------------------------|
-| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `slx`                           |                               |
-| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`  | `srx`                           |                               |
 | `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
 | `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
 | `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
