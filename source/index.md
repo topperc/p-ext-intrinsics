@@ -60,22 +60,16 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `srx`(RV32), `ori`+`slli`+`srx`(RV64) |                                                    |
 | `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`                | `wzip8p`(RV32), `zip8p`(RV64)         |                                                    |
 | `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`               | `wzip16p`(RV32), `zip16p`(RV64)       |                                                    |
+| `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, unsigned shamt);`           | `nclip[i]u`(RV32), `srl[i]`+`pnclipup.w`(RV64)                          | |
+| `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, unsigned shamt);`          | `nclipr[i]u`(RV32), `li`+`shlr`+`pnclipup.w`, `andi`+`neg`+`shlr`+`pnclipup.w`(RV64)              | |
+| `int32_t __riscv_nsrar_i32(int64_t rs1_p, unsigned shamt);`              | `nsrar[i]`(RV32), `srari`, `andi`+`neg`+`srar`(RV64)                    | |
+| `int32_t __riscv_nclip_i32(int64_t rs1_p, unsigned shamt);`              | `nclip[i]`(RV32), `sra[i]`+`pnclipp.w`(RV64)                            | |
+| `int32_t __riscv_nclipr_i32(int64_t rs1_p, unsigned shamt);`             | `nclipr[i]`(RV32), `srari`+`pnclipp.w`, `andi`+`neg`+`srar`+`pnclipp.w` | |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
 * TODO: mseq/mslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
-
-### RV32 Only Scalar Intrinsics
-
-| Prototype                                                              | Instruction                     | Notes                         |
-|------------------------------------------------------------------------|---------------------------------|-------------------------------|
-| `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
-| `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, uint32_t rs2);`          | `nclipr[i]u`                    |                               |
-| `int32_t __riscv_nsrar_i32(int64_t rs1_p, uint32_t rs2);`              | `nsrar[i]`                      |                               |
-| `int32_t __riscv_nclip_i32(int64_t rs1_p, uint32_t rs2);`              | `nclip[i]`                      |                               |
-| `int32_t __riscv_nclipr_i32(int64_t rs1_p, uint32_t rs2);`             | `nclipr[i]`                     |                               |
-
 * TODO: Do we need intrinsics for ADDD or SUBD? Or can compiler figure it out?
 
 ### RV64 Only Scalar Intrinsics
@@ -1198,8 +1192,8 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 |------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | `uint8x4_t __riscv_pnclipu_s_u8x4(uint16x4_t rs1, unsigned shamt);`    | `pnclipiu.b`, `pnclipu.bs`(RV32), `psrli.h`+`pnclipup.b`, `psrl.hs`+`pnclipup.b`(RV64)               |
 | `uint16x2_t __riscv_pnclipu_s_u16x2(uint32x2_t rs1, unsigned shamt);`  | `pnclipiu.h`, `pnclipu.hs`(RV32), `psrli.w`+`pnclipup.h`, `psrl.ws`+`pnclipup.h`(RV64)               |
-| `uint8x4_t __riscv_pnclipru_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnclipriu.b`, `pnclipru.bs`(RV32), `andi`+`neg`+`psshlr.hs`+`pnclipup.b`(RV64)                      |
-| `uint16x2_t __riscv_pnclipru_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnclipriu.h`, `pnclipru.hs`(RV32), `andi`+`neg`+`psshlr.ws`+`pnclipup.h`(RV64)                      |
+| `uint8x4_t __riscv_pnclipru_s_u8x4(uint16x4_t rs1, unsigned shamt);`   | `pnclipriu.b`, `pnclipru.bs`(RV32), `li`+`psshlr.hs`+`pnclipup.b`, `andi`+`neg`+`psshlr.hs`+`pnclipup.b`(RV64)                      |
+| `uint16x2_t __riscv_pnclipru_s_u16x2(uint32x2_t rs1, unsigned shamt);` | `pnclipriu.h`, `pnclipru.hs`(RV32), `li`+`psshlr.ws`+`pnclipup.h`, `andi`+`neg`+`psshlr.ws`+`pnclipup.h`(RV64)                      |
 | `int8x4_t __riscv_pnclip_s_i8x4(int16x4_t rs1, unsigned shamt);`       | `pnclipi.b`, `pnclip.bs`(RV32), `psrai.h`+`pnclipp.b`, `psra.hs`+`pnclipp.b`(RV64)                   |
 | `int16x2_t __riscv_pnclip_s_i16x2(int32x2_t rs1, unsigned shamt);`     | `pnclipi.h`, `pnclip.hs`(RV32), `psrai.w`+`pnclipp.h`, `psra.ws`+`pnclipp.h`(RV64)                   |
 | `int8x4_t __riscv_pnclipr_s_i8x4(int16x4_t rs1, unsigned shamt);`      | `pnclipri.b`, `pnclipr.bs`(RV32), `psrari.h`+`pnclipp.b`, `andi`+`neg`+`psshar.hs`+`pnclipp.b`(RV64) |
