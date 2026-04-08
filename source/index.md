@@ -58,6 +58,8 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)       | Swap operands and use pmsltu                       |
 | `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `slx`(RV32), `andi`+`slli`+`slx`(RV64)|                                                    |
 | `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `srx`(RV32), `ori`+`slli`+`srx`(RV64) |                                                    |
+| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`                | `wzip8p`(RV32), `zip8p`(RV64)         |                                                    |
+| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`               | `wzip16p`(RV32), `zip16p`(RV64)       |                                                    |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
@@ -68,8 +70,6 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 | Prototype                                                              | Instruction                     | Notes                         |
 |------------------------------------------------------------------------|---------------------------------|-------------------------------|
-| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`              | `wzip8p`                        |                               |
-| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`             | `wzip16p`                       |                               |
 | `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, uint32_t rs2);`           | `nclip[i]u`                     |                               |
 | `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, uint32_t rs2);`          | `nclipr[i]u`                    |                               |
 | `int32_t __riscv_nsrar_i32(int64_t rs1_p, uint32_t rs2);`              | `nsrar[i]`                      |                               |
