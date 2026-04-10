@@ -745,7 +745,7 @@ is provided a signed and unsigned version.
 | `uint16x4_t __riscv_pmsgtu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(RV64), `pmsltu.dh`(RV32) swapped operands  |
 | `uint32x2_t __riscv_pmsgtu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(RV64), `pmsltu.dw`(RV32) swapped operands  |
 
-TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrisic.
+TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 
 ### Packed Minimum and Maximum
 
@@ -1147,7 +1147,7 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `int16x4_t __riscv_pwmulsu_u16x4(int8x4_t rs1, uint8x4_t rs2);`    | `pwmulsu.b`(RV32), `zip8p`+`pmulsu.h.b01`(RV64)  |
 | `int32x2_t __riscv_pwmulsu_u32x2(int16x2_t rs1, uint16x2_t rs2);`  | `pwmulsu.h`(RV32), `zip16p`+`pmulsu.w.h01`(RV64) |
 
-### Packed Widening Multiply Accmulate
+### Packed Widening Multiply Accumulate
 
 #### 32-bit
 
