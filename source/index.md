@@ -404,10 +404,10 @@ to avoid casts.
 
 | Prototype                                                          | Instruction                         |
 |--------------------------------------------------------------------|-------------------------------------|
-| `int8x4_t __riscv_paadd_i8x4(int8x4_t rs1, int8x4_t rs2);`         | `psadd.b`                           |
-| `int16x2_t __riscv_paadd_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `psadd.h`                           |
-| `uint8x4_t __riscv_paaddu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `psaddu.b`                          |
-| `uint16x2_t __riscv_paaddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `psaddu.h`                          |
+| `int8x4_t __riscv_paadd_i8x4(int8x4_t rs1, int8x4_t rs2);`         | `paadd.b`                           |
+| `int16x2_t __riscv_paadd_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `paadd.h`                           |
+| `uint8x4_t __riscv_paaddu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `paaddu.b`                          |
+| `uint16x2_t __riscv_paaddu_u16x2(uint16x2_t rs1, uint16x2_t rs2);` | `paaddu.h`                          |
 | `int8x4_t __riscv_pasub_i8x4(int8x4_t rs1, int8x4_t rs2);`         | `pasub.b`                           |
 | `int16x2_t __riscv_pasub_i16x2(int16x2_t rs1, int16x2_t rs2);`     | `pasub.h`                           |
 | `uint8x4_t __riscv_pasubu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `pasubu.b`                          |
