@@ -1448,9 +1448,9 @@ Intrinsics to join multiple 32-bit subvectors into a 64-bit vector.
 | Prototype                                                        | Instruction                                  |
 |------------------------------------------------------------------|----------------------------------------------|
 | `int8x8_t __riscv_pjoin2_i8x8(int8x4_t lo, int8x4_t hi);`        | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
-| `uint8x8_t __riscv_pjoin2_i8x8(uint8x4_t lo, uint8x4_t hi);`     | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
+| `uint8x8_t __riscv_pjoin2_u8x8(uint8x4_t lo, uint8x4_t hi);`     | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
 | `int16x4_t __riscv_pjoin2_i16x4(int16x2_t lo, int16x2_t hi);`    | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
-| `uint16x4_t __riscv_pjoin2_i16x4(uint16x2_t lo, uint16x2_t hi);` | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
+| `uint16x4_t __riscv_pjoin2_u16x4(uint16x2_t lo, uint16x2_t hi);` | `pack`/`ppaireo.w`(RV64), up to 2 `mv`(RV32) |
 
 ## Reinterpret casts
 
