@@ -465,10 +465,10 @@ Compiler will choose `merge`, `mvm`, or `mvmn` opcode to minimize register copie
 
 | Prototype                                                                         | Instruction            |
 |-----------------------------------------------------------------------------------|------------------------|
-| `uint8x4_t __riscv_pmerge_u8x4(uint8x4_t rd, uint8x4_t rs1, uint8x4_t rs2);`      | `merge`, `mvm`, `mvmn` |
-| `int8x4_t __riscv_pmerge_i8x4(uint8x4_t rd, int8x4_t rs1, int8x4_t rs2);`         | `merge`, `mvm`, `mvmn` |
-| `uint16x2_t __riscv_pmerge_u16x2(uint16x2_t rd, uint16x2_t rs1, uint16x2_t rs2);` | `merge`, `mvm`, `mvmn` |
-| `int16x2_t __riscv_pmerge_i16x2(uint16x2_t rd, int16x2_t rs1, int16x2_t rs2);`    | `merge`, `mvm`, `mvmn` |
+| `uint8x4_t __riscv_pmerge_u8x4(uint8x4_t rs1, uint8x4_t rs2, uint8x4_t rd);`      | `merge`, `mvm`, `mvmn` |
+| `int8x4_t __riscv_pmerge_i8x4(int8x4_t rs1, int8x4_t rs2, uint8x4_t rd);`         | `merge`, `mvm`, `mvmn` |
+| `uint16x2_t __riscv_pmerge_u16x2(uint16x2_t rs1, uint16x2_t rs2, uint16x2_t rd);` | `merge`, `mvm`, `mvmn` |
+| `int16x2_t __riscv_pmerge_i16x2(int16x2_t rs1, int16x2_t rs2, uint16x2_t rd);`    | `merge`, `mvm`, `mvmn` |
 
 #### 64-bit
 
@@ -476,12 +476,12 @@ Requires 2 instructions on RV32.
 
 | Prototype                                                                         | Instruction            |
 |-----------------------------------------------------------------------------------|------------------------|
-| `uint8x8_t __riscv_pmerge_u8x8(uint8x8_t rd, uint8x8_t rs1, uint8x8_t rs2);`      | `merge`, `mvm`, `mvmn` |
-| `int8x8_t __riscv_pmerge_i8x8(uint8x8_t rd, int8x8_t rs1, int8x8_t rs2);`         | `merge`, `mvm`, `mvmn` |
-| `uint16x4_t __riscv_pmerge_u16x4(uint16x4_t rd, uint16x4_t rs1, uint16x4_t rs2);` | `merge`, `mvm`, `mvmn` |
-| `int16x4_t __riscv_pmerge_i16x4(uint16x4_t rd, int16x4_t rs1, int16x4_t rs2);`    | `merge`, `mvm`, `mvmn` |
-| `uint32x2_t __riscv_pmerge_u32x2(uint32x2_t rd, uint32x2_t rs1, uint32x2_t rs2);` | `merge`, `mvm`, `mvmn` |
-| `int32x2_t __riscv_pmerge_i32x2(uint32x2_t rd, int32x2_t rs1, int32x2_t rs2);`    | `merge`, `mvm`, `mvmn` |
+| `uint8x8_t __riscv_pmerge_u8x8(uint8x8_t rs1, uint8x8_t rs2, uint8x8_t rd);`      | `merge`, `mvm`, `mvmn` |
+| `int8x8_t __riscv_pmerge_i8x8(int8x8_t rs1, int8x8_t rs2, uint8x8_t rd);`         | `merge`, `mvm`, `mvmn` |
+| `uint16x4_t __riscv_pmerge_u16x4(uint16x4_t rs1, uint16x4_t rs2, uint16x4_t rd);` | `merge`, `mvm`, `mvmn` |
+| `int16x4_t __riscv_pmerge_i16x4(int16x4_t rs1, int16x4_t rs2, uint16x4_t rd);`    | `merge`, `mvm`, `mvmn` |
+| `uint32x2_t __riscv_pmerge_u32x2(uint32x2_t rs1, uint32x2_t rs2, uint32x2_t rd);` | `merge`, `mvm`, `mvmn` |
+| `int32x2_t __riscv_pmerge_i32x2(int32x2_t rs1, int32x2_t rs2, uint32x2_t rd);`    | `merge`, `mvm`, `mvmn` |
 
 ### Packed Absolute Difference Sum
 
