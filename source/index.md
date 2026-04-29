@@ -279,8 +279,7 @@ Sum every element together to produce and add result to scalar accumulator.
 
 #### 32-bit
 
-Requires a zext.w to mask upper elements on RV64. RV64 may need a sext.w or
-zext.w to extend result in some circumstances.
+Requires a zext.w to mask upper elements on RV64.
 
 * TODO: Do we need a 64-bit accumulator version?
 
@@ -473,8 +472,7 @@ Requires 2 instructions on RV32.
 
 #### 32-bit
 
-Requires a zext.w to mask upper elements on RV64. RV64 may need a sext.w or
-zext.w to extend result in some circumstances.
+Requires a zext.w to mask upper elements on RV64.
 
 * TODO: Do we need a 64-bit accumulator version?
 
