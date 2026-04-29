@@ -71,8 +71,6 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 ### RV64 Only Scalar Intrinsics
 
-* TODO: cls and rev names match clz/ctz/rev8 names from bitmanip
-
 | Prototype                                                              | Instruction                 |
 |------------------------------------------------------------------------|-----------------------------|
 | `uint64_t __riscv_abs_u64(int64_t rs1);`                               | `abs`                       |
