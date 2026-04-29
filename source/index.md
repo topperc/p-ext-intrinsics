@@ -117,8 +117,6 @@ A 64-bit type will occupy a pair of GPRs on RV32 and a full GPR on RV64.
 The intrinsic interface is designed as much as possible to be source code portable between RV32 and RV64. This does not necessarily mean it is performance portable. Intrinsics operating
 on 32-bit and 64-bit types are provided for both RV32 and RV64.
 
-* TODO: Packed intrinsics for (un)zip(8|16)8(h)p?
-
 ### Packed Splat
 
 Intrinsics for splatting a scalar to every element of a packed type. Compiler will choose
