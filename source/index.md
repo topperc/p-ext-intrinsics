@@ -145,8 +145,7 @@ an immediate form when possible.
 ### Packed Shifts
 
 Shift each element in a packed type by the same amount. Result may be saturated
-and/or rounded. Compiler will choose an immediate form when possible. Intrinsics
-with 'i' in the name require a constant shift amount.
+and/or rounded. Compiler will choose an immediate form when possible.
 
 #### 32-bit
 
