@@ -513,10 +513,11 @@ Requires 2 instructions on RV32.
 | Prototype                                                           | Instruction                           |
 |---------------------------------------------------------------------|---------------------------------------|
 | `uint8x4_t __riscv_ppaire_u8x4(uint8x4_t rs1, uint8x4_t rs2);`      | `ppaire.b`                            |
-| `int8x4_t __riscv_ppaireo_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `ppaireo.b`                           |
+| `int8x4_t __riscv_ppaire_i8x4(int8x4_t rs1, int8x4_t rs2);`         | `ppaire.b`                            |
 | `uint8x4_t __riscv_ppaireo_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `ppaireo.b`                           |
-| `int8x4_t __riscv_ppairoe_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `ppairoe.b`                           |
+| `int8x4_t __riscv_ppaireo_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `ppaireo.b`                           |
 | `uint8x4_t __riscv_ppairoe_u8x4(uint8x4_t rs1, uint8x4_t rs2);`     | `ppairoe.b`                           |
+| `int8x4_t __riscv_ppairoe_i8x4(int8x4_t rs1, int8x4_t rs2);`        | `ppairoe.b`                           |
 | `uint8x4_t __riscv_ppairo_u8x4(uint8x4_t rs1, uint8x4_t rs2);`      | `ppairo.b`                            |
 | `int8x4_t __riscv_ppairo_i8x4(int8x4_t rs1, int8x4_t rs2);`         | `ppairo.b`                            |
 | `uint16x2_t __riscv_ppaire_u16x2(uint16x2_t rs1, uint16x2_t rs2);`  | `pack`(RV32), `ppaire.h`(RV64)        |
