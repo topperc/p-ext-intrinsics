@@ -469,21 +469,21 @@ Requires 2 instructions on RV32.
 
 #### 32-bit
 
-Requires a zext.w to mask upper elements on RV64.
-
 * TODO: Do we need a 64-bit accumulator version?
 
-| Prototype                                                                         | Instruction   |
-|-----------------------------------------------------------------------------------|---------------|
-| `uint32_t __riscv_pabdsumu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                   | `pabdsumu.b`  |
-| `uint32_t __riscv_pabdsumau_u8x4_u32(uint32_t rd, uint8x4_t rs1, uint8x4_t rs2);` | `pabdsumau.b` |
+| Prototype                                                                         | Instruction                                       |
+|-----------------------------------------------------------------------------------|---------------------------------------------------|
+| `uint32_t __riscv_pabdsumu_u8x4_u32(uint8x4_t rs1, uint8x4_t rs2);`               | `pabdsumu.b`(RV32), `zext.w`+`pabdsumu.b`(RV64)   |
+| `uint32_t __riscv_pabdsumau_u8x4_u32(uint32_t rd, uint8x4_t rs1, uint8x4_t rs2);` | `pabdsumau.b`(RV32), `zext.w`+`pabdsumau.b`(RV64) |
 
-#### 64-bit (RV64 Only)
+#### 64-bit
 
-| Prototype                                                                         | Instruction   |
-|-----------------------------------------------------------------------------------|---------------|
-| `uint64_t __riscv_pabdsumu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                   | `pabdsumu.b`  |
-| `uint64_t __riscv_pabdsumau_u8x8_u64(uint64_t rd, uint8x8_t rs1, uint8x8_t rs2);` | `pabdsumau.b` |
+| Prototype                                                                         | Instruction                                                   |
+|-----------------------------------------------------------------------------------|---------------------------------------------------------------|
+| `uint32_t __riscv_pabdsumu_u8x8_u32(uint8x8_t rs1, uint8x8_t rs2);`               | `pabdsumu.b`(RV64), `pabdsumu.b`+`pabdsumau.b`(RV32)          |
+| `uint64_t __riscv_pabdsumu_u8x8_u64(uint8x8_t rs1, uint8x8_t rs2);`               | `pabdsumu.b`(RV64), `pabdsumu.b`+`pabdsumu.b`+`waddu`(RV32)   |
+| `uint32_t __riscv_pabdsumau_u8x8_u32(uint32_t rd, uint8x8_t rs1, uint8x8_t rs2);` | `pabdsumau.b`(RV64), `pabdsumau.b`+`pabdsumau.b`(RV32)        |
+| `uint64_t __riscv_pabdsumau_u8x8_u64(uint64_t rd, uint8x8_t rs1, uint8x8_t rs2);` | `pabdsumau.b`(RV64), `pabdsumu.b`+`pabdsumu.b`+`waddau`(RV32) |
 
 ### Packed SH1ADD and SSH1SADD
 
