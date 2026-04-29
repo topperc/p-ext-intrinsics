@@ -60,9 +60,9 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 | `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`               | `wzip16p`(RV32), `zip16p`(RV64)                                             |                                                    |
 | `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, unsigned shamt);`           | `nclip[i]u`(RV32), `srl[i]`+`pnclipup.w`(RV64)                              | |
 | `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, unsigned shamt);`          | `nclipr[i]u`(RV32), `li`+`shlr`+`pnclipup.w`, `andi`+`neg`+`shlr`+`pnclipup.w`(RV64)              | |
-| `int32_t __riscv_nsrar_i32(int64_t rs1_p, unsigned shamt);`              | `nsrar[i]`(RV32), `srari`, `andi`+`neg`+`srar`(RV64)                        | |
+| `int32_t __riscv_nsrar_i32(int64_t rs1_p, unsigned shamt);`              | `nsrar[i]`(RV32), `srari`, `andi`+`neg`+`shar`(RV64)                        | |
 | `int32_t __riscv_nclip_i32(int64_t rs1_p, unsigned shamt);`              | `nclip[i]`(RV32), `sra[i]`+`pnclipp.w`(RV64)                                | |
-| `int32_t __riscv_nclipr_i32(int64_t rs1_p, unsigned shamt);`             | `nclipr[i]`(RV32), `srari`+`pnclipp.w`, `andi`+`neg`+`srar`+`pnclipp.w`     | |
+| `int32_t __riscv_nclipr_i32(int64_t rs1_p, unsigned shamt);`             | `nclipr[i]`(RV32), `srari`+`pnclipp.w`, `andi`+`neg`+`shar`+`pnclipp.w`     | |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
