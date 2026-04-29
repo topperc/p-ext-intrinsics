@@ -12,57 +12,63 @@ The RISC-V P Extension C intrinsics provide users interface in the C language le
 
 * TODO: cls and rev names match clz/ctz/rev8 names from bitmanip
 
-| Prototype                                                                | Instruction                                                                 | Notes                                              |
-|--------------------------------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------|
-| `uint32_t __riscv_abs_u32(int32_t rs1);`                                 | `abs[w]`                                                                    |                                                    |
-| `unsigned __riscv_cls_32(int32_t rs1);`                                  | `cls[w]`                                                                    |                                                    |
-| `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | `rev`(RV32), `rev`+`srai`(RV64)                                             |                                                    |
-| `int32_t __riscv_ssha_i32(int32_t rs1, int rs2);`                        | `ssha`, `sslai`, `srai`(RV32), `pssha.ws`, `psslai.w`, `psrai.w`(RV64)      |                                                    |
-| `int32_t __riscv_sshar_i32(int32_t rs1, int rs2);`                       | `sshar`, `sslai`, `srari`(RV32), `psshar.ws`, `psslai.w`, `psrari.w`(RV64)  |                                                    |
-| `uint32_t __riscv_sshl_u32(int32_t rs1, int rs2);`                       | `sshl`(RV32), `psshl.ws`(RV64)                                              |                                                    |
-| `uint32_t __riscv_sshlr_u32(int32_t rs1, int rs2);`                      | `sshlr`(RV32), `psshlr.ws`(RV64)                                            |                                                    |
-| `int32_t __riscv_sadd_i32(int32_t rs1, int32_t rs2);`                    | `sadd`(RV32), `psadd.w`(RV64)                                               |                                                    |
-| `int32_t __riscv_aadd_i32(int32_t rs1, int32_t rs2);`                    | `aadd`(RV32), `paadd.w`(RV64)                                               |                                                    |
-| `uint32_t __riscv_saddu_u32(uint32_t rs1, uint32_t rs2);`                | `saddu`(RV32), `psaddu.w`(RV64)                                             |                                                    |
-| `uint32_t __riscv_aaddu_u32(uint32_t rs1, uint32_t rs2);`                | `aaddu`(RV32), `paaddu.w`(RV64)                                             |                                                    |
-| `int32_t __riscv_ssub_i32(int32_t rs1, int32_t rs2);`                    | `ssub`(RV32), `pssub.w`(RV64)                                               |                                                    |
-| `int32_t __riscv_asub_i32(int32_t rs1, int32_t rs2);`                    | `asub`(RV32), `pasub.w`(RV64)                                               |                                                    |
-| `uint32_t __riscv_ssubu_u32(uint32_t rs1, uint32_t rs2);`                | `ssubu`(RV32), `pssubu.w`(RV64)                                             |                                                    |
-| `uint32_t __riscv_asubu_u32(uint32_t rs1, uint32_t rs2);`                | `asubu`(RV32), `pasubu.w`(RV64)                                             |                                                    |
-| `uint32_t __riscv_usati_u32(int32_t rs1, const unsigned shamt);`         | `usati`(RV32), `pusati.w`(RV64)                                             |                                                    |
-| `int32_t __riscv_sati_i32(int32_t rs1, const unsigned shamt);`           | `sati`(RV32), `psati.w`(RV64)                                               |                                                    |
-| `int32_t __riscv_ssh1sadd_i32(int32_t rs1, int32_t rs2);`                | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64)                                       |                                                    |
-| `int32_t __riscv_mulh_i32(int32_t rs1, int32_t rs2);`                    | `mulh`(RV32), various(RV64)                                                 |                                                    |
-| `int32_t __riscv_mulhr_i32(int32_t rs1, int32_t rs2);`                   | `mulhr`(RV32), `pmulhr.w`(RV64)                                             |                                                    |
-| `int32_t __riscv_mhacc_i32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhacc`(RV32), `pmhacc.w`?(RV64)                                            |                                                    |
-| `int32_t __riscv_mhracc_i32(int32_t rd, int32_t rs1, int32_t rs2);`      | `mhracc`(RV32), `pmhracc.w`(RV64)                                           |                                                    |
-| `uint32_t __riscv_mulhu_u32(uint32_t rs1, uint32_t rs2);`                | `mulhu`(RV32), various(RV64)                                                |                                                    |
-| `uint32_t __riscv_mulhru_u32(uint32_t rs1, uint32_t rs2);`               | `mulhru`(RV32), `pmulhru.w`(RV64)                                           |                                                    |
-| `uint32_t __riscv_mhaccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhaccu`(RV32), `pmhaccu.w`?(RV64)                                          |                                                    |
-| `uint32_t __riscv_mhraccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);` | `mhraccu`(RV32), `pmhraccu.w`(RV64)                                         |                                                    |
-| `int32_t __riscv_mulhsu_i32(int32_t rs1, uint32_t rs2);`                 | `mulhsu`(RV32), various(RV64)                                               |                                                    |
-| `int32_t __riscv_mulhrsu_i32(int32_t rs1, uint32_t rs2);`                | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)                                         |                                                    |
-| `int32_t __riscv_mhaccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)                                        |                                                    |
-| `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64)                                       |                                                    |
-| `int32_t __riscv_mulq_i32(int32_t rs1, int32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)                                               |                                                    |
-| `int32_t __riscv_mulqr_i32(int32_t rs1, int32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)                                             |                                                    |
-| `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`      | `mqwacc`(RV32), `mqacc.w00`(RV64)                                           |                                                    |
-| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqrwacc`(RV32), `mqracc.w00`(RV64)                                         |                                                    |
-| `uint32_t __riscv_mseq_i32_u32(int32_t rs1, int32_t rs2);`               | `mseq`(RV32), `pmseq.w`(RV64)                                               |                                                    |
-| `uint32_t __riscv_mseq_u32_u32(uint32_t rs1, uint32_t rs2);`             | `mseq`(RV32), `pmseq.w`(RV64)                                               |                                                    |
-| `uint32_t __riscv_mslt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)                                               |                                                    |
-| `uint32_t __riscv_msgt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)                                               | Swap operands and use pmslt                        |
-| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)                                             |                                                    |
-| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)                                             | Swap operands and use pmsltu                       |
-| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `slx`(RV32), `andi`+`slli`+`slx`(RV64)                                      |                                                    |
-| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `srx`(RV32), `ori`+`slli`+`srx`(RV64)                                       |                                                    |
-| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`                | `wzip8p`(RV32), `zip8p`(RV64)                                               |                                                    |
-| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`               | `wzip16p`(RV32), `zip16p`(RV64)                                             |                                                    |
-| `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, unsigned shamt);`           | `nclip[i]u`(RV32), `srl[i]`+`pnclipup.w`(RV64)                              | |
-| `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, unsigned shamt);`          | `nclipr[i]u`(RV32), `li`+`shlr`+`pnclipup.w`, `andi`+`neg`+`shlr`+`pnclipup.w`(RV64)              | |
-| `int32_t __riscv_nsrar_i32(int64_t rs1_p, unsigned shamt);`              | `nsrar[i]`(RV32), `srari`, `andi`+`neg`+`shar`(RV64)                        | |
-| `int32_t __riscv_nclip_i32(int64_t rs1_p, unsigned shamt);`              | `nclip[i]`(RV32), `sra[i]`+`pnclipp.w`(RV64)                                | |
-| `int32_t __riscv_nclipr_i32(int64_t rs1_p, unsigned shamt);`             | `nclipr[i]`(RV32), `srari`+`pnclipp.w`, `andi`+`neg`+`shar`+`pnclipp.w`     | |
+| Prototype                                                                | Instruction                                                                          |
+|--------------------------------------------------------------------------|-----------------------------------------------------------------------------         |
+| `uint32_t __riscv_abs_u32(int32_t rs1);`                                 | `abs[w]`                                                                             |
+| `unsigned __riscv_cls_32(int32_t rs1);`                                  | `cls[w]`                                                                             |
+| `uint32_t __riscv_rev_32(uint32_t rs1);`                                 | `rev`(RV32), `rev`+`srai`(RV64)                                                      |
+| `int32_t __riscv_ssha_i32(int32_t rs1, int rs2);`                        | `ssha`, `sslai`, `srai`(RV32), `pssha.ws`, `psslai.w`, `psrai.w`(RV64)               |
+| `int32_t __riscv_sshar_i32(int32_t rs1, int rs2);`                       | `sshar`, `sslai`, `srari`(RV32), `psshar.ws`, `psslai.w`, `psrari.w`(RV64)           |
+| `uint32_t __riscv_sshl_u32(int32_t rs1, int rs2);`                       | `sshl`(RV32), `psshl.ws`(RV64)                                                       |
+| `uint32_t __riscv_sshlr_u32(int32_t rs1, int rs2);`                      | `sshlr`(RV32), `psshlr.ws`(RV64)                                                     |
+| `int32_t __riscv_sadd_i32(int32_t rs1, int32_t rs2);`                    | `sadd`(RV32), `psadd.w`(RV64)                                                        |
+| `int32_t __riscv_aadd_i32(int32_t rs1, int32_t rs2);`                    | `aadd`(RV32), `paadd.w`(RV64)                                                        |
+| `uint32_t __riscv_saddu_u32(uint32_t rs1, uint32_t rs2);`                | `saddu`(RV32), `psaddu.w`(RV64)                                                      |
+| `uint32_t __riscv_aaddu_u32(uint32_t rs1, uint32_t rs2);`                | `aaddu`(RV32), `paaddu.w`(RV64)                                                      |
+| `int32_t __riscv_ssub_i32(int32_t rs1, int32_t rs2);`                    | `ssub`(RV32), `pssub.w`(RV64)                                                        |
+| `int32_t __riscv_asub_i32(int32_t rs1, int32_t rs2);`                    | `asub`(RV32), `pasub.w`(RV64)                                                        |
+| `uint32_t __riscv_ssubu_u32(uint32_t rs1, uint32_t rs2);`                | `ssubu`(RV32), `pssubu.w`(RV64)                                                      |
+| `uint32_t __riscv_asubu_u32(uint32_t rs1, uint32_t rs2);`                | `asubu`(RV32), `pasubu.w`(RV64)                                                      |
+| `uint32_t __riscv_usati_u32(int32_t rs1, const unsigned shamt);`         | `usati`(RV32), `pusati.w`(RV64)                                                      |
+| `int32_t __riscv_sati_i32(int32_t rs1, const unsigned shamt);`           | `sati`(RV32), `psati.w`(RV64)                                                        |
+| `int32_t __riscv_ssh1sadd_i32(int32_t rs1, int32_t rs2);`                | `ssh1sadd`(RV32), `pssh1sadd.w`(RV64)                                                |
+| `int32_t __riscv_mulh_i32(int32_t rs1, int32_t rs2);`                    | `mulh`(RV32), various(RV64)                                                          |
+| `int32_t __riscv_mulhr_i32(int32_t rs1, int32_t rs2);`                   | `mulhr`(RV32), `pmulhr.w`(RV64)                                                      |
+| `int32_t __riscv_mhacc_i32(int32_t rd, int32_t rs1, int32_t rs2);`       | `mhacc`(RV32), `pmhacc.w`?(RV64)                                                     |
+| `int32_t __riscv_mhracc_i32(int32_t rd, int32_t rs1, int32_t rs2);`      | `mhracc`(RV32), `pmhracc.w`(RV64)                                                    |
+| `uint32_t __riscv_mulhu_u32(uint32_t rs1, uint32_t rs2);`                | `mulhu`(RV32), various(RV64)                                                         |
+| `uint32_t __riscv_mulhru_u32(uint32_t rs1, uint32_t rs2);`               | `mulhru`(RV32), `pmulhru.w`(RV64)                                                    |
+| `uint32_t __riscv_mhaccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);`  | `mhaccu`(RV32), `pmhaccu.w`?(RV64)                                                   |
+| `uint32_t __riscv_mhraccu_u32(uint32_t rd, uint32_t rs1, uint32_t rs2);` | `mhraccu`(RV32), `pmhraccu.w`(RV64)                                                  |
+| `int32_t __riscv_mulhsu_i32(int32_t rs1, uint32_t rs2);`                 | `mulhsu`(RV32), various(RV64)                                                        |
+| `int32_t __riscv_mulhrsu_i32(int32_t rs1, uint32_t rs2);`                | `mulhrsu`(RV32), `pmulhrsu.w`(RV64)                                                  |
+| `int32_t __riscv_mhaccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`    | `mhaccsu`(RV32), `pmhaccsu.w`?(RV64)                                                 |
+| `int32_t __riscv_mhraccsu_i32(int32_t rd, int32_t rs1, uint32_t rs2);`   | `mhraccsu`(RV32), `pmhraccsu.w`(RV64)                                                |
+| `int32_t __riscv_mulq_i32(int32_t rs1, int32_t rs2);`                    | `mulq`(RV32), `pmulq.w`(RV64)                                                        |
+| `int32_t __riscv_mulqr_i32(int32_t rs1, int32_t rs2);`                   | `mulqr`(RV32), `pmulqr.w`(RV64)                                                      |
+| `int64_t __riscv_mqwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`      | `mqwacc`(RV32), `mqacc.w00`(RV64)                                                    |
+| `int64_t __riscv_mqrwacc_i64(int64_t rd, int32_t rs1, int32_t rs2);`     | `mqrwacc`(RV32), `mqracc.w00`(RV64)                                                  |
+| `uint32_t __riscv_mseq_i32_u32(int32_t rs1, int32_t rs2);`               | `mseq`(RV32), `pmseq.w`(RV64)                                                        |
+| `uint32_t __riscv_mseq_u32_u32(uint32_t rs1, uint32_t rs2);`             | `mseq`(RV32), `pmseq.w`(RV64)                                                        |
+| `uint32_t __riscv_mslt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(RV32), `pmslt.w`(RV64)                                                        |
+| `uint32_t __riscv_msgt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(swapped operands)(RV32), `pmslt.w`(swapped operands)(RV64)                    |
+| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(RV32), `pmsltu.w`(RV64)                                                      |
+| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(swapped operands)(RV32), `pmsltu.w`(swapped operands)(RV64)                  |
+| `uint32_t __riscv_mseq_i32_u32(int32_t rs1, int32_t rs2);`               | `mseq`+`not`(RV32), `pmseq.w`+`not`(RV64)                                            |
+| `uint32_t __riscv_mseq_u32_u32(uint32_t rs1, uint32_t rs2);`             | `mseq`+`not`(RV32), `pmseq.w`+`not`(RV64)                                            |
+| `uint32_t __riscv_mslt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`+`not`(RV32), `pmslt.w`+`not`(RV64)                                            |
+| `uint32_t __riscv_msgt_u32(int32_t rs1, int32_t rs2);`                   | `mslt`(swapped operands)+`not`(RV32), `pmslt.w`(swapped operands)+`not`(RV64)        |
+| `uint32_t __riscv_msltu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`+`not`(RV32), `pmsltu.w`+`not`(RV64)                                          |
+| `uint32_t __riscv_msgtu_u32(uint32_t rs1, uint32_t rs2);`                | `msltu`(swapped operands)+`not`(RV32), `pmsltu.w`(swapped operands)+`not`(RV64)      |
+| `uint32_t __riscv_slx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `slx`(RV32), `andi`+`slli`+`slx`(RV64)                                               |
+| `uint32_t __riscv_srx_32(uint32_t rd, uint32_t rs1, unsigned shamt);`    | `srx`(RV32), `ori`+`slli`+`srx`(RV64)                                                |
+| `uint64_t __riscv_wzip8p_64(uint32_t rs1, uint32_t rs2);`                | `wzip8p`(RV32), `zip8p`(RV64)                                                        |
+| `uint64_t __riscv_wzip16p_64(uint32_t rs1, uint32_t rs2);`               | `wzip16p`(RV32), `zip16p`(RV64)                                                      |
+| `uint32_t __riscv_nclipu_u32(uint64_t rs1_p, unsigned shamt);`           | `nclip[i]u`(RV32), `srl[i]`+`pnclipup.w`(RV64)                                       |
+| `uint32_t __riscv_nclipru_u32(uint64_t rs1_p, unsigned shamt);`          | `nclipr[i]u`(RV32), `li`+`shlr`+`pnclipup.w`, `andi`+`neg`+`shlr`+`pnclipup.w`(RV64) |
+| `int32_t __riscv_nsrar_i32(int64_t rs1_p, unsigned shamt);`              | `nsrar[i]`(RV32), `srari`, `andi`+`neg`+`shar`(RV64)                                 |
+| `int32_t __riscv_nclip_i32(int64_t rs1_p, unsigned shamt);`              | `nclip[i]`(RV32), `sra[i]`+`pnclipp.w`(RV64)                                         |
+| `int32_t __riscv_nclipr_i32(int64_t rs1_p, unsigned shamt);`             | `nclipr[i]`(RV32), `srari`+`pnclipp.w`, `andi`+`neg`+`shar`+`pnclipp.w`              |
 
 * TODO: Do we need intrinsics for MERGE?
 * TODO: How to handle VXSAT?
@@ -682,7 +688,7 @@ Requires 2 instructions on RV32.
 ### Packed Comparisons
 
 Result of all comparison is an unsigned type regardless of input type. `pmseq`
-is provided a signed and unsigned version.
+and `pmne` is provided a signed and unsigned version.
 
 #### 32-bit
 
@@ -694,37 +700,67 @@ is provided a signed and unsigned version.
 | `uint16x2_t __riscv_pmseq_u16x2_u16x2(uint16x2_t rs1, uint16x2_t rs2);`             | `pmseq.h`                          |
 | `uint8x4_t __riscv_pmslt_u8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pmslt.b`                          |
 | `uint16x2_t __riscv_pmslt_u16x2(int16x2_t rs1, int16x2_t rs2);`                     | `pmslt.h`                          |
-| `uint8x4_t __riscv_pmsgt_u8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pmslt.b` swapped operands         |
-| `uint16x2_t __riscv_pmsgt_u16x2(int16x2_t rs1, int16x2_t rs2);`                     | `pmslt.h` swapped operands         |
+| `uint8x4_t __riscv_pmsgt_u8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pmslt.b`(swapped operands)        |
+| `uint16x2_t __riscv_pmsgt_u16x2(int16x2_t rs1, int16x2_t rs2);`                     | `pmslt.h`(swapped operands)        |
 | `uint8x4_t __riscv_pmsltu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b`                         |
 | `uint16x2_t __riscv_pmsltu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h`                         |
-| `uint8x4_t __riscv_pmsgtu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b` swapped operands        |
-| `uint16x2_t __riscv_pmsgtu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h` swapped operands        |
+| `uint8x4_t __riscv_pmsgtu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b`(swapped operands)       |
+| `uint16x2_t __riscv_pmsgtu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h`(swapped operands)       |
+| `uint8x4_t __riscv_pmsne_i8x4_u8x4(int8x4_t rs1, int8x4_t rs2);`                    | `pmseq.b`+`not`                    |
+| `uint8x4_t __riscv_pmsne_u8x4_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                  | `pmseq.b`+`not`                    |
+| `uint16x2_t __riscv_pmsne_i16x2_u16x2(int16x2_t rs1, int16x2_t rs2);`               | `pmseq.h`+`not`                    |
+| `uint16x2_t __riscv_pmsne_u16x2_u16x2(uint16x2_t rs1, uint16x2_t rs2);`             | `pmseq.h`+`not`                    |
+| `uint8x4_t __riscv_pmsge_u8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pmslt.b`+`not`                    |
+| `uint16x2_t __riscv_pmsge_u16x2(int16x2_t rs1, int16x2_t rs2);`                     | `pmslt.h`+`not`                    |
+| `uint8x4_t __riscv_pmsle_u8x4(int8x4_t rs1, int8x4_t rs2);`                         | `pmslt.b`(swapped operands)+`not`  |
+| `uint16x2_t __riscv_pmsle_u16x2(int16x2_t rs1, int16x2_t rs2);`                     | `pmslt.h`(swapped operands)+`not`  |
+| `uint8x4_t __riscv_pmsleu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b`+`not`                   |
+| `uint16x2_t __riscv_pmsleu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h`+`not`                   |
+| `uint8x4_t __riscv_pmsleu_u8x4(uint8x4_t rs1, uint8x4_t rs2);`                      | `pmsltu.b` swapped operands        |
+| `uint16x2_t __riscv_pmsleu_u16x2(uint16x2_t rs1, uint16x2_t rs2);`                  | `pmsltu.h` swapped operands        |
 
 * TODO: pmseq/pmslt/etc return unsigned type but take signed/unsigned input types. Should we list both types?
 
 #### 64-bit
 
-| Prototype                                                                           | Instruction                                           |
-|-------------------------------------------------------------------------------------|-------------------------------------------------------|
-| `uint8x8_t __riscv_pmseq_i8x8_u8x8(int8x8_t rs1, int8x8_t rs2);`                    | `pmseq.b`(RV64), `pmseq.db`(RV32)                     |
-| `uint8x8_t __riscv_pmseq_u8x8_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                  | `pmseq.b`(RV64), `pmseq.db`(RV32)                     |
-| `uint16x4_t __riscv_pmseq_i16x4_u16x4(int16x4_t rs1, int16x4_t rs2);`               | `pmseq.h`(RV64), `pmseq.dh`(RV32)                     |
-| `uint16x4_t __riscv_pmseq_u16x4_u16x4(uint16x4_t rs1, uint16x4_t rs2);`             | `pmseq.h`(RV64), `pmseq.dh`(RV32)                     |
-| `uint32x2_t __riscv_pmseq_i32x2_u32x2(int32x2_t rs1, int32x2_t rs2);`               | `pmseq.w`(RV64), `pmseq.dw`(RV32)                     |
-| `uint32x2_t __riscv_pmseq_u32x2_u32x2(uint32x2_t rs1, uint32x2_t rs2);`             | `pmseq.w`(RV64), `pmseq.dw`(RV32)                     |
-| `uint8x8_t __riscv_pmslt_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`(RV64), `pmslt.db`(RV32)                     |
-| `uint16x4_t __riscv_pmslt_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`(RV64), `pmslt.dh`(RV32)                     |
-| `uint32x2_t __riscv_pmslt_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`(RV64), `pmslt.dw`(RV32)                     |
-| `uint8x8_t __riscv_pmsgt_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`(RV64), `pmslt.db`(RV32) swapped operands    |
-| `uint16x4_t __riscv_pmsgt_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`(RV64), `pmslt.dh`(RV32) swapped operands    |
-| `uint32x2_t __riscv_pmsgt_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`(RV64), `pmslt.dw`(RV32) swapped operands    |
-| `uint8x8_t __riscv_pmsltu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`(RV64), `pmsltu.db`(RV32)                   |
-| `uint16x4_t __riscv_pmsltu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(RV64), `pmsltu.dh`(RV32)                   |
-| `uint32x2_t __riscv_pmsltu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(RV64), `pmsltu.dw`(RV32)                   |
-| `uint8x8_t __riscv_pmsgtu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`(RV64), `pmsltu.db`(RV32) swapped operands  |
-| `uint16x4_t __riscv_pmsgtu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(RV64), `pmsltu.dh`(RV32) swapped operands  |
-| `uint32x2_t __riscv_pmsgtu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(RV64), `pmsltu.dw`(RV32) swapped operands  |
+| Prototype                                                                           | Instruction                                                                               |
+|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `uint8x8_t __riscv_pmseq_i8x8_u8x8(int8x8_t rs1, int8x8_t rs2);`                    | `pmseq.b`(RV64), `pmseq.db`(RV32)                                                         |
+| `uint8x8_t __riscv_pmseq_u8x8_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                  | `pmseq.b`(RV64), `pmseq.db`(RV32)                                                         |
+| `uint16x4_t __riscv_pmseq_i16x4_u16x4(int16x4_t rs1, int16x4_t rs2);`               | `pmseq.h`(RV64), `pmseq.dh`(RV32)                                                         |
+| `uint16x4_t __riscv_pmseq_u16x4_u16x4(uint16x4_t rs1, uint16x4_t rs2);`             | `pmseq.h`(RV64), `pmseq.dh`(RV32)                                                         |
+| `uint32x2_t __riscv_pmseq_i32x2_u32x2(int32x2_t rs1, int32x2_t rs2);`               | `pmseq.w`(RV64), `pmseq.dw`(RV32)                                                         |
+| `uint32x2_t __riscv_pmseq_u32x2_u32x2(uint32x2_t rs1, uint32x2_t rs2);`             | `pmseq.w`(RV64), `pmseq.dw`(RV32)                                                         |
+| `uint8x8_t __riscv_pmslt_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`(RV64), `pmslt.db`(RV32)                                                         |
+| `uint16x4_t __riscv_pmslt_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`(RV64), `pmslt.dh`(RV32)                                                         |
+| `uint32x2_t __riscv_pmslt_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`(RV64), `pmslt.dw`(RV32)                                                         |
+| `uint8x8_t __riscv_pmsgt_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`(swapped operands)(RV64), `pmslt.db`(swapped operands)(RV32)                     |
+| `uint16x4_t __riscv_pmsgt_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`(swapped operands)(RV64), `pmslt.dh`(swapped operands)(RV32)                     |
+| `uint32x2_t __riscv_pmsgt_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`(swapped operands)(RV64), `pmslt.dw`(swapped operands)(RV32)                     |
+| `uint8x8_t __riscv_pmsltu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`(RV64), `pmsltu.db`(RV32)                                                       |
+| `uint16x4_t __riscv_pmsltu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(RV64), `pmsltu.dh`(RV32)                                                       |
+| `uint32x2_t __riscv_pmsltu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(RV64), `pmsltu.dw`(RV32)                                                       |
+| `uint8x8_t __riscv_pmsgtu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`(swapped operands)(RV64), `pmsltu.db`(swapped operands)(RV32)                   |
+| `uint16x4_t __riscv_pmsgtu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(swapped operands)(RV64), `pmsltu.dh`(swapped operands)(RV32)                   |
+| `uint32x2_t __riscv_pmsgtu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(swapped operands)(RV64), `pmsltu.dw`(swapped operands)(RV32)                   |
+| `uint8x8_t __riscv_pmsne_i8x8_u8x8(int8x8_t rs1, int8x8_t rs2);`                    | `pmseq.b`+`not`(RV64), `pmseq.db`+`not`+`not`(RV32)                                       |
+| `uint8x8_t __riscv_pmsne_u8x8_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                  | `pmseq.b`+`not`(RV64), `pmseq.db`+`not`+`not`(RV32)                                       |
+| `uint16x4_t __riscv_pmsne_i16x4_u16x4(int16x4_t rs1, int16x4_t rs2);`               | `pmseq.h`+`not`(RV64), `pmseq.dh`+`not`+`not`(RV32)                                       |
+| `uint16x4_t __riscv_pmsne_u16x4_u16x4(uint16x4_t rs1, uint16x4_t rs2);`             | `pmseq.h`+`not`(RV64), `pmseq.dh`+`not`+`not`(RV32)                                       |
+| `uint32x2_t __riscv_pmsne_i32x2_u32x2(int32x2_t rs1, int32x2_t rs2);`               | `pmseq.w`+`not`(RV64), `pmseq.dw`+`not`+`not`(RV32)                                       |
+| `uint32x2_t __riscv_pmsne_u32x2_u32x2(uint32x2_t rs1, uint32x2_t rs2);`             | `pmseq.w`+`not`(RV64), `pmseq.dw`+`not`+`not`(RV32)                                       |
+| `uint8x8_t __riscv_pmsge_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`+`not`(RV64), `pmslt.db`+`not`+`not`(RV32)                                       |
+| `uint16x4_t __riscv_pmsge_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`+`not`(RV64), `pmslt.dh`+`not`+`not`(RV32)                                       |
+| `uint32x2_t __riscv_pmsge_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`+`not`(RV64), `pmslt.dw`+`not`+`not`(RV32)                                       |
+| `uint8x8_t __riscv_pmsle_u8x8(int8x8_t rs1, int8x8_t rs2);`                         | `pmslt.b`(swapped operands)+`not`(RV64), `pmslt.db`(swapped operand)+`not`+`not`(RV32)    |
+| `uint16x4_t __riscv_pmsle_u16x4(int16x4_t rs1, int16x4_t rs2);`                     | `pmslt.h`(swapped operands)+`not`(RV64), `pmslt.dh`(swapped operand)+`not`+`not`(RV32)    |
+| `uint32x2_t __riscv_pmsle_u32x2(int32x2_t rs1, int32x2_t rs2);`                     | `pmslt.w`(swapped operands)+`not`(RV64), `pmslt.dw`(swapped operand)+`not`+`not`(RV32)    |
+| `uint8x8_t __riscv_pmsgeu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`+`not`(RV64), `pmsltu.db`+`not`+`not`(RV32)                                     |
+| `uint16x4_t __riscv_pmsgeu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`+`not`(RV64), `pmsltu.dh`+`not`+`not`(RV32)                                     |
+| `uint32x2_t __riscv_pmsgeu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`+`not`(RV64), `pmsltu.dw`+`not`+`not`(RV32)                                     |
+| `uint8x8_t __riscv_pmsleu_u8x8(uint8x8_t rs1, uint8x8_t rs2);`                      | `pmsltu.b`(swapped operands)+`not`(RV64), `pmsltu.db`(swapped operands)+`not`+`not`(RV32) |
+| `uint16x4_t __riscv_pmsleu_u16x4(uint16x4_t rs1, uint16x4_t rs2);`                  | `pmsltu.h`(swapped operands)+`not`(RV64), `pmsltu.dh`(swapped operands)+`not`+`not`(RV32) |
+| `uint32x2_t __riscv_pmsleu_u32x2(uint32x2_t rs1, uint32x2_t rs2);`                  | `pmsltu.w`(swapped operands)+`not`(RV64), `pmsltu.dw`(swapped operands)+`not`+`not`(RV32) |
 
 TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 
