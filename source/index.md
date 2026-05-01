@@ -1501,6 +1501,41 @@ Intrinsics to join multiple 32-bit subvectors into a 64-bit vector.
 | `int32x2_t __riscv_pslide1down_i32x2(int32x2_t rd, int32_t rs1);`    | `mv`+`mv`(RV32), `ppairoe.w`(RV64)                     |
 | `uint32x2_t __riscv_pslide1down_u32x2(uint32x2_t rd, uint32_t rs1);` | `mv`+`mv`(RV32), `ppairoe.w`(RV64)                     |
 
+### Slide
+
+Slide amount is masked to the number of elements.
+
+#### 32-bit
+
+| Prototype                                                                                | Instruction                                         |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| `int8x4_t __riscv_pslideupx_i8x4(int8x4_t rd, int8x4_t rs1, unsigned int rs2);`          | `slli`+`slx`(RV32), `slli`+`slli`+`add`+`slx`(RV64) |
+| `uint8x4_t __riscv_pslideupx_u8x4(uint8x4_t rd, uint8x4_t rs1, unsigned int rs2);`       | `slli`+`slx`(RV32), `slli`+`slli`+`add`+`slx`(RV64) |
+| `int16x2_t __riscv_pslideupx_i16x2(int16x2_t rd, int16x2_t rs1, unsigned int rs2);`      | `slli`+`slx`(RV32), `slli`+`slli`+`add`+`slx`(RV64) |
+| `uint16x2_t __riscv_pslideupx_u16x2(uint16x2_t rd, uint16x2_t rs1, unsigned int rs2);`   | `slli`+`slx`(RV32), `slli`+`slli`+`add`+`slx`(RV64) |
+| `int8x4_t __riscv_pslidedownx_i8x4(int8x4_t rd, int8x4_t rs1, unsigned int rs2);`        | `slli`+`srx`(RV32), `slli`+`pack`+`srl`(RV64)       |
+| `uint8x4_t __riscv_pslidedownx_u8x4(uint8x4_t rd, uint8x4_t rs1, unsigned int rs2);`     | `slli`+`srx`(RV32), `slli`+`pack`+`srl`(RV64)       |
+| `int16x2_t __riscv_pslidedownx_i16x2(int16x2_t rd, int16x2_t rs1, unsigned int rs2);`    | `slli`+`srx`(RV32), `slli`+`pack`+`srl`(RV64)       |
+| `uint16x2_t __riscv_pslidedownx_u16x2(uint16x2_t rd, uint16x2_t rs1, unsigned int rs2);` | `slli`+`srx`(RV32), `slli`+`pack`+`srl`(RV64)       |
+
+#### 64-bit
+
+| Prototype                                                                                | Instruction                                         |
+|------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| `int8x8_t __riscv_pslideupx_i8x8(int8x8_t rd, int8x8_t rs1, unsigned int rs2);`          | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `uint8x8_t __riscv_pslideupx_u8x8(uint8x8_t rd, uint8x8_t rs1, unsigned int rs2);`       | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `int16x4_t __riscv_pslideupx_i16x4(int16x4_t rd, int16x4_t rs1, unsigned int rs2);`      | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `uint16x4_t __riscv_pslideupx_u16x4(uint16x4_t rd, uint16x4_t rs1, unsigned int rs2);`   | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `int32x2_t __riscv_pslideupx_i32x2(int32x2_t rd, int32x2_t rs1, unsigned int rs2);`      | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `uint32x2_t __riscv_pslideupx_u32x2(uint32x2_t rd, uint32x2_t rs1, unsigned int rs2);`   | `slli`+`slx`(RV64), `slli`+`slx`+`slx`(RV32)        |
+| `int8x8_t __riscv_pslidedownx_i8x8(int8x8_t rd, int8x8_t rs1, unsigned int rs2);`        | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+| `uint8x8_t __riscv_pslidedownx_u8x8(uint8x8_t rd, uint8x8_t rs1, unsigned int rs2);`     | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+| `int16x4_t __riscv_pslidedownx_i16x4(int16x4_t rd, int16x4_t rs1, unsigned int rs2);`    | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+| `uint16x4_t __riscv_pslidedownx_u16x4(uint16x4_t rd, uint16x4_t rs1, unsigned int rs2);` | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+| `int32x2_t __riscv_pslidedownx_i32x2(int32x2_t rd, int32x2_t rs1, unsigned int rs2);`    | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+| `uint32x2_t __riscv_pslidedownx_u32x2(uint32x2_t rd, uint32x2_t rs1, unsigned int rs2);` | `slli`+`srx`(RV64), `slli`+`srx`+`srx`(RV32)        |
+
+
 ## Reinterpret casts
 
 ### Packed <-> Scalar
