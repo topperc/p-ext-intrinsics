@@ -861,9 +861,9 @@ TODO: pmseqz/pmsnez/pmsgtz/pmsltz? Allows x0 usage without pmv_s intrinsic.
 | Prototype                                                       | Instruction                                   |
 |-----------------------------------------------------------------|-----------------------------------------------|
 | `int16x4_t __riscv_pmulq_i16x4(int16x4_t rs1, int16x4_t rs2);`  | `pmulq.h`(RV64), `pmulq.h`+`pmulq.h`(RV32)    |
-| `int32x2_t __riscv_pmulq_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pmulq.w`(RV64), `pmulq.w`+`pmulq.w`(RV32)    |
+| `int32x2_t __riscv_pmulq_i32x2(int32x2_t rs1, int32x2_t rs2);`  | `pmulq.w`(RV64), `mulq`+`mulq`(RV32)          |
 | `int16x4_t __riscv_pmulqr_i16x4(int16x4_t rs1, int16x4_t rs2);` | `pmulqr.h`(RV64), `pmulqr.h`+`pmulqr.h`(RV32) |
-| `int32x2_t __riscv_pmulqr_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pmulqr.w`(RV64), `pmulqr.w`+`pmulqr.w`(RV32) |
+| `int32x2_t __riscv_pmulqr_i32x2(int32x2_t rs1, int32x2_t rs2);` | `pmulqr.w`(RV64), `mulqr`+`mulqr`(RV32)       |
 
 ### Packed Multiply Parts
 
