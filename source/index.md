@@ -1316,7 +1316,7 @@ These are convenience functions to allow bitwise and/or/xor/not on packed vector
 | `uint32x2_t __riscv_pwunziphe_u32x2(uint16x4_t rs1);`              | `pslli.w`(imm=16)(RV64), `pslli.dw`(imm=16)(RV32)   |
 | `uint32x2_t __riscv_pwunzipho_u32x2(uint16x4_t rs1);`              | `ppairo.h`(rs1=0)(RV64), `ppairo.dh`(rs1_p=0)(RV32) |
 
-## Packed Load and Store
+### Packed Load and Store
 
 Load and store intrinsics. These assume the pointer is aligned to the element
 size. If target CPU does not support unaligned scalar accesses and the compiler
