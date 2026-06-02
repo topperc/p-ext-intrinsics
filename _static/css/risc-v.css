@@ -1,0 +1,8 @@
+/** css/risc-v.css **/
+
+/* Import the base theme so that we only have to include overrides */
+@import 'theme.css';
+
+.wy-nav-side {
+    background: #0a6b7c;
+}
